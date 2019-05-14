@@ -1,0 +1,336 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .chat-opener{
+            border : 2px solid black;
+            border-radius : 50%;
+            height : 60px;
+            width : 60px;
+            position: fixed;
+            bottom : 4%;
+            right : 2%;
+
+        }
+
+        .chat-window {
+            overflow-y: hidden;
+            height : 530px;
+            width : 350px;
+            position : fixed;
+            bottom : 5%;
+            right : 2%;
+            border-radius : 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow-y: auto;
+            font-size : 12px
+        }
+
+        .chat-window-top-left {
+            height : 70px;
+            border-top-left-radius: 12px;
+        }
+
+        .chat-window-top-right {
+            height : 70px;
+            border-top-right-radius: 12px
+        }
+
+        .avatar {
+            height: 40px;
+            width : 40px;
+            border-radius : 50%;
+            background: white;
+            position: absolute;
+            top : 50%;
+            transform: translateY(-50%);
+            left : 5%
+        }
+
+        .avatar-name {
+            height: 45px;
+            width : auto;
+            line-height : 45px;
+            color: white;
+            position: absolute;
+            top : 50%;
+            font-size : 17px;
+            transform: translateY(-50%);
+            left : 23%
+        }
+
+        .cross {
+
+            position: absolute;
+            top : 50%;
+            right : 30%;
+            transform: translateY(-50%);
+        }
+
+        .chat-msg {
+            overflow-y: scroll;
+            height : 370px;
+            position: relative;
+            padding-top : 30px;
+            padding-bottom : 20px;
+        }
+
+        .chat-input {
+            height : 90px;
+            margin-bottom: 0;
+            /* change on input border-top */
+            border-top : 2px solid lightgray; 
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #chat-content {
+            width : 90%;
+            padding : 7px 8px 7px 8px;
+            font-size : 13px;
+            position: absolute;
+            outline: none;
+            border: none
+        }
+        /* show on some input */
+        #chat-send {
+            position: absolute;
+            padding : 7px 8px 7px 8px;
+            font-size : 13px;
+            right :0%;
+            background: transparent;
+            outline: none;
+            border : none
+        }
+
+        #content {
+            position : absolute;
+            bottom : -10%;
+            text-align : center;
+            font-size: 10px;
+            width : 100%
+        }
+        /* display on some focus */
+        #reply {
+            font-size : 12px;
+            padding : 3px 8px;
+            color : lightgray;
+        }
+
+
+        .rec-cover {
+            display: table;
+            word-wrap: break-word;
+            font-size : 16px;
+            line-height : 22px;
+            margin-top : 2px;
+            margin-bottom : 5px;
+            padding: 10px 15px;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 5px;
+            background-color: #f8f8f8;
+            position : relative
+        }
+
+        .send-cover {
+            text-align: right;
+            display: table;
+            word-wrap: break-word;
+            font-size : 16px;
+            line-height : 22px;
+            margin-top : 10px;
+            margin-bottom : 10px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            color : white;
+            position : relative;
+            background-color: rgb(10, 91, 255)
+        }
+
+        .send-box {
+            display : flex; 
+            justify-content: flex-end
+        }
+
+        .rec-box {
+            display : flex; 
+            justify-content: flex-start
+        }
+
+
+
+    </style>
+
+</head>
+<body >
+
+
+    <!-- <div class="chat-opener"  style="border : 2px solid black" >
+        
+    </div> -->
+
+    <div class="container-fluid chat-window" >
+
+        <!-- chat top container -->
+
+        <div class="row fixed">
+
+            <div class="col-10 chat-window-top-left" style="background-color: blue">
+
+                <div class="avatar">
+
+                </div>
+
+                <div class="avatar-name">
+                    <p>
+                        VIT Hack
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-2 chat-window-top-right" style="background-color: blue">
+
+                <div class="cross">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M9.502 8.5l7.29 7.29c.277.278.277.727 0 1.003-.137.138-.32.207-.5.207s-.362-.07-.5-.207L8.5 9.503l-7.29 7.29c-.14.138-.32.207-.5.207-.183 0-.364-.07-.502-.207-.277-.276-.277-.725 0-1.002l7.29-7.29-7.29-7.29C-.07.932-.07.483.208.206c.277-.276.725-.276 1 0L8.5 7.497l7.29-7.29c.277-.276.725-.276 1.002 0 .277.277.277.726 0 1.002L9.502 8.5z" fill-rule="evenodd"></path></svg>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- chat middle row for messages -->
+
+        <div class="row">
+            
+            <div class=" col-12 chat-msg">
+
+
+                <div class="rec-box">
+                    <div class="rec-cover">
+                        <div >
+                            Hey, There 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="send-box">
+                    <div class="send-cover">
+                        <div >
+                            Hi, Robo :)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rec-box">
+                    <div class="rec-cover">
+                        <div >
+                            How may I help you? 
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="send-box">
+                    <div class="send-cover">
+                        <div >
+                            Can I know the deadline to register?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rec-box">
+                    <div class="rec-cover">
+                        <div >
+                            Yeah, Sure!!
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="rec-box">
+                        <div class="rec-cover">
+                            <div >
+                                Its, 15 Nov 
+                            </div>
+                        </div>
+                    </div>
+        
+                                                 
+
+            </div>
+
+        </div>
+
+        <!-- chat bottom part for replying -->
+
+        <div class="row" >
+            
+
+            <div class="col-12 chat-input" style="padding:0">
+
+                <div id="reply">
+                    Reply to VIT Hack
+                </div>
+
+                <div >
+
+                    <input type="text" id="chat-content" placeholder="Reply to VIT Hack">
+                    <button id="chat-send" >
+                        <img src="https://img.icons8.com/color/48/000000/filled-sent.png" style="height : 20px; width : auto; background : transparent;">
+                    </button>
+
+                </div>
+
+                <div id="content">
+                    <p>Copyright VIT Hack</p>
+                </div>
+
+            </div>
+
+            
+
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+         let emailVerify = function (event) {
+            let email = event.target.value ;
+            console.log(email);
+            let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (re.test(email)){
+                event.target.style.borderColor = "Green"
+            }
+            else {
+                event.target.style.borderColor = "Red"
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", (e) => {
+            let obj = ["Hello", "Hi", "This was great meeting you"];
+
+            for (let i = 0; i < obj.length; i++){
+                
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>
