@@ -199,7 +199,7 @@
 
         <!-- chat window for email input  -->
         
-    <div class="container-fluid chat-window" style="height : 310px" >
+    <div class="container-fluid chat-window" style="height : 310px; overflow-y: hidden" >
 
         <!-- chat top container -->
 
@@ -267,7 +267,7 @@
     <!-- chat window for main chat and established connection  -->
 
 
-    <div class="container-fluid chat-window" style="display : none">
+    <div class="container-fluid chat-window" style="display : none; overflow-y: hidden">
 
         <!-- chat top container -->
 
@@ -336,7 +336,8 @@
         }
 
         function WebSocketTest() {
-            // document.getElementById("sse").click();
+            document.getElementsByClassName("chat-input")[1].style.borderColor = "Green";
+
             if ("WebSocket" in window) {
                var ws = new WebSocket("wss://echo.websocket.org");
                ws.onopen = function() {
@@ -355,7 +356,9 @@
 
                };
                ws.onclose = function() { 
-                  createRecNode("Thank you for contacting us")
+                    document.getElementsByClassName("chat-input")[1].style.borderColor = "Red";
+                    createRecNode("Connection Lost!!")
+                    createRecNode("Thank you for contacting us")
                };
             } else {
                createRecNode("Hi");
