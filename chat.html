@@ -4,10 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <style>
+        * {
+            scroll-behavior: smooth
+        }
         .chat-opener{
             border : 2px solid black;
             border-radius : 50%;
@@ -16,15 +20,14 @@
             position: fixed;
             bottom : 4%;
             right : 2%;
-
         }
 
         .chat-window {
             overflow-y: hidden;
-            height : 530px;
+            height : auto;
             width : 350px;
             position : fixed;
-            bottom : 5%;
+            bottom : 15%;
             right : 2%;
             border-radius : 15px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -89,7 +92,7 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        #chat-content {
+        .chat-content {
             width : 90%;
             padding : 7px 8px 7px 8px;
             font-size : 13px;
@@ -98,7 +101,7 @@
             border: none
         }
         /* show on some input */
-        #chat-send {
+        .chat-send {
             position: absolute;
             padding : 7px 8px 7px 8px;
             font-size : 13px;
@@ -108,7 +111,9 @@
             border : none
         }
 
-        #content {
+
+
+        .content {
             position : absolute;
             bottom : -10%;
             text-align : center;
@@ -116,7 +121,7 @@
             width : 100%
         }
         /* display on some focus */
-        #reply {
+        .reply {
             font-size : 12px;
             padding : 3px 8px;
             color : lightgray;
@@ -145,8 +150,8 @@
             word-wrap: break-word;
             font-size : 16px;
             line-height : 22px;
-            margin-top : 10px;
-            margin-bottom : 10px;
+            margin-top : 5px;
+            margin-bottom : 5px;
             padding: 10px 15px;
             border-radius: 20px;
             color : white;
@@ -164,173 +169,237 @@
             justify-content: flex-start
         }
 
+        #send-email {
+            display : none;
 
+        }
 
     </style>
+
+    <script>
+    
+    function close() {
+        document.getElementsByClassName("chat-window")[0].style.display = "none";
+        document.getElementsByClassName("chat-window")[1].style.display = "none";
+
+    }</script>
+
+
 
 </head>
 <body >
 
+    <!-- web socket initialiser -->
+            <div class="chat-opener" id="sse" style="border : 2px solid black" >
 
-    <!-- <div class="chat-opener"  style="border : 2px solid black" >
+            </div>
+
+
+
+
+        <!-- chat window for email input  -->
         
-    </div> -->
-
-    <div class="container-fluid chat-window" >
+    <div class="container-fluid chat-window" style="height : 310px" >
 
         <!-- chat top container -->
 
         <div class="row fixed">
-
             <div class="col-10 chat-window-top-left" style="background-color: blue">
-
                 <div class="avatar">
-
                 </div>
-
                 <div class="avatar-name">
                     <p>
                         VIT Hack
                     </p>
                 </div>
-
             </div>
-            <div class="col-2 chat-window-top-right" style="background-color: blue">
-
-                <div class="cross">
-                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M9.502 8.5l7.29 7.29c.277.278.277.727 0 1.003-.137.138-.32.207-.5.207s-.362-.07-.5-.207L8.5 9.503l-7.29 7.29c-.14.138-.32.207-.5.207-.183 0-.364-.07-.502-.207-.277-.276-.277-.725 0-1.002l7.29-7.29-7.29-7.29C-.07.932-.07.483.208.206c.277-.276.725-.276 1 0L8.5 7.497l7.29-7.29c.277-.276.725-.276 1.002 0 .277.277.277.726 0 1.002L9.502 8.5z" fill-rule="evenodd"></path></svg>
+            <div class="col-2 chat-window-top-right" style="background-color: blue" onclick="close()">
+                <div class="cross" >
+                    <svg  width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M9.502 8.5l7.29 7.29c.277.278.277.727 0 1.003-.137.138-.32.207-.5.207s-.362-.07-.5-.207L8.5 9.503l-7.29 7.29c-.14.138-.32.207-.5.207-.183 0-.364-.07-.502-.207-.277-.276-.277-.725 0-1.002l7.29-7.29-7.29-7.29C-.07.932-.07.483.208.206c.277-.276.725-.276 1 0L8.5 7.497l7.29-7.29c.277-.276.725-.276 1.002 0 .277.277.277.726 0 1.002L9.502 8.5z" fill-rule="evenodd"></path></svg>
                 </div>
-
             </div>
-
-
         </div>
 
 
         <!-- chat middle row for messages -->
 
         <div class="row">
-            
-            <div class=" col-12 chat-msg">
-
-
+            <div class=" col-12 chat-msg" style="height : 150px">
                 <div class="rec-box">
                     <div class="rec-cover">
                         <div >
-                            Hey, There 
+                            Hey, there 
                         </div>
                     </div>
                 </div>
-
-                <div class="send-box">
-                    <div class="send-cover">
-                        <div >
-                            Hi, Robo :)
-                        </div>
-                    </div>
-                </div>
-
                 <div class="rec-box">
                     <div class="rec-cover">
                         <div >
-                            How may I help you? 
+                            Please enter your email id to proceed
                         </div>
                     </div>
                 </div>
-    
-                <div class="send-box">
-                    <div class="send-cover">
-                        <div >
-                            Can I know the deadline to register?
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rec-box">
-                    <div class="rec-cover">
-                        <div >
-                            Yeah, Sure!!
-                        </div>
-                    </div>
-                </div>
-
-                    <div class="rec-box">
-                        <div class="rec-cover">
-                            <div >
-                                Its, 15 Nov 
-                            </div>
-                        </div>
-                    </div>
-        
-                                                 
-
             </div>
-
         </div>
 
         <!-- chat bottom part for replying -->
 
         <div class="row" >
-            
-
             <div class="col-12 chat-input" style="padding:0">
-
-                <div id="reply">
+                <div class="reply">
                     Reply to VIT Hack
                 </div>
-
-                <div >
-
-                    <input type="text" id="chat-content" placeholder="Reply to VIT Hack">
-                    <button id="chat-send" >
-                        <img src="https://img.icons8.com/color/48/000000/filled-sent.png" style="height : 20px; width : auto; background : transparent;">
+                <div>
+                    <input type="text" class="chat-content" placeholder="Reply to VIT Hack">
+                    <button class="chat-send" type="submit" >
+                        <img src="https://img.icons8.com/color/48/000000/filled-sent.png" id="send-email" style="height : 20px; width : auto; background : transparent;">
                     </button>
-
                 </div>
-
-                <div id="content">
+                <div class="content">
                     <p>Copyright VIT Hack</p>
                 </div>
-
             </div>
-
-            
-
         </div>
+
     </div>
 
 
+    <!-- chat window for main chat and established connection  -->
+
+
+    <div class="container-fluid chat-window" style="display : none">
+
+        <!-- chat top container -->
+
+        <div class="row fixed">
+            <div class="col-10 chat-window-top-left" style="background-color: blue">
+                <div class="avatar">
+                </div>
+                <div class="avatar-name">
+                    <p>
+                        VIT Hack
+                    </p>
+                </div>
+            </div>
+            <div class="col-2 chat-window-top-right" style="background-color: blue" onclick="close()">
+                <div class="cross" >
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M9.502 8.5l7.29 7.29c.277.278.277.727 0 1.003-.137.138-.32.207-.5.207s-.362-.07-.5-.207L8.5 9.503l-7.29 7.29c-.14.138-.32.207-.5.207-.183 0-.364-.07-.502-.207-.277-.276-.277-.725 0-1.002l7.29-7.29-7.29-7.29C-.07.932-.07.483.208.206c.277-.276.725-.276 1 0L8.5 7.497l7.29-7.29c.277-.276.725-.276 1.002 0 .277.277.277.726 0 1.002L9.502 8.5z" fill-rule="evenodd"></path></svg>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- chat middle row for messages -->
+
+        <div class="row">
+            <div class=" col-12 chat-msg">
+
+            </div>
+        </div>
+
+        <!-- chat bottom part for replying -->
+
+        <div class="row" >
+            <div class="col-12 chat-input" style="padding:0">
+                <div class="reply">
+                    Reply to VIT Hack
+                </div>
+                <div>
+                    <input type="text" class="chat-content" placeholder="Reply to VIT Hack">
+                    <button class="chat-send" type="submit" >
+                        <img src="https://img.icons8.com/color/48/000000/filled-sent.png" style="height : 20px; width : auto; background : transparent;">
+                    </button>
+                </div>
+                <div class="content">
+                    <p>Copyright VIT Hack</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
+    <script src="script.js"></script>
     <script>
 
+        function createChatWindow() {
+            let div = document.createElement("div");
+            div.setAttribute("style", "text-align : center; color : lightgray; font-size : 10px")
+            let date = document.createTextNode(new Date(Date.now()).toLocaleString());
+            div.appendChild(date);
+            document.getElementsByClassName("chat-msg")[1].appendChild(div);
+            createRecNode("Hi");
+            createRecNode("How can we help you ?");
+            WebSocketTest();
+        }
 
-         let emailVerify = function (event) {
-            let email = event.target.value ;
-            console.log(email);
-            let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (re.test(email)){
-                event.target.style.borderColor = "Green"
-            }
-            else {
-                event.target.style.borderColor = "Red"
+        function WebSocketTest() {
+            // document.getElementById("sse").click();
+            if ("WebSocket" in window) {
+               var ws = new WebSocket("wss://echo.websocket.org");
+               ws.onopen = function() {
+                   document.getElementsByClassName("chat-send")[1].addEventListener("click", (event) => {
+                       ws.send(document.getElementsByClassName("chat-content")[1].value);
+                       createSendNode(document.getElementsByClassName("chat-content")[1].value);
+                       document.getElementsByClassName("chat-content")[1].value = "";
+                       document.getElementsByClassName("chat-msg")[1].scrollTo(0,document.getElementsByClassName("chat-msg")[1].scrollHeight);
+                   })
+               };
+               ws.onmessage = function (evt) { 
+                  var received_msg = evt.data;
+                  createRecNode(received_msg);
+                  document.getElementsByClassName("chat-msg")[1].scrollTo(0,document.getElementsByClassName("chat-msg")[1].scrollHeight);
+
+
+               };
+               ws.onclose = function() { 
+                  createRecNode("Thank you for contacting us")
+               };
+            } else {
+               createRecNode("Hi");
+               createRecNode("Sorry for inconvenience");
+               createRecNode("Your browser does not support web sockets")
+               createRecNode("We will get back to you soon")
+
             }
         }
 
-        document.addEventListener("DOMContentLoaded", (e) => {
-            let obj = ["Hello", "Hi", "This was great meeting you"];
 
-            for (let i = 0; i < obj.length; i++){
-                
+        // main script 
+
+        document.getElementsByClassName("chat-content")[0].addEventListener("input", (e) => {
+            if(emailVerify(e.target.value)){
+                document.getElementsByClassName("chat-input")[0].style.borderColor = "Green";
+                document.getElementById("send-email").style.display = "block"
+            }
+            else{
+                document.getElementsByClassName("chat-input")[0].style.borderColor = "Red";
             }
         })
 
+        document.getElementById("send-email").addEventListener("click", (e) => {
+
+            createSendNodeEmail(document.getElementsByClassName("chat-content")[0].value);
+            document.getElementsByClassName("chat-msg")[0].scrollTo(0,document.getElementsByClassName("chat-msg")[0].scrollHeight);
+            let email = {
+                email : document.getElementsByClassName("chat-content")[0].value
+            }
+
+            // ajax/fetch call here with the email as object 
+
+            // current chat window should close 
+
+            // document.getElementsByClassName("chat-window")[0].setAttribute("class", "animated fadeOutRight")
+            document.getElementsByClassName("chat-window")[0].style.display = "none";
+            document.getElementsByClassName("chat-window")[1].style.display = "block";
+            document.getElementsByClassName("chat-send")[0].style.display = "none";
+            createChatWindow();
+
+
+        })
+
     </script>
-
-
 </body>
 </html>
