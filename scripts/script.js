@@ -84,11 +84,6 @@ function WebSocketTest() {
          })
     };
 
-
-
-
-
-
        ws.onopen = function() {
            document.getElementsByClassName("chat-send")[1].addEventListener("click", (event) => {
             if (document.getElementsByClassName("chat-content")[1].value.length >= 1) {
@@ -109,7 +104,8 @@ function WebSocketTest() {
        ws.onclose = function() { 
             document.getElementsByClassName("chat-input")[1].style.borderColor = "Red";
             createRecNode("Connection Lost!!")
-            createRecNode("Thank you for contacting us")
+            createRecNode("Thank you for contacting us");
+            ws = undefined;
        };
     } else {
        createRecNode("Hi");
@@ -126,21 +122,21 @@ function WebSocketTest() {
 
 document.getElementsByClassName("chat-content")[0].addEventListener("input", (e) => {
     if(emailVerify(e.target.value)){
+        document.getElementById("send-email").style.display = "block";
+        document.getElementsByClassName("chat-send")[0].style.display = "block";
         document.getElementsByClassName("chat-input")[0].style.borderColor = "Green";
-        document.getElementById("send-email").style.display = "block"
     }
     else{
         document.getElementsByClassName("chat-input")[0].style.borderColor = "Red";
+
     }
 })
 
 document.getElementById("send-email").addEventListener("click", (e) => {
-
-    createSendNodeEmail(document.getElementsByClassName("chat-content")[0].value);
-    document.getElementsByClassName("chat-msg")[0].scrollTo(0,document.getElementsByClassName("chat-msg")[0].scrollHeight);
     let email = {
         email : document.getElementsByClassName("chat-content")[0].value
     }
+    document.getElementsByClassName("chat-content")[0].value = "";
 
     // ajax/fetch call here with the email as object 
 
@@ -148,6 +144,8 @@ document.getElementById("send-email").addEventListener("click", (e) => {
 
     // document.getElementsByClassName("chat-window")[0].setAttribute("class", "animated fadeOutRight")
     document.getElementsByClassName("chat-window")[0].style.display = "none";
+    document.getElementById("send-email").style.display = "none";
+    document.getElementsByClassName("chat-input")[0].style.borderColor = "gainsboro";
     document.getElementsByClassName("chat-window")[1].style.display = "block";
     document.getElementsByClassName("chat-send")[0].style.display = "none";
     createChatWindow();

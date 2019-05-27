@@ -2,6 +2,7 @@
     scroll-behavior: smooth
 }
 .chat-opener{
+    cursor : pointer;
     border-radius : 50%;
     height : 60px;
     width : 60px;
@@ -11,6 +12,7 @@
 }
 
 .chat-window {
+    display: none;
     overflow-y: hidden;
     height : auto;
     width : 350px;

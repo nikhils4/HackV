@@ -150,6 +150,8 @@
 
     <script>
 
+        let ws;
+
         // cross button functionality
         document.getElementsByClassName("cross")[0].addEventListener("click", (e) => {
             document.getElementsByClassName("chat-window")[0].style.display = "none";
@@ -157,6 +159,17 @@
         document.getElementsByClassName("cross")[1].addEventListener("click", (e) => {
             ws.close();
             document.getElementsByClassName("chat-window")[1].style.display = "none"
+        })
+
+        // chat window opening functionality 
+        document.getElementsByClassName("chat-opener")[0].addEventListener("click", (e) => {
+            if (ws === undefined){
+                
+                document.getElementsByClassName("chat-window")[0].style.display = "block";
+            }
+            else {
+                document.getElementsByClassName("chat-window")[1].style.display = "block";
+            }
         })
     </script>
 
