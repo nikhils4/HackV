@@ -1,0 +1,163 @@
+* {
+    scroll-behavior: smooth
+}
+.chat-opener{
+    border-radius : 50%;
+    height : 60px;
+    width : 60px;
+    position: fixed;
+    bottom : 4%;
+    right : 2%;
+}
+
+.chat-window {
+    overflow-y: hidden;
+    height : auto;
+    width : 350px;
+    position : fixed;
+    bottom : 15%;
+    right : 2%;
+    border-radius : 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-y: auto;
+    font-size : 12px
+}
+
+.chat-window-top-left {
+    height : 70px;
+    border-top-left-radius: 12px;
+}
+
+.chat-window-top-right {
+    height : 70px;
+    border-top-right-radius: 12px
+}
+
+.avatar {
+    height: 40px;
+    width : 40px;
+    border-radius : 50%;
+    background: white;
+    position: absolute;
+    top : 50%;
+    transform: translateY(-50%);
+    left : 5%
+}
+
+.avatar-name {
+    height: 45px;
+    width : auto;
+    line-height : 45px;
+    color: white;
+    position: absolute;
+    top : 50%;
+    font-size : 17px;
+    transform: translateY(-50%);
+    left : 23%
+}
+
+.cross {
+    cursor : pointer;
+    position: absolute;
+    top : 50%;
+    right : 30%;
+    transform: translateY(-50%);
+}
+
+.chat-msg {
+    overflow-y: scroll;
+    height : 370px;
+    position: relative;
+    padding-top : 30px;
+    padding-bottom : 20px;
+}
+
+.chat-input {
+    height : 90px;
+    margin-bottom: 0;
+    /* change on input border-top */
+    border-top : 2px solid lightgray; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.chat-content {
+    width : 90%;
+    padding : 7px 8px 7px 8px;
+    font-size : 13px;
+    position: absolute;
+    outline: none;
+    border: none
+}
+/* show on some input */
+.chat-send {
+    position: absolute;
+    padding : 7px 8px 7px 8px;
+    font-size : 13px;
+    right :0%;
+    background: transparent;
+    outline: none;
+    border : none
+}
+
+
+
+.content {
+    position : absolute;
+    bottom : -10%;
+    text-align : center;
+    font-size: 10px;
+    width : 100%
+}
+/* display on some focus */
+.reply {
+    font-size : 12px;
+    padding : 3px 8px;
+    color : lightgray;
+}
+
+
+.rec-cover {
+    display: table;
+    word-wrap: break-word;
+    font-size : 16px;
+    line-height : 22px;
+    margin-top : 2px;
+    margin-bottom : 5px;
+    padding: 10px 15px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    background-color: #f8f8f8;
+    position : relative
+}
+
+.send-cover {
+    text-align: right;
+    display: table;
+    word-wrap: break-word;
+    font-size : 16px;
+    line-height : 22px;
+    margin-top : 5px;
+    margin-bottom : 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color : white;
+    position : relative;
+    background-color: rgb(5,134,244)
+}
+
+.send-box {
+    display : flex; 
+    justify-content: flex-end
+}
+
+.rec-box {
+    display : flex; 
+    justify-content: flex-start
+}
+
+#send-email {
+    display : none;
+
+}
