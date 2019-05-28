@@ -56,8 +56,12 @@ function createChatWindow() {
     let date = document.createTextNode(new Date(Date.now()).toLocaleString());
     div.appendChild(date);
     document.getElementsByClassName("chat-msg")[1].appendChild(div);
-    createRecNode("Hi");
+    createRecNode("Hey, there");
+    createRecNode("Please enter your email id to proceed");
+    createSendNode(document.getElementsByClassName("chat-content")[0].value);
+    createRecNode("Thank you, for providing us your email!!");
     createRecNode("How can we help you ?");
+    document.getElementsByClassName("chat-content")[0].value = "";
     WebSocketTest();
 }
 
@@ -136,7 +140,6 @@ document.getElementById("send-email").addEventListener("click", (e) => {
     let email = {
         email : document.getElementsByClassName("chat-content")[0].value
     }
-    document.getElementsByClassName("chat-content")[0].value = "";
 
     // ajax/fetch call here with the email as object 
 
