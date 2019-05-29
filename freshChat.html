@@ -10,8 +10,10 @@
 
 
 <script>
+     console.log(process.env.TOKEN)
+
    window.fcWidget.init({
-     token: "60f33a89-276f-480f-a7cb-712c3a0a24ac",
+     token: process.env.TOKEN,
      host: "https://wchat.freshchat.com"
    });
 
