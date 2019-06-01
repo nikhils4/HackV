@@ -57,19 +57,35 @@
     .first-section {
         padding : 25vh 10vw
     }
+
+    /* Bootstrap override */
+    .navbar-light .navbar-toggler{
+        border-color : transparent
+    }
+    .navbar-light .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,134,244,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+
     /* For smaller screens */
     @media (max-width : 990px){
         .cover-img {
-            text-align: center
+            text-align: center;
         }
         .help-us-img{
-            text-align: center;
+            text-align: left;
         }
         .right-arrow-spl {
             transform: translateY(-10%);
             width : 12px;
             margin-left : 5px;
             height : auto
+        }
+        .cover-img-fix {
+            padding-top : 50px;
+        }
+        .first-section {
+            padding : 10vh 10vw
         }
     }
 
@@ -86,6 +102,9 @@
             width : 12px;
             margin-left : 20px;
             height : auto
+        }
+        .first-section {
+            padding : 25vh 10vw
         }
     }
     </style>
@@ -136,8 +155,8 @@
                     <p class="font-light"><a href="#" style="text-decoration : none">Know More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                 </div>
             </div>
-            <div class="col-12 col-lg-5 cover-img">
-                <img class="img-responsive" src="./asset/images/Cover Page Image.png" style="height : 250px; transform : translateY(-15%)">
+            <div class="col-12 col-lg-5 cover-img cover-img-fix">
+                <img class="img-responsive " src="./asset/images/Cover Page Image.png" style="height : 250px; transform : translateY(-15%)">
             </div>
         </div>
     </div>
@@ -199,7 +218,7 @@
                         </p>
                     </div>
                     <div class="col-12 col-lg-3 help-us-img">
-                        <img class="img-responsive" src="./asset/images/Sponsors.png" style="height : 180px;">
+                        <img class="img-responsive" src="./asset/images/Sponsors.png" style="height : 160px;">
                     </div>
                     <div class="col-12" style="transform: translateY(-30%)">
                         <div class="detail-btn">
