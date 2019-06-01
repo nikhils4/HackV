@@ -25,13 +25,34 @@
         font-weight : lighter;
     }
     .right-arrow {
-        width : 16px;
+        transform: translateY(-10%);
+        width : 12px;
         margin-left : 20px;
         height : auto
     }
     .detail-btn {
+        font-size : 20px;
         padding-top : 10px; 
-        color : rgb(0,134,244)
+        color : rgb(0,134,244);
+        font-weight: bold
+    }
+    .gen-content{
+        font-size : 17px
+    }
+    .gen-heading {
+        font-size : 20px
+    }
+    .second-section {
+        padding : 10vh 10vw;
+    }
+    .other-section {
+        padding : 5vh 10vw;
+    }
+    .img-fix {
+        padding-right : 25px
+    }
+    .first-section {
+        padding : 25vh 10vw
     }
     /* For smaller screens */
     @media (max-width : 990px){
@@ -45,23 +66,11 @@
 
     /* For bigger screens */
     @media (min-width : 991px){
-        .first-section {
-            padding : 25vh 10vw
-        }
         .cover-img {
             text-align: right
         }
         .help-us-img{
             text-align: right
-        }
-        .second-section {
-            padding : 10vh 10vw;
-        }
-        .other-section {
-            padding : 5vh 10vw;
-        }
-        .img-fix {
-            padding-right : 25px
         }
     }
     </style>
@@ -69,7 +78,7 @@
 <body>
     
     <!-- Navigation Bar  -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background: transparent; border : 2px solid black">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -97,7 +106,7 @@
 
     <!-- First Section  -->
     <div class="container-fluid">
-        <div class="row first-section" style="border : 2px solid orange;">
+        <div class="row first-section">
             <div class="col-12 col-lg-7">
                 <div>
                     <h2 class="font-bold">VIT HACK</h2>
@@ -109,7 +118,7 @@
                     </p>
                 </div>
                 <div class="detail-btn">
-                    <h4 class="font-light"><a href="#" style="text-decoration : none">Know More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                    <p class="font-light"><a href="#" style="text-decoration : none">Know More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                 </div>
             </div>
             <div class="col-12 col-lg-5 cover-img">
@@ -120,66 +129,66 @@
 
     <!-- Second Section -->
     <div class="container-fluid">
-        <div class="row second-section" style="border : 2px solid blue">
+        <div class="row second-section" >
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <p>Help us out</p>
+                        <p style="font-size : 30px; color :orange">Help us out</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-9" style="border : 2px solid yellow">
-                        <p class="font-bold">Campus Ambassador</p>
-                        <p>
+                    <div class="col-12 col-lg-9" >
+                        <p class="font-bold gen-heading" >Campus Ambassador</p>
+                        <p class="gen-content">
                             There’s more to college than a degree and a CGPA, be a part of something big. 
                             VITHack isn’t just a college hackathon, it’s a phenomenon. 
                             Help us get the word out to your college and become a trendsetter!
                         </p>
                     </div>
-                    <div class="col-12 col-lg-3 help-us-img" style="border : 2px solid orange">
+                    <div class="col-12 col-lg-3 help-us-img">
                         <img class="img-responsive" src="./asset/images/Campus Ambassador.png" style="height : 180px;">
                     </div>
                     <div class="col-12">
-                        <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">Learn More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                        <div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-50%)">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Learn More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>             
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-9" style="border : 2px solid yellow">
-                        <p class="font-bold">Case Partners</p>
-                        <p>
+                    <div class="col-12 col-lg-9">
+                        <p class="font-bold gen-heading">Case Partners</p>
+                        <p class="gen-content">
                                 The best ideas in the world have been fruits of long brainstorming 
                                 sessions where young and motivated minds have come together to solve problems, 
                                 one such place is VIT Hack. Be a case partner at VIT Hack, l
                                 et these brilliant minds find solutions to your company’s problems!
                         </p>
                     </div>
-                    <div class="col-12 col-lg-3 help-us-img" style="border : 2px solid orange">
+                    <div class="col-12 col-lg-3 help-us-img" >
                         <img class="img-responsive" src="./asset/images/Case Partners.png" style="height : 180px;">
                     </div>
                     <div class="col-12">
-                        <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">Become a Case Partner <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                        <div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-50%)">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Become a Case Partner <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-9" style="border : 2px solid yellow">
-                        <p class="font-bold">Sponsors</p>
-                        <p>
+                    <div class="col-12 col-lg-9" >
+                        <p class="font-bold gen-heading">Sponsors</p>
+                        <p class="gen-content">
                                 VITHack is more than just another college hackathon, 
                                 it’s a confluence of intellect and entrepreneurship. 
                                 We dream a dream of fostering able entrepreneurs, 
                                 lend us a helping hand to make this a reality.
                         </p>
                     </div>
-                    <div class="col-12 col-lg-3 help-us-img" style="border : 2px solid orange">
+                    <div class="col-12 col-lg-3 help-us-img">
                         <img class="img-responsive" src="./asset/images/Sponsors.png" style="height : 180px;">
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" style="transform: translateY(-50%)">
                         <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">Sponsor Us <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                            <p class="font-light"><a href="#" style="text-decoration : none">Sponsor Us <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
                 </div>
@@ -197,7 +206,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <p>
+                        <p style="color : green; font-size : 30px">
                             Tracks
                         </p>
                     </div>
@@ -212,7 +221,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <p>
+                        <p style="color : orange; font-size : 30px">
                             Sponsors
                         </p>
                     </div>
@@ -227,7 +236,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <p>
+                        <p style="color: red; font-size : 30px">
                             Contact Us
                         </p>
                     </div>
@@ -236,28 +245,31 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12 col-lg-9">
-                                <p class="font-bold">Participants</p>
-                                <p>
+                                <p class="font-bold gen-heading">Participants</p>
+                                <p class="gen-content">
                                     If you have any queries regarding VITHack, contact us through <email link>. 
                                     Feel free to reach out to us and we will get back to you as soon as possible.
                                 </p>
                             </div>
-                            <div class="col-12 col-lg-3 help-us-img img-fix" style="border : 2px solid green;">
-                                <img class="img-responsive" src="./asset/images/Participants.png" style="height : 120px; border : 2px solid green">
+                            <div class="col-12 col-lg-3 help-us-img img-fix" >
+                                <img class="img-responsive" src="./asset/images/Participants.png" style="height : 120px;">
                             </div>
                         </div>
                         <div class="row" style="margin-top : 20px">
                             <div class="col-12 col-lg-9">
-                                <p class="font-bold">Companies</p>
-                                <p>
+                                <p class="font-bold gen-heading">Companies</p>
+                                <p class="gen-content">
                                     If you’re interested in collaborating with us and being a part of 
                                     one of the largest hackathons in India, contact us through <email link>. 
                                     We’d love to have you on board and do something amazing together.
                                 </p>
                             </div>
-                            <div class="col-12 col-lg-3 help-us-img" style="border : 2px solid black">
-                                <img class="img-responsive" src="./asset/images/Companies.png" style="height : 120px; border : 2px solid black">
+                            <div class="col-12 col-lg-3 help-us-img">
+                                <img class="img-responsive" src="./asset/images/Companies.png" style="height : 120px;">
                             </div>
+                        </div>
+                        <div class="row">
+                            <!-- //Place for social media icons -->
                         </div>
                     </div>
                 </div>
@@ -268,32 +280,34 @@
 
     <!-- Last Section -->
     <div class="container-fluid">
-        <div class="row other-section" style="border : 2px solid black ">
+        <div class="row other-section" >
             <div class="col-12">
-                <div class="row" style="border : 2px solid blue">
+                <div class="row" >
                     <div class="col-12">
-                        <p>Downloads</p>
+                        <p style="font-size : 30px">
+                            Downloads
+                        </p>
                     </div>
                 </div>
-                <div class="row" style="border : 2px solid orange">
+                <div class="row" >
                     <div class="col-12">
                         <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">Brochure <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                            <p class="font-light"><a href="#" style="text-decoration : none">Brochure <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">FAQ<span style="font-family: 'Times New Roman', Times, serif">'</span>s <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                            <p class="font-light"><a href="#" style="text-decoration : none">FAQ<span style="font-family: 'Times New Roman', Times, serif">'</span>s <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>                
                     </div>
                     <div class="col-12">
                         <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">Privacy Policy <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                            <p class="font-light"><a href="#" style="text-decoration : none">Privacy Policy <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="detail-btn">
-                            <h4 class="font-light"><a href="#" style="text-decoration : none">Terms and Conditions <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></h4>
+                            <p class="font-light"><a href="#" style="text-decoration : none">Terms and Conditions <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
                 </div>
