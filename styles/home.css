@@ -79,6 +79,9 @@ body {
     .first-section {
         padding : 10vh 10vw
     }
+    .sponsor-margin-fix{
+        margin-top : 20px
+    }
 }
 
 /* For bigger screens */
