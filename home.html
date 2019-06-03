@@ -3,15 +3,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Animation CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>VIT Hack | Home</title>
     <link href="./styles/home.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
     
     <!-- Navigation Bar  -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
+    <nav  data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
         <a class="navbar-brand" href="#">
             <img src="./asset/images/logo.png" style="height : 60px; padding-left : 10vw">
         </a>
@@ -42,7 +51,7 @@
     <!-- First Section  -->
     <div class="container-fluid">
         <div class="row first-section">
-            <div class="col-12 col-lg-7">
+            <div data-aos="fade-right" class="col-12 col-lg-7">
                 <div>
                     <h2 class="font-bold">VIT HACK</h2>
                 </div>
@@ -56,7 +65,7 @@
                     <p class="font-light"><a href="#" style="text-decoration : none">Know More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                 </div>
             </div>
-            <div class="col-12 col-lg-5 cover-img cover-img-fix">
+            <div data-aos="fade-left" class="col-12 col-lg-5 cover-img cover-img-fix">
                 <img class="img-responsive " src="./asset/images/Cover Page Image.png" style="height : 250px; transform : translateY(-15%)">
             </div>
         </div>
@@ -67,12 +76,12 @@
         <div class="row second-section" >
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <p style="font-size : 30px; color :orange">Help us out</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-9" >
+                    <div data-aos="fade-right" class="col-12 col-lg-9" >
                         <p class="font-bold gen-heading" >Campus Ambassador</p>
                         <p class="gen-content">
                             There’s more to college than a degree and a CGPA, be a part of something big. 
@@ -80,17 +89,17 @@
                             Help us get the word out to your college and become a trendsetter!
                         </p>
                     </div>
-                    <div class="col-12 col-lg-3 help-us-img">
+                    <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
                         <img class="img-responsive" src="./asset/images/Campus Ambassador.png" style="height : 180px;">
                     </div>
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
                             <p class="font-light"><a href="#" style="text-decoration : none">Learn More <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>             
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-9">
+                    <div data-aos="fade-right" class="col-12 col-lg-9">
                         <p class="font-bold gen-heading">Case Partners</p>
                         <p class="gen-content">
                                 The best ideas in the world have been fruits of long brainstorming 
@@ -99,17 +108,17 @@
                                 et these brilliant minds find solutions to your company’s problems!
                         </p>
                     </div>
-                    <div class="col-12 col-lg-3 help-us-img" >
+                    <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img" >
                         <img class="img-responsive" src="./asset/images/Case Partners.png" style="height : 180px;">
                     </div>
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
                             <p class="font-light"><a href="#" style="text-decoration : none">Become a Case Partner <img class="right-arrow-spl" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-9" >
+                    <div data-aos="fade-right" class="col-12 col-lg-9" >
                         <p class="font-bold gen-heading">Sponsors</p>
                         <p class="gen-content">
                                 VITHack is more than just another college hackathon, 
@@ -118,10 +127,10 @@
                                 lend us a helping hand to make this a reality.
                         </p>
                     </div>
-                    <div class="col-12 col-lg-3 help-us-img">
+                    <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
                         <img class="img-responsive" src="./asset/images/Sponsors.png" style="height : 160px;">
                     </div>
-                    <div class="col-12" style="transform: translateY(-30%)">
+                    <div data-aos="fade-right" class="col-12" style="transform: translateY(-30%)">
                         <div class="detail-btn">
                             <p class="font-light"><a href="#" style="text-decoration : none">Sponsor Us <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
@@ -136,7 +145,7 @@
 
     <div class="container-fluid" id="tracks">
         <div class="row other-section">
-            <div class="col-12">
+            <div data-aos="fade-right" class="col-12">
                 <div class="row">
                     <div class="col-12">
                         <p style="color : green; font-size : 30px">
@@ -168,7 +177,7 @@
         <div class="row other-section">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <p style="color: red; font-size : 30px">
                             Contact Us
                         </p>
@@ -177,19 +186,19 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12 col-lg-9">
+                            <div data-aos="fade-right" class="col-12 col-lg-9">
                                 <p class="font-bold gen-heading">Participants</p>
                                 <p class="gen-content">
                                     If you have any queries regarding VITHack, contact us through <email link>. 
                                     Feel free to reach out to us and we will get back to you as soon as possible.
                                 </p>
                             </div>
-                            <div class="col-12 col-lg-3 help-us-img img-fix" >
+                            <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img img-fix" >
                                 <img class="img-responsive" src="./asset/images/Participants.png" style="height : 120px;">
                             </div>
                         </div>
                         <div class="row" style="margin-top : 20px">
-                            <div class="col-12 col-lg-9">
+                            <div data-aos="fade-right" class="col-12 col-lg-9">
                                 <p class="font-bold gen-heading">Companies</p>
                                 <p class="gen-content">
                                     If you’re interested in collaborating with us and being a part of 
@@ -197,11 +206,11 @@
                                     We’d love to have you on board and do something amazing together.
                                 </p>
                             </div>
-                            <div class="col-12 col-lg-3 help-us-img">
+                            <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
                                 <img class="img-responsive" src="./asset/images/Companies.png" style="height : 120px;">
                             </div>
                         </div>
-                        <div class="row">
+                        <div data-aos="fade-right" class="row">
                             <!-- //Place for social media icons -->
                         </div>
                     </div>
@@ -216,29 +225,29 @@
         <div class="row other-section" >
             <div class="col-12">
                 <div class="row" >
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <p style="font-size : 30px">
                             Downloads
                         </p>
                     </div>
                 </div>
                 <div class="row" >
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <div class="detail-btn">
                             <p class="font-light"><a href="#" style="text-decoration : none">Brochure <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <div class="detail-btn">
                             <p class="font-light"><a href="#" style="text-decoration : none">FAQ<span style="font-family: 'Times New Roman', Times, serif">'</span>s <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>                
                     </div>
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <div class="detail-btn">
                             <p class="font-light"><a href="#" style="text-decoration : none">Privacy Policy <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div data-aos="fade-right" class="col-12">
                         <div class="detail-btn">
                             <p class="font-light"><a href="#" style="text-decoration : none">Terms and Conditions <img class="right-arrow" src="./asset/images/right-arrow.svg"></a></p>
                         </div>
