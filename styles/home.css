@@ -82,6 +82,9 @@ body {
     .sponsor-margin-fix{
         margin-top : 20px
     }
+    #fc_frame {
+        display : none
+    }
 }
 
 /* For bigger screens */
