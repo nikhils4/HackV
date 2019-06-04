@@ -2,42 +2,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="This is the home page of VIT Hack 2019">
+    <meta name="keyword" content="Hack Hackathon VIT VITHack Hack2019">
+    <meta name="robots" content="index, follow">
+    <!-- Animation CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Freshchat -->
+    <script src="https://wchat.freshchat.com/js/widget.js"></script>
     <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico"/>
-    <title>VIT HACK</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
+    <title>VIT Hack | Home</title>
+    <link href="./styles/home.css" rel="stylesheet">
 
-    <style>
-        html, body {
-            overflow: hidden;
-            margin : 0;
-            padding : 0;
-        }
-        body{
-            height : 100vh;
-            width : 100vw;     
-        }
-        #imageContainer {
-            height: 100vh;
-            width : 100vw;
-            background: url('asset/bg.svg') no-repeat center;
-            background-size: cover;
-        }
-    </style>
 </head>
 <body>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12" id="imageContainer">
+    <!-- Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<script>
+    AOS.init();
+</script>
+    
+    <!-- Navigation Bar  -->
+    <nav  data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
+        <a class="navbar-brand" href="#" aria-label="This is the link to the home page">
+            <img src="./asset/images/logo.webp" style="height : 60px; padding-left : 10vw" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
+                <a class="nav-link" style="color : black" href="#">Blog</a>
+            </li>
+            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                <a class="nav-link" style="color : black" href="#help-us-out">Help us out</a>
+            </li>
+            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                <a class="nav-link" style="color : black" href="#tracks">Tracks</a>
+            </li>
+            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                <a class="nav-link" style="color : black" href="#contact-us">Contact Us</a>
+            </li>
+            <li class="nav-item" style="margin-right : 120px; margin-left : 15px">
+                <a class="nav-link" style="color : black" href="#downloads">Downloads</a>
+            </li>
+        </div>
+    </nav>
+
+    <!-- First Section  -->
+    <div class="container-fluid">
+        <div class="row first-section">
+            <div data-aos="fade-right" class="col-12 col-lg-7">
+                <div>
+                    <h2 class="font-bold">VIT HACK</h2>
+                </div>
+                <div style="padding-top : 10px">
+                    <p class="content-font">
+                        A platform to help young mind grow and develop and a chance to network with the community to help 
+                        their ideas and businesses.
+                    </p>
+                </div>
+                <div class="detail-btn">
+                    <p class="font-light"><a href="#" style="text-decoration : none">Know More <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                </div>
+            </div>
+            <div data-aos="fade-left" class="col-12 col-lg-5 cover-img cover-img-fix">
+                <img class="img-responsive " src="./asset/images/Cover Page Image.webp" style="height : 250px; transform : translateY(-15%)" alt="cover page image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="container-fluid" id="help-us-out">
+        <div class="row second-section" >
+            <div class="col-12">
+                <div class="row">
+                    <div data-aos="fade-right" class="col-12">
+                        <p style="font-size : 30px; color :orange">Help us out</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div data-aos="fade-right" class="col-12 col-lg-9" >
+                        <p class="font-bold gen-heading" >Campus Ambassador</p>
+                        <p class="gen-content">
+                            There’s more to college than a degree and a CGPA, be a part of something big. 
+                            VITHack isn’t just a college hackathon, it’s a phenomenon. 
+                            Help us get the word out to your college and become a trendsetter!
+                        </p>
+                    </div>
+                    <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+                        <img class="img-responsive" alt="campus ambassador image" src="./asset/images/Campus Ambassador.webp" style="height : 180px;">
+                    </div>
+                    <div data-aos="fade-right" class="col-12">
+                        <div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Learn More <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        </div>
+                    </div>             
+                </div>
+                <div class="row">
+                    <div data-aos="fade-right" class="col-12 col-lg-9">
+                        <p class="font-bold gen-heading">Case Partners</p>
+                        <p class="gen-content">
+                                The best ideas in the world have been fruits of long brainstorming 
+                                sessions where young and motivated minds have come together to solve problems, 
+                                one such place is VIT Hack. Be a case partner at VIT Hack, l
+                                et these brilliant minds find solutions to your company’s problems!
+                        </p>
+                    </div>
+                    <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img" >
+                        <img class="img-responsive" alt="case partners image" src="./asset/images/Case Partners.webp" style="height : 180px;">
+                    </div>
+                    <div data-aos="fade-right" class="col-12">
+                        <div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Become a Case Partner <img class="right-arrow-spl" src="./asset/images/right-arrow.svg"></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div data-aos="fade-right" class="col-12 col-lg-9" >
+                        <p class="font-bold gen-heading">Sponsors</p>
+                        <p class="gen-content">
+                                VITHack is more than just another college hackathon, 
+                                it’s a confluence of intellect and entrepreneurship. 
+                                We dream a dream of fostering able entrepreneurs, 
+                                lend us a helping hand to make this a reality.
+                        </p>
+                    </div>
+                    <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+                        <img alt="sponsors image" class="img-responsive" src="./asset/images/Sponsors.webp" style="height : 160px;">
+                    </div>
+                    <div data-aos="fade-right" class="col-12" style="transform: translateY(-30%)">
+                        <div class="detail-btn">
+                            <p class="font-light sponsor-margin-fix"><a href="#" style="text-decoration : none">Sponsor Us <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 
-    <!-- Bootstrap CDN -->
+    <!-- Third Section -->
+
+    <div class="container-fluid" id="tracks">
+        <div class="row other-section">
+            <div data-aos="fade-right" class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <p style="color : green; font-size : 30px">
+                            Tracks
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fourth Section 
+    <div class="container-fluid">
+        <div class="row other-section">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <p style="color : orange; font-size : 30px">
+                            Sponsors
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Fifth section -->
+    <div class="container-fluid" id="contact-us">
+        <div class="row other-section">
+            <div class="col-12">
+                <div class="row">
+                    <div data-aos="fade-right" class="col-12">
+                        <p style="color: red; font-size : 30px">
+                            Contact Us
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div data-aos="fade-right" class="col-12 col-lg-9">
+                                <p class="font-bold gen-heading">Participants</p>
+                                <p class="gen-content">
+                                    If you have any queries regarding VITHack, contact us through <email link>. 
+                                    Feel free to reach out to us and we will get back to you as soon as possible.
+                                </p>
+                            </div>
+                            <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img img-fix" >
+                                <img alt="participants image" class="img-responsive" src="./asset/images/Participants.webp" style="height : 120px;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top : 20px">
+                            <div data-aos="fade-right" class="col-12 col-lg-9">
+                                <p class="font-bold gen-heading">Companies</p>
+                                <p class="gen-content">
+                                    If you’re interested in collaborating with us and being a part of 
+                                    one of the largest hackathons in India, contact us through <email link>. 
+                                    We’d love to have you on board and do something amazing together.
+                                </p>
+                            </div>
+                            <div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+                                <img alt="companies image" class="img-responsive" src="./asset/images/Companies.webp" style="height : 120px;">
+                            </div>
+                        </div>
+                        <div data-aos="fade-right" class="row">
+                            <!-- //Place for social media icons -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Last Section -->
+    <div class="container-fluid" id="downloads" style="height : 400px">
+        <div class="row other-section" >
+            <div class="col-12">
+                <div class="row" >
+                    <div data-aos="fade-right" class="col-12">
+                        <p style="font-size : 30px">
+                            Downloads
+                        </p>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div data-aos="fade-right" class="col-12">
+                        <div class="detail-btn">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Brochure <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-right" class="col-12">
+                        <div class="detail-btn">
+                            <p class="font-light"><a href="#" style="text-decoration : none">FAQ<span style="font-family: 'Times New Roman', Times, serif">'</span>s <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        </div>                
+                    </div>
+                    <div data-aos="fade-right" class="col-12">
+                        <div class="detail-btn">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Privacy Policy <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-right" class="col-12">
+                        <div class="detail-btn">
+                            <p class="font-light"><a href="#" style="text-decoration : none">Terms and Conditions <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./scripts/freshchat.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
