@@ -150,3 +150,6 @@ textarea {
     height : 200px;
     resize: none
 }
+textarea::-webkit-scrollbar {
+    display: none;
+}
