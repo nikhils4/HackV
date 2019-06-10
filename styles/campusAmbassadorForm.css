@@ -140,6 +140,7 @@ input, select {
 select {
     text-indent : 6px
 }
+
 textarea {
     border-radius : 5px;
     outline : none;
