@@ -50,6 +50,7 @@ body {
     padding : 25vh 10vw
 }
 
+
 /* Bootstrap override */
 .navbar-light .navbar-toggler{
     border-color : transparent
@@ -104,4 +105,8 @@ body {
     .first-section {
         padding : 20vh 10vw
     }
+}
+
+#popup {
+    display: none
 }
