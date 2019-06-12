@@ -6,12 +6,14 @@
     font-family: font-light;
     src: url(../asset/fonts/Campton/Campton-LightDEMO.otf);
 }
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 *{
     scroll-behavior: smooth;
 }
 body {
     font-family : font-light
 }
+
 .font-bold {
     font-family : font-bold
 }
@@ -126,15 +128,17 @@ input:-webkit-autofill:active, select  {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+
 input, select {
-    padding: 10px;
     border-radius : 5px;
     outline : none;
-    font-size : 16px;
+    font-size : 18px;
     border : 1px solid #0086f4;
-    box-sizing: border-box;
     width : 100%;
-    height : 60px
+    height : 60px;
+    padding : 10px;
+    padding-top : 14px;
+    font-family: 'Work Sans', sans-serif;
 }
 
 select {
@@ -152,4 +156,12 @@ textarea {
 }
 textarea::-webkit-scrollbar {
     display: none;
+}
+
+.red::-webkit-input-placeholder{
+    color : red;
+}
+
+#popup {
+    display: none
 }
