@@ -7,26 +7,43 @@
     <meta name="description" content="This is the page for campus ambassador programme of VIT Hack 2019">
     <meta name="keyword" content="Hack Hackathon VIT VITHack Hack2019 Campus Ambassador">
     <meta name="robots" content="index, follow">
-    <!-- Animation CDN -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Freshchat -->
-    <!-- <script src="https://wchat.freshchat.com/js/widget.js"></script> -->
     <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
         defer>
     <title>VIT Hack | Campus Ambassador</title>
-    <link href="./styles/home.css" rel="stylesheet">
+    <link href="./styles/campusAmbassador.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Animation JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-    AOS.init();
-</script>
+    <!-- Popup -->
+    <div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
+            <div class="row" style=" text-align: center">
+                <div class="col-10 col-lg-6"
+                    style="background: white; border-radius : 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                            height : 400px; position : fixed; z-index: 200; left : 50%; top : 30%; transform: translate(-50%, -20%)">
+                    <div class="row" style=" justify-content: flex-end ; padding-right : 10px; padding-top : 10px">
+                        <button type="button" id="close-btn" class="close" aria-label="Close" style="outline: none">
+                            <span aria-hidden="true"
+                                style="font-family: Georgia, 'Times New Roman', Times, serif">&times;</span>
+                        </button>
+                    </div>
+                    <div class="row h-100 align-items-center">
+                        <div class="col-8"
+                            style="height : 200px; position : absolute; left : 50%; transform: translateX(-50%)">
+                            <img id="popup-img" src="./asset/images/comingsoon.gif" style="height : 100px">
+                            <h3 id="popup-head">
+                                Coming Soon
+                            </h3>
+                            <h5 id="popup-description">
+                                We will be here soon
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- Navigation Bar  -->
     <nav data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
@@ -41,7 +58,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
-                    <a class="nav-link" style="color : black" href="">Blog</a>
+                    <a class="nav-link" id="blog" style="color : black" href="#">Blog</a>
                 </li>
                 <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
                     <a class="nav-link" style="color : black" href="/#help-us-out">Help us out</a>
@@ -193,7 +210,7 @@
                     </div>
 
 
-                    <div class="col-12">
+                    <div class="col-12" style="margin-top : 20px">
                         <p class="font-bold gen-heading">What does a campus ambassador do?<img class="right-arrow" style="transform : rotate(90deg)" src="./asset/images/right-arrow.svg" alt="right arrow"></p>
                         <p class="gen-content">
                             As long as you’re a student of that college, you’re eligible to become its campus
@@ -205,7 +222,6 @@
         </div>
     </div>
 
-    <!-- <script src="./scripts/freshchat.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -215,7 +231,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
+    <script src="./scripts/campusAmbassador.js"></script>
 </body>
 
 </html>
