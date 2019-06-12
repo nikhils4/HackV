@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,138 +7,175 @@
     <meta name="description" content="This is the Case Partner page of VIT Hack 2019">
     <meta name="keyword" content="Hack Hackathon VIT VITHack Hack2019">
     <meta name="robots" content="index, follow">
-    <!-- Animation CDN -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Freshchat -->
-    <!-- <script src="https://wchat.freshchat.com/js/widget.js"></script> -->
-    <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
+    <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+        defer>
     <title>VIT Hack | Case Partner</title>
     <link href="./styles/casePartner.css" rel="stylesheet">
 
 </head>
+
 <body>
 
-    <!-- Animation JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-    AOS.init();
-</script>
-    
-    <!-- Navigation Bar  -->
-    <nav  data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
-        <a class="navbar-brand" href="#" aria-label="This is the link to the home page">
-            <img src="./asset/images/logo.png" style="height : 60px; padding-left : 10vw" alt="logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-            <li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#">Blog</a>
-            </li>
-            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#help-us-out">Help us out</a>
-            </li>
-            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#tracks">Tracks</a>
-            </li>
-            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#contact-us">Contact Us</a>
-            </li>
-            <li class="nav-item" style="margin-right : 120px; margin-left : 15px">
-                <a class="nav-link" style="color : black" href="#downloads">Downloads</a>
-            </li>
-        </div>
-    </nav>
-
-    <!-- First Section  -->
-    <div class="container-fluid">
-        <div class="row first-section">
-            <div data-aos="fade-right" class="col-12 col-lg-7">
-                <div>
-                    <h2 class="font-bold">Case Partners</h2>
+    <!-- Popup -->
+    <div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
+        <div class="row" style=" text-align: center">
+            <div class="col-10 col-lg-6"
+                style="background: white; border-radius : 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                                height : 400px; position : fixed; z-index: 200; left : 50%; top : 30%; transform: translate(-50%, -20%)">
+                <div class="row" style=" justify-content: flex-end ; padding-right : 10px; padding-top : 10px">
+                    <button type="button" id="close-btn" class="close" aria-label="Close" style="outline: none">
+                        <span aria-hidden="true"
+                            style="font-family: Georgia, 'Times New Roman', Times, serif">&times;</span>
+                    </button>
                 </div>
-                <div style="padding-top : 10px">
-                    <p class="content-font">
-                        The best ideas in the world have been fruits of long
-                        brainstorming sessions where young and motivated
-                        minds have come together to solve problems, one
-                        such place is VIT Hack. Be a case partner at VIT
-                        Hack, let these brilliant minds find solutions to your
-                        company's problems!
-                    </p>
-                </div>
-                <div class="detail-btn">
-                    <p class="font-light"><a href="#" style="text-decoration : none">Fill form <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
-                </div>
-            </div>
-            <div data-aos="fade-left" class="col-12 col-lg-5 cover-img cover-img-fix">
-                <img class="img-responsive " src="./asset/images/Logo Green.svg" style="height : 200px;" alt="cover page image">
-            </div>
-        </div>
-    </div>
-
-               
-    <!-- Third Section -->
-
-    <div class="container-fluid" id="tracks">
-        <div class="row other-section">
-            <div data-aos="fade-right" class="col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <p style="color : green; font-size : 30px">
-                            Basis of Partnership
-                        </p>
-                        <p class="gen-content" style="margin-top : 30px; line-height: 1.4">
-                            1. VIT Hack will be conducted in partnership with you as a case partner.<br>
-                            2. Monetary sponsorship in terms of cash rewards to VIT Hack winners and innovative ideas.<br>
-                            3. Get solutions to your problem statements at VIT Hack from students all over the world participating in the event.<br>
-                            4. Mentor the projects at VIT Hack by sending technical and business expertise from your company.<br>
-                            5. The best solution(s) for your problem statements shall be rewarded with a cash prize by your company.<br>
-                            6. Your company may setup a research and development lab at VIT University to enable on campus technological innovation in<br>
-                            collaboration with you.
-                        </p>
+                <div class="row h-100 align-items-center">
+                    <div class="col-8"
+                        style="height : 200px; position : absolute; left : 50%; transform: translateX(-50%)">
+                        <img id="popup-img" src="./asset/images/comingsoon.gif" style="height : 100px">
+                        <h3 id="popup-head">
+                        </h3>
+                        <h5 id="popup-description">
+                        </h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Last Section -->
-    <div class="container-fluid" id="downloads" style="height : 400px">
-        <div class="row other-section" >
-            <div class="col-12">
-                <div class="row" >
-                    <div data-aos="fade-right" class="col-12">
-                        <p style="font-size : 30px; color: green">
-                            Downloads
+        <!-- Navigation Bar  -->
+        <nav data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
+            <a class="navbar-brand" href="/" aria-label="This is the link to the home page">
+                <img src="./asset/images/logo.png" style="height : 60px; padding-left : 10vw" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
+                        <a class="nav-link" id="blog" style="color : black" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                        <a class="nav-link" style="color : black" href="/#help-us-out">Help us out</a>
+                    </li>
+                    <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                        <a class="nav-link" style="color : black" href="/#tracks">Tracks</a>
+                    </li>
+                    <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                        <a class="nav-link" style="color : black" href="/#contact-us">Contact Us</a>
+                    </li>
+                    <li class="nav-item" style="margin-right : 120px; margin-left : 15px">
+                        <a class="nav-link" style="color : black" href="/#downloads">Downloads</a>
+                    </li>
+            </div>
+        </nav>
+
+        <!-- First Section  -->
+        <div class="container-fluid">
+            <div class="row first-section">
+                <div data-aos="fade-right" class="col-12 col-lg-7">
+                    <div>
+                        <h2 class="font-bold">Case Partners</h2>
+                    </div>
+                    <div style="padding-top : 10px">
+                        <p class="content-font">
+                            The best ideas in the world have been fruits of long
+                            brainstorming sessions where young and motivated
+                            minds have come together to solve problems, one
+                            such place is VIT Hack. Be a case partner at VIT
+                            Hack, let these brilliant minds find solutions to your
+                            company<span style="font-family : Times New Roman">'</span>s problems!
                         </p>
                     </div>
+                    <div class="detail-btn">
+                        <p class="font-light"><a href="https://www.vithack.com/casepartnerform#form"text-decoration : none">Fill form <img
+                                    class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                    </div>
                 </div>
-                <div class="row" >
-                    <div data-aos="fade-right" class="col-12">
-                        <div class="detail-btn">
-                            <p class="font-light"><a href="#" style="text-decoration : none">Brochure <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                <div data-aos="fade-left" class="col-12 col-lg-5 cover-img cover-img-fix">
+                    <img class="img-responsive " src="./asset/images/Logo Green.svg" style="height : 200px;"
+                        alt="cover page image">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Third Section -->
+
+        <div class="container-fluid" id="tracks" style="margin-top : 50px">
+            <div class="row other-section">
+                <div data-aos="fade-right" class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <p style="color : green; font-size : 30px">
+                                Basis of Partnership
+                            </p>
+                            <p class="gen-content" style="margin-top : 30px; line-height: 1.7">
+                                1. VIT Hack will be conducted in partnership with you as a case partner.<br>
+                                2. Monetary sponsorship in terms of cash rewards to VIT Hack winners and innovative
+                                ideas.<br>
+                                3. Get solutions to your problem statements at VIT Hack from students all over the world
+                                participating in the event.<br>
+                                4. Mentor the projects at VIT Hack by sending technical and business expertise from your
+                                company.<br>
+                                5. The best solution(s) for your problem statements shall be rewarded with a cash prize
+                                by your company.<br>
+                                6. Your company may setup a research and development lab at VIT University to enable on
+                                campus technological innovation in<br>
+                                collaboration with you.
+                            </p>
                         </div>
                     </div>
-                    <div data-aos="fade-right" class="col-12">
-                        <div class="detail-btn">
-                            <p class="font-light"><a href="#" style="text-decoration : none">Contact Us<img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
-                        </div>                
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Section -->
+        <div class="container-fluid" id="downloads" style="height : 400px">
+            <div class="row other-section">
+                <div class="col-12">
+                    <div class="row">
+                        <div data-aos="fade-right" class="col-12">
+                            <p style="font-size : 30px; color: green">
+                                Downloads
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div data-aos="fade-right" class="col-12">
+                            <div class="detail-btn">
+                                <p class="font-light"><a href="#" style="text-decoration : none">Brochure <img
+                                            class="right-arrow" src="./asset/images/right-arrow.svg"
+                                            alt="right arrow"></a></p>
+                            </div>
+                        </div>
+                        <div data-aos="fade-right" class="col-12">
+                            <div class="detail-btn">
+                                <p class="font-light"><a href="/#contact-us" style="text-decoration : none">Contact Us<img
+                                            class="right-arrow" src="./asset/images/right-arrow.svg"
+                                            alt="right arrow"></a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- <script src="./scripts/freshchat.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="./scripts/casePartner.js"></script>
 </body>
+
 </html>
