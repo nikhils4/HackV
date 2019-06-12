@@ -1,3 +1,4 @@
 .vscode/
 netlify.toml
 .DS_Store
+key.txt
