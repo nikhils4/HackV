@@ -8,6 +8,8 @@
     <meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     <title>VIT Hack | Campus Ambassador Form</title>
     <link href="./styles/campusAmbassadorForm.css" rel="stylesheet">
 
@@ -16,7 +18,7 @@
 
     <!-- Navigation Bar  -->
     <nav  data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
-        <a class="navbar-brand" href="#" aria-label="This is the link to the home page">
+        <a class="navbar-brand" href="/" aria-label="This is the link to the home page">
             <img src="./asset/images/logo.png" style="height : 60px; padding-left : 10vw" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,16 +31,16 @@
                 <a class="nav-link" style="color : black" href="#">Blog</a>
             </li>
             <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#help-us-out">Help us out</a>
+                <a class="nav-link" style="color : black" href="/#help-us-out">Help us out</a>
             </li>
             <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#tracks">Tracks</a>
+                <a class="nav-link" style="color : black" href="/#tracks">Tracks</a>
             </li>
             <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#contact-us">Contact Us</a>
+                <a class="nav-link" style="color : black" href="/#contact-us">Contact Us</a>
             </li>
             <li class="nav-item" style="margin-right : 120px; margin-left : 15px">
-                <a class="nav-link" style="color : black" href="#downloads">Downloads</a>
+                <a class="nav-link" style="color : black" href="/#downloads">Downloads</a>
             </li>
         </div>
     </nav>
@@ -132,30 +134,24 @@
                         <div class="input-head">
                             Country<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="">
-                            <option value="India" selected>Choose ...</option>
-                            <option value="United Kingdom">India</option>
-                            <option value="United States">United States</option>
+                        <select name="country" class="countries" id="countryId">
+                            <option value="">Select Country</option>
                         </select>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="input-head">
                             State<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="">
-                            <option value="India" selected>Choose ...</option>
-                            <option value="United Kingdom">Uttar Pradesh</option>
-                            <option value="United States">Delhi</option>
+                        <select name="state" class="states" id="stateId">
+                            <option value="">Select State</option>
                         </select>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="input-head">
                             City<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="">
-                            <option value="India" selected>Choose ...</option>
-                            <option value="United Kingdom">Male</option>
-                            <option value="United States">Female</option>
+                        <select name="city" class="cities" id="cityId">
+                            <option value="">Select City</option>
                         </select>
                     </div>
                     <div class="col-12" style="margin-top : 40px">
