@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,46 +7,78 @@
     <meta name="description" content="This is the Campus Ambassador form page of VIT Hack 2019">
     <meta name="keyword" content="Hack Hackathon VIT VITHack Hack2019">
     <meta name="robots" content="index, follow">
-    <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico"/>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <link rel="shortcut icon" type="image/ico" href="asset/favicon.ico" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+        defer>
     <link href="./bower_components/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet">
     <script src="./bower_components/air-datepicker/dist/js/datepicker.min.js"></script>
     <title>VIT Hack | Campus Ambassador Form</title>
     <link href="./styles/campusAmbassadorForm.css" rel="stylesheet">
-
 </head>
+
 <body>
 
+
+
+    <!-- Popup -->
+    <div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
+        <div class="row" style=" text-align: center">
+            <div class="col-10 col-lg-6"
+                style="background: white; border-radius : 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    height : 400px; position : fixed; z-index: 200; left : 50%; top : 30%; transform: translate(-50%, -20%)">
+                <div class="row" style=" justify-content: flex-end ; padding-right : 10px; padding-top : 10px">
+                    <button type="button" id="close-btn" class="close" aria-label="Close" style="outline: none">
+                        <span aria-hidden="true"
+                            style="font-family: Georgia, 'Times New Roman', Times, serif">&times;</span>
+                    </button>
+                </div>
+                <div class="row h-100 align-items-center">
+                    <div class="col-8"
+                        style="height : 200px; position : absolute; left : 50%; transform: translateX(-50%)">
+                        <img id="popup-img" src="./asset/images/successgif.gif" style="height : 100px">
+                        <h3 id="popup-head">
+                        </h3>
+                        <h5 id="popup-description">
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation Bar  -->
-    <nav  data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
+    <nav data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
         <a class="navbar-brand" href="/" aria-label="This is the link to the home page">
             <img src="./asset/images/logo.png" style="height : 60px; padding-left : 10vw" alt="logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="#">Blog</a>
-            </li>
-            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="/#help-us-out">Help us out</a>
-            </li>
-            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="/#tracks">Tracks</a>
-            </li>
-            <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
-                <a class="nav-link" style="color : black" href="/#contact-us">Contact Us</a>
-            </li>
-            <li class="nav-item" style="margin-right : 120px; margin-left : 15px">
-                <a class="nav-link" style="color : black" href="/#downloads">Downloads</a>
-            </li>
+                <li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
+                    <a class="nav-link" id="blog" style="color : black" href="#">Blog</a>
+                </li>
+                <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                    <a class="nav-link" style="color : black" href="/#help-us-out">Help us out</a>
+                </li>
+                <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                    <a class="nav-link" style="color : black" href="/#tracks">Tracks</a>
+                </li>
+                <li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+                    <a class="nav-link" style="color : black" href="/#contact-us">Contact Us</a>
+                </li>
+                <li class="nav-item" style="margin-right : 120px; margin-left : 15px">
+                    <a class="nav-link" style="color : black" href="/#downloads">Downloads</a>
+                </li>
         </div>
     </nav>
+
 
     <!-- First Section  -->
     <div class="container-fluid">
@@ -68,7 +101,8 @@
                     </p>
                 </div>
                 <div class="detail-btn">
-                    <p class="font-light"><a href="#form" style="text-decoration : none">I am ready<img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                    <p class="font-light"><a href="#form" style="text-decoration : none">I am ready<img
+                                class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
                 </div>
             </div>
         </div>
@@ -93,39 +127,43 @@
                         <div class="input-head">
                             Full Name<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" id="fullName" type="text" name="">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Date of Birth<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Date of Birth<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type='text' class="datepicker-here" data-position="top left"id="dateOfBirth" name="">
+                        <input  onfocus="fieldReset(event)" type='text' data-language='en' class="datepicker-here" data-position="top left"
+                            id="dob" name="">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
                             Gender<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="">
-                            <option value="India" selected>Choose ...</option>
-                            <option value="United Kingdom">Male</option>
-                            <option value="United States">Female</option>
+                        <select  onfocus="fieldReset(event)" name="" id="gender">
+                            <option value="Choose" selected>Choose ...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Portfolio Link<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Portfolio Link<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text" id="portfolioLink" name="">
+                        <input  onfocus="fieldReset(event)" type="text" id="link" name="">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
                             Social Portfolio Link
                         </div>
-                        <input type="text" id="socialPortfolioLink" name="">
+                        <input  onfocus="fieldReset(event)" type="text" id="socialLink" name="">
                     </div>
                     <div class="col-12" style="margin-top : 40px">
                         <p class="gen-content">
@@ -136,7 +174,7 @@
                         <div class="input-head">
                             Country<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="country" class="countries" id="countryId">
+                        <select  onfocus="fieldReset(event)" name="country" class="countries" id="countryId">
                             <option value="">Select Country</option>
                         </select>
                     </div>
@@ -144,7 +182,7 @@
                         <div class="input-head">
                             State<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="state" class="states" id="stateId">
+                        <select  onfocus="fieldReset(event)" name="state" class="states" id="stateId">
                             <option value="">Select State</option>
                         </select>
                     </div>
@@ -152,7 +190,7 @@
                         <div class="input-head">
                             City<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <select name="city" class="cities" id="cityId">
+                        <select  onfocus="fieldReset(event)" name="city" class="cities" id="cityId">
                             <option value="">Select City</option>
                         </select>
                     </div>
@@ -163,23 +201,26 @@
                     </div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Conatct Number<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Contact Number<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="tel" id="phoneOne" name="">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Secondary Conatct Number<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Secondary Contact Number<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="tel" id="phoneTwo" name="">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Permanent Address<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Permanent Address<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="text" name="" id="addr">
                     </div>
                     <div class="col-12" style="margin-top : 40px">
                         <p style="color : orange; font-size : 30px">
@@ -190,39 +231,42 @@
                         <div class="input-head">
                             College Name<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="text" name="" id="cllgName">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Year of Study<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Year of Study<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="text" name="" id="yos">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            College Website<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            College Website<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="text" name="" id="cllgWeb">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
                             Course Name<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="text" name="" id="courseName">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
                         <div class="input-head">
-                            Branch or Specialisation<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Branch or Specialisation<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input type="text"  name="">
+                        <input  onfocus="fieldReset(event)" type="text" name="" id="branch">
                     </div>
                     <div class="col-12" style="margin-top : 60px">
                         <p style="color : orange; font-size : 30px">
-                            General Questionnaire (Maximum 150 Words)                        
+                            General Questionnaire (Maximum 150 Words)
                         </p>
                     </div>
                     <div class="col-12" style="margin-top : 10px">
@@ -231,47 +275,60 @@
                         </p>
                     </div>
                     <div class="col-12">
-                        <textarea></textarea>
+                        <textarea  onfocus="fieldReset(event)" id="quesOne"></textarea>
                     </div>
                     <div class="col-12" style="margin-top : 30px">
                         <p class="gen-content">
-                            2. We understand how occupied college students are with exams/ college events etc. if this is the case, how would you
+                            2. We understand how occupied college students are with exams<span style="font-family : Times New Roman">/</span> college events etc. if this
+                            is the case, how would you
                             convince them not to miss out on this opportunity?
                         </p>
                     </div>
                     <div class="col-12">
-                        <textarea></textarea>
+                        <textarea  onfocus="fieldReset(event)" id="quesTwo"></textarea>
                     </div>
                     <div class="col-12" style="margin-top : 30px">
                         <p class="gen-content">
-                            3. How would you deal with the menace of trolls on our social media pages?                        
+                            3. How would you deal with the menace of trolls on our social media pages?
                         </p>
                     </div>
                     <div class="col-12">
-                        <textarea></textarea>
+                        <textarea  onfocus="fieldReset(event)" id="quesThree"></textarea>
                     </div>
                     <div class="col-12" style="margin-top : 30px">
                         <p class="gen-content">
-                            4. At a professional event, how would you strike up a conversation with people you haven’t met before?                        
+                            4. At a professional event, how would you strike up a conversation with people you haven’t
+                            met before?
                         </p>
                     </div>
                     <div class="col-12">
-                        <textarea></textarea>
+                        <textarea  onfocus="fieldReset(event)" id="quesFour"></textarea>
                     </div>
                     <div class="detail-btn" style="padding-left : 12px; margin-top : 60px">
-                        <p class="font-light"><a href="#help-us-out" style="text-decoration : none">Submit your response<img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+                        <p class="font-light" id="submit"><a href="#help-us-out" style="text-decoration : none">Submit your
+                                response<img class="right-arrow" src="./asset/images/right-arrow.svg"
+                                    alt="right arrow"></a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <script src="./scripts/campusAmbassadorForm.js"></script>
     <script src="./bower_components/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </body>
+
 </html>
