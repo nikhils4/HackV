@@ -86,6 +86,9 @@ body {
     #fc_frame {
         display : none
     }
+    .big-logo {
+        height : 100px;
+    }
 }
 
 /* For bigger screens */
@@ -104,6 +107,9 @@ body {
     }
     .first-section {
         padding : 20vh 10vw
+    }
+    .big-logo {
+        height : 200px;
     }
 }
 
