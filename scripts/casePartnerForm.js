@@ -79,7 +79,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Phone number validation
-    if (phoneNo.value.length < 8 || phoneNo.value.length < 14 ) {
+    if (phoneNo.value.length < 8 || phoneNo.value.length > 14 ) {
         phoneNo.classList.add("red");
         phoneNo.value = "";
         phoneNo.style.borderColor = "Red";
