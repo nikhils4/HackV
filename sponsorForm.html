@@ -12,6 +12,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
         defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    
 
     <script src="https://www.google.com/recaptcha/api.js?render=6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_"></script>
 
@@ -374,9 +375,11 @@
                                 style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
                         <select name="" id="bracket" onfocus="fieldReset(event)">
-                            <option value="India" selected>Choose ...</option>
-                            <option value="United Kingdom">Option One</option>
-                            <option value="United States">Option Two</option>
+                            <option value="Choose ..." selected>Choose ...</option>
+                            <option value="50 K">50 K</option>
+                            <option value="1 L">1 L</option>
+                            <option value="2 L">2 L</option>
+                            <option value="3.5 L">3.5 L</option>
                         </select>
                     </div>
 
@@ -394,8 +397,8 @@
                     <div class="w-100"></div>
 
                     <div class="detail-btn" style="padding-left : 12px; margin-top : 60px">
-                        <p class="font-light"><a id="submit" href="#help-us-out" style="text-decoration : none">Submit
-                                your response<img class="right-arrow" src="./asset/images/right-arrow.svg"
+                        <p class="font-light"><a id="submit" href="#help-us-out" style="text-decoration : none"><span id="btn-value">Submit
+                                your response</span><img class="right-arrow" src="./asset/images/right-arrow.svg"
                                     alt="right arrow"></a></p>
                     </div>
                 </div>
@@ -415,6 +418,11 @@
         crossorigin="anonymous"></script>
     <script src="./scripts/sponsorForm.js"></script>
     <script src="./scripts/recaptcha.js"></script>
+
+
+
+    
+
 
 </body>
 
