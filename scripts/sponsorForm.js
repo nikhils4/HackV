@@ -1,5 +1,6 @@
 document.getElementById("blog").addEventListener("click", (e) => {
     document.getElementById("popup").style.display = "block";
+    document.getElementById("popup").classList.add("animated", "fadeIn", "fast");
     document.getElementById("popup-img").src = "../asset/images/comingsoon.gif";
     document.getElementById("popup-head").innerHTML = "Coming Soon";
     document.getElementById("popup-description").innerHTML = "We will be soon here";
@@ -116,6 +117,19 @@ document.getElementById("submit").addEventListener( "click",  e => {
         // after successful ajax call clear all the input field
         // enter the message in popup - success
         // and even have to show error received from the backend
+
+              $(this).ajaxSubmit({
+                error: function(xhr) {
+                  status('Error: ' + xhr.status);
+                },
+               success: function(response) {
+                console.log(response);
+               }
+              });
+              //Very important line, it disable the page refresh.
+              return false;
+            });
+          });
         
         // if success
         document.getElementById("popup").style.display = "block";
@@ -139,6 +153,3 @@ function fieldReset(event){
     event.target.style.borderColor = "#0086f4";
     event.target.placeholder = "";
 }
-
-
-
