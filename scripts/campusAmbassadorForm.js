@@ -30,6 +30,8 @@ document.getElementById("submit").addEventListener("click", e => {
     let quesOne = document.getElementById("quesOne");
     let quesTwo = document.getElementById("quesTwo");
     let quesThree = document.getElementById("quesThree");
+    let codeOne = document.getElementById("codeOne");
+    let codeTwo = document.getElementById("codeTwo")
 
     let status = [];
 
@@ -44,6 +46,29 @@ document.getElementById("submit").addEventListener("click", e => {
     //     status.push("true")
     //     // code validated
     // }
+
+    // Code One
+    if(codeOne.selectedIndex == 0){
+        codeOne.classList.add("red");
+        codeOne.style.borderColor = "Red";
+        status.push("false")
+    }
+    else {
+        status.push("true")
+        // code validated
+    }
+
+    // Code Two
+    if(codeTwo.selectedIndex == 0){
+        codeTwo.classList.add("red");
+        codeTwo.style.borderColor = "Red";
+        status.push("false")
+    }
+    else {
+        status.push("true")
+        // code validated
+    }
+
 
     // Year of study
     if (yos.value.length != 4) {
@@ -389,6 +414,8 @@ document.getElementById("submit").addEventListener("click", e => {
         countryId.value = "Choose ...";
         stateId.value = "Choose ...";
         cityId.value = "Choose ...";
+        codeOne.value = "Choose ...";
+        codeTwo.value = "Choose ...";
         yos.value = "";
         quesOne.value = "";
         quesTwo.value = "";

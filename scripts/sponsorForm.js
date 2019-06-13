@@ -117,20 +117,7 @@ document.getElementById("submit").addEventListener( "click",  e => {
         // after successful ajax call clear all the input field
         // enter the message in popup - success
         // and even have to show error received from the backend
-
-              $(this).ajaxSubmit({
-                error: function(xhr) {
-                  status('Error: ' + xhr.status);
-                },
-               success: function(response) {
-                console.log(response);
-               }
-              });
-              //Very important line, it disable the page refresh.
-              return false;
-            });
-          });
-        
+    
         // if success
         document.getElementById("popup").style.display = "block";
         document.getElementById("popup-img").src = "../asset/images/successgif.gif";
