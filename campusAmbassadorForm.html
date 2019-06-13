@@ -137,7 +137,7 @@
                             Date of Birth<span
                                 style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
                         </div>
-                        <input  onfocus="fieldReset(event)" type='text' data-language='en' class="datepicker-here" data-position="top left"
+                        <input autocomplete="rutjfkde"  onfocus="fieldReset(event)" type='text' data-language='en' class="datepicker-here" data-position="top left"
                             id="dob" name="">
                     </div>
                     <div class="w-100"></div>
@@ -149,8 +149,17 @@
                             <option value="Choose" selected>Choose ...</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
                             <option value="Others">Others</option>
                         </select>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-12 col-lg-5" id="gender-oth">
+                        <div class="input-head">
+                            If others (Please Specify)<span
+                                style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                        </div>
+                        <input  onfocus="fieldReset(event)" type="text" id="gender-oth-value" name="">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12 col-lg-5">
@@ -433,7 +442,7 @@
                     <div class="w-100"></div>
                     <div class="col-4 col-lg-2">
                         <div class="input-head">
-                            Code<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Code
                         </div>
                         <select onfocus="fieldReset(event)" id="codeTwo" name="">
                             <option value="India" selected>Choose ...</option>
@@ -656,7 +665,7 @@
                     </div>
                     <div class="col-8 col-lg-3">
                         <div class="input-head">
-                            Secondary Number<span style="color : red; font-family: 'Times New Roman', Times, serif">*</span>
+                            Secondary Number
                         </div>
                         <input onfocus="fieldReset(event)" id="phoneTwo" type="number" name="">
                     </div>
@@ -751,8 +760,8 @@
                         <textarea  onfocus="fieldReset(event)" id="quesFour"></textarea>
                     </div>
                     <div class="detail-btn" style="padding-left : 12px; margin-top : 60px">
-                        <p class="font-light" id="submit"><a href="#help-us-out" style="text-decoration : none">Submit your
-                                response<img class="right-arrow" src="./asset/images/right-arrow.svg"
+                        <p class="font-light" id="submit"><a href="#help-us-out" style="text-decoration : none"><span id="btn-value">Submit your
+                                response</span><img class="right-arrow" src="./asset/images/right-arrow.svg"
                                     alt="right arrow"></a></p>
                     </div>
                 </div>
@@ -774,7 +783,6 @@
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./scripts/campusAmbassadorForm.js"></script>
-    <script src="./scripts/recaptcha.js"></script>
 
 </body>
 

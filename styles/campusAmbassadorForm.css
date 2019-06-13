@@ -168,3 +168,7 @@ textarea::-webkit-scrollbar {
 #popup {
     display: none
 }
+
+#gender-oth {
+    display: none
+}

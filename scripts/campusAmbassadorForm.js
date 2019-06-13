@@ -10,6 +10,14 @@ document.getElementById("close-btn").addEventListener("click", (e) => {
     document.getElementById("popup").style.display = "none";
 })
 
+document.getElementById("gender").addEventListener("input", (e) => {
+    if (e.target.selectedIndex == 4) {
+        document.getElementById("gender-oth").style.display = "block"
+    } else {
+        document.getElementById("gender-oth").style.display = "none"
+    }
+})
+
 document.getElementById("submit").addEventListener("click", e => {
     let fullName = document.getElementById("fullName");
     let dob = document.getElementById("dob");
@@ -30,6 +38,7 @@ document.getElementById("submit").addEventListener("click", e => {
     let quesOne = document.getElementById("quesOne");
     let quesTwo = document.getElementById("quesTwo");
     let quesThree = document.getElementById("quesThree");
+    let quesFour = document.getElementById("quesFour");
     let codeOne = document.getElementById("codeOne");
     let codeTwo = document.getElementById("codeTwo")
 
@@ -48,7 +57,7 @@ document.getElementById("submit").addEventListener("click", e => {
     // }
 
     // Code One
-    if(codeOne.selectedIndex == 0){
+    if (codeOne.selectedIndex == 0) {
         codeOne.classList.add("red");
         codeOne.style.borderColor = "Red";
         status.push("false")
@@ -57,18 +66,6 @@ document.getElementById("submit").addEventListener("click", e => {
         status.push("true")
         // code validated
     }
-
-    // Code Two
-    if(codeTwo.selectedIndex == 0){
-        codeTwo.classList.add("red");
-        codeTwo.style.borderColor = "Red";
-        status.push("false")
-    }
-    else {
-        status.push("true")
-        // code validated
-    }
-
 
     // Year of study
     if (yos.value.length != 4) {
@@ -84,7 +81,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Phone number validation (One)
-    if (phoneOne.value.length < 10 || phoneOne.value.length > 14) {
+    if (phoneOne.value.length < 8 || phoneOne.value.length > 14) {
         phoneOne.classList.add("red");
         phoneOne.value = "";
         phoneOne.style.borderColor = "Red";
@@ -96,18 +93,6 @@ document.getElementById("submit").addEventListener("click", e => {
         status.push("true")
     }
 
-    // Phone number validation (Two)
-    if (phoneTwo.value.length < 10 || phoneTwo.value.length > 14) {
-        phoneTwo.classList.add("red");
-        phoneTwo.value = "";
-        phoneTwo.style.borderColor = "Red";
-        phoneTwo.placeholder = "Please enter valid phone number";
-        status.push("false")
-    }
-    else {
-        // phone number validated
-        status.push("true")
-    }
 
     // Full name
     if (dob.value.trim().length != 10) {
@@ -228,7 +213,18 @@ document.getElementById("submit").addEventListener("click", e => {
         status.push("false");
     }
     else {
-        // City validated
+        if (gender.selectedIndex == 4) {
+            genderValue = document.getElementById("gender-oth-value").value;
+            if (document.getElementById("gender-oth-value").value.length == 0){
+                document.getElementById("gender-oth-value").classList.add("red");
+                document.getElementById("gender-oth-value").value = "";
+                document.getElementById("gender-oth-value").style.borderColor = "Red";
+                document.getElementById("gender-oth-value").placeholder = "Please specify";
+                status.push("false")
+            }
+        } else {
+            genderValue = gender.value;
+        }
         status.push("true")
     }
 
@@ -302,20 +298,6 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // link
-    if (re.test(socialLink.value)) {
-        status.push("true")
-        // email.style.borderColor = "Green";
-        // link validated
-    }
-    else {
-        socialLink.classList.add("red");
-        socialLink.value = "";
-        socialLink.style.borderColor = "Red";
-        socialLink.placeholder = "Please enter valid url"
-        status.push("false")
-    }
-
-    // link
     if (re.test(cllgWeb.value)) {
         status.push("true")
         // email.style.borderColor = "Green";
@@ -385,43 +367,150 @@ document.getElementById("submit").addEventListener("click", e => {
     if (status.includes("false")) {
         return false
     } else {
-        // put ajax call here
-        // after successful ajax call clear all the input field
-        // enter the message in popup - success
-        // and even have to show error received from the backend
 
-        // if success
-        document.getElementById("popup").style.display = "block";
-        document.getElementById("popup-img").src = "../asset/images/successgif.gif";
-        document.getElementById("popup-head").innerHTML = "Success";
-        document.getElementById("popup-description").innerHTML = "Your details were saved successfully";
 
-        // clearing input field
-        fullName.value = ""
-        dob.value = "";
-        // code.value = "Choose ...";
-        phoneOne.value = "";
-        phoneTwo.value = "";
-        link.value = "";
-        socialLink.value = "";
-        gender.value = "Choose ...";
-        cllgName.value = "";
-        cllgWeb.value = "";
-        courseName.value = "";
-        branch.value = "";
-        addr.value = "";
-        gender.value = "Choose ...";
-        countryId.value = "Choose ...";
-        stateId.value = "Choose ...";
-        cityId.value = "Choose ...";
-        codeOne.value = "Choose ...";
-        codeTwo.value = "Choose ...";
-        yos.value = "";
-        quesOne.value = "";
-        quesTwo.value = "";
-        quesThree.value = "";
-        quesFour.value = "";
-        return true
+        document.getElementById("btn-value").innerHTML = "Loading...."
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
+                console.log(token);
+
+                postData('https://vithack.herokuapp.com/forms/campus_ambassador', {
+                    full_name: fullName.value,
+                    dob: dob.value,
+                    gender: genderValue,
+                    portfolio_link: link.value,
+                    social_portfolio_link: socialLink.value,
+                    country: countryId.value,
+                    state: stateId.value,
+                    city: cityId.value,
+                    number: phoneOne.value,
+                    secondary_number: phoneTwo.value,
+                    address: addr.value,
+                    college_name: cllgName.value,
+                    year_of_study: yos.value,
+                    college_website: cllgWeb.value,
+                    brand_of_specialization: branch.value,
+                    course_name: courseName.value,
+                    questions: [{
+                        question: " If chosen to be CA, how would you popularise VITHack on and off social media?",
+                        answer: quesOne.value
+                    }, {
+                        question: "We understand how occupied college students are with exams/ college events etc. if this is the case, how would you convince them not to miss out on this opportunity?",
+                        answer: quesTwo.value
+                    }, {
+                        question: "How would you deal with the menace of trolls on our social media pages?",
+                        answer: quesThree.value
+                    }, {
+                        question: "At a professional event, how would you strike up a conversation with people you haven’t met before?",
+                        answer: quesFour.value
+                    }],
+                    secondary_code: codeTwo.value,
+                    code: codeOne.value,
+                    token: token
+                })
+                    .then(result => {
+                        if (result.captcha) {
+                            if (result.mail && result.phone) {
+                                // if success
+                                document.getElementById("popup").style.display = "block";
+                                document.getElementById("popup-img").src = "../asset/images/successgif.gif";
+                                document.getElementById("popup-head").innerHTML = "Success";
+                                document.getElementById("popup-description").innerHTML = "Your details were saved successfully";
+                                document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                                // clearing input field
+                                fullName.value = ""
+                                dob.value = "";
+                                phoneOne.value = "";
+                                phoneTwo.value = "";
+                                link.value = "";
+                                socialLink.value = "";
+                                gender.value = "Choose ...";
+                                cllgName.value = "";
+                                cllgWeb.value = "";
+                                courseName.value = "";
+                                branch.value = "";
+                                addr.value = "";
+                                gender.value = "Choose ...";
+                                countryId.value = "Choose ...";
+                                stateId.value = "Choose ...";
+                                cityId.value = "Choose ...";
+                                codeOne.value = "Choose ...";
+                                codeTwo.value = "Choose ...";
+                                yos.value = "";
+                                quesOne.value = "";
+                                quesTwo.value = "";
+                                quesThree.value = "";
+                                quesFour.value = "";
+                                return true
+                            }
+                            else {
+                                document.getElementById("popup").style.display = "block";
+                                document.getElementById("popup-img").src = "../asset/images/warning.gif";
+                                document.getElementById("popup-head").innerHTML = "Validation Error";
+                                document.getElementById("popup-description").innerHTML = "Please refill the marked fields and submit again.";
+
+                                if (result.mail == false) {
+                                    email.classList.add("red");
+                                    email.value = "";
+                                    email.style.borderColor = "Red";
+                                    email.placeholder = "Please enter valid email id"
+                                    document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                                }
+                                if (result.phone == false) {
+                                    phoneNo.classList.add("red");
+                                    phoneNo.value = "";
+                                    phoneNo.style.borderColor = "Red";
+                                    phoneNo.placeholder = "Please enter valid phone number";
+                                    document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                                }
+                            }
+                        } else {
+                            document.getElementById("popup").style.display = "block";
+                            document.getElementById("popup-img").src = "../asset/images/warning.gif";
+                            document.getElementById("popup-head").innerHTML = "Captcha Error";
+                            document.getElementById("popup-description").innerHTML = "Try refreshing the page and again submit the form";
+
+                            // clearing input field
+                            fullName.value = ""
+                            dob.value = "";
+                            phoneOne.value = "";
+                            phoneTwo.value = "";
+                            link.value = "";
+                            socialLink.value = "";
+                            gender.value = "Choose ...";
+                            cllgName.value = "";
+                            cllgWeb.value = "";
+                            courseName.value = "";
+                            branch.value = "";
+                            addr.value = "";
+                            gender.value = "Choose ...";
+                            countryId.value = "Choose ...";
+                            stateId.value = "Choose ...";
+                            cityId.value = "Choose ...";
+                            codeOne.value = "Choose ...";
+                            codeTwo.value = "Choose ...";
+                            yos.value = "";
+                            quesOne.value = "";
+                            quesTwo.value = "";
+                            quesThree.value = "";
+                            quesFour.value = "";
+                            return true
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById("popup").style.display = "block";
+                        document.getElementById("popup-img").src = "../asset/images/warning.gif";
+                        document.getElementById("popup-head").innerHTML = "Its on us";
+                        document.getElementById("popup-description").innerHTML = "There was some error";
+
+                    });
+            });
+        });
+
     }
 })
 
@@ -430,5 +519,19 @@ function fieldReset(event) {
     event.target.placeholder = "";
 }
 
-
+function postData(url = '', data = {}) {
+    return fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow',
+        referrer: 'no-referrer',
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json());
+};
 
