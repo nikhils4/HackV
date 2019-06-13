@@ -117,6 +117,37 @@ document.getElementById("submit").addEventListener( "click",  e => {
         // after successful ajax call clear all the input field
         // enter the message in popup - success
         // and even have to show error received from the backend
+
+
+   
+        
+            var email = $('#email').val();
+            var comment = $("#comment").val();
+            // needs for recaptacha ready
+            grecaptcha.ready(function () {
+                // do request for recaptcha token
+                // response is promise with passed token
+                grecaptcha.execute('put your site key here', { action: 'create_comment' }).then(function (token) {
+                    // add token to form
+                    $('#comment_form').prepend('<input type="hidden" name="g-recaptcha-response" value="' + token + '">');
+                    $.post("form.php", { email: email, comment: comment, token: token }, function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            alert('Thanks for posting comment.')
+                        } else {
+                            alert('You are spammer ! Get the @$%K out.')
+                        }
+                    });
+                });;
+            });
+
+
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', {action: 'homepage'}).then(function(token) {
+                console.log(token);
+            });
+        });
     
         // if success
         document.getElementById("popup").style.display = "block";
