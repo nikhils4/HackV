@@ -79,7 +79,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Phone number validation
-    if (phoneNo.value.length != 10) {
+    if (phoneNo.value.length < 8 || phoneNo.value.length < 14 ) {
         phoneNo.classList.add("red");
         phoneNo.value = "";
         phoneNo.style.borderColor = "Red";
@@ -141,11 +141,7 @@ document.getElementById("submit").addEventListener("click", e => {
     else {
         // company address validated
         status.push("true")
-    }
-
-
-
-
+    
 
     // Main eval
     if (status.includes("false")) {
@@ -155,24 +151,102 @@ document.getElementById("submit").addEventListener("click", e => {
         // after successful ajax call clear all the input field
         // enter the message in popup - success
         // and even have to show error received from the backend
+        document.getElementById("btn-value").innerHTML = "Loading...."
 
-        // if success
-        document.getElementById("popup").style.display = "block";
-        document.getElementById("popup-img").src = "../asset/images/successgif.gif";
-        document.getElementById("popup-head").innerHTML = "Success";
-        document.getElementById("popup-description").innerHTML = "Your details were saved successfully";
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
+                console.log(token);
+                postData('https://vithack.herokuapp.com/forms/collaborator', {
+                    name : nameTwo.value,
+                    email: email.value,
+                    code: code.value,
+                    phoneNumber: phoneNo.value,
+                    company_website: companyWeb.value,
+                    company_name: nameOne.value,
+                    designation : des.value,
+                    company_sector : sector.value,
+                    company_location : link.value,
+                    token: token
+                })
+                .then(result => {
+                    if (result.captcha) {
+                        if (result.mail && result.phone) {
+                            // if success
+                            document.getElementById("popup").style.display = "block";
+                            document.getElementById("popup-img").src = "../asset/images/successgif.gif";
+                            document.getElementById("popup-head").innerHTML = "Success";
+                            document.getElementById("popup-description").innerHTML = "Your details were saved successfully";
 
-        // clearing input field
-        email.value = "";
-        code.value = "Choose ...";
-        phoneNo.value = "";
-        nameOne.value = "";
-        nameTwo.value = "";
-        link.value = "";
-        companyWeb.value = "";
-        des.value = "";
-        sector.value = "";
-        return true
+                            // clearing input field
+                            nameTwo.value = "";
+                            email.value = "";
+                            code.value = "Choose ...";
+                            phoneNo.value = "";
+                            companyWeb.value = "";
+                            nameOne.value = "";
+                            des.value = "";
+                            sector.value = "";
+                            link.value = "";
+                            document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                            return true
+                        }
+                        else {
+                            document.getElementById("popup").style.display = "block";
+                            document.getElementById("popup-img").src = "../asset/images/warning.gif";
+                            document.getElementById("popup-head").innerHTML = "Validation Error";
+                            document.getElementById("popup-description").innerHTML = "Please refill the marked fields and submit again.";
+
+                            if (result.mail == false) {
+                                email.classList.add("red");
+                                email.value = "";
+                                email.style.borderColor = "Red";
+                                email.placeholder = "Please enter valid email id"
+                                document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                            }
+                            if (result.phone == false) {
+                                phoneNo.classList.add("red");
+                                phoneNo.value = "";
+                                phoneNo.style.borderColor = "Red";
+                                phoneNo.placeholder = "Please enter valid phone number";
+                                document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                            }
+                        }
+                    } else {
+                        document.getElementById("popup").style.display = "block";
+                        document.getElementById("popup-img").src = "../asset/images/warning.gif";
+                        document.getElementById("popup-head").innerHTML = "Captcha Error";
+                        document.getElementById("popup-description").innerHTML = "Try refreshing the page and again submit the form";
+
+                        // clearing input field
+                        nameTwo.value = "";
+                        email.value = "";
+                        code.value = "Choose ...";
+                        phoneNo.value = "";
+                        companyWeb.value = "";
+                        nameOne.value = "";
+                        des.value = "";
+                        sector.value = "";
+                        link.value = "";
+                        document.getElementById("btn-value").innerHTML = "Submit your response"
+
+                        return false
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("popup").style.display = "block";
+                    document.getElementById("popup-img").src = "../asset/images/warning.gif";
+                    document.getElementById("popup-head").innerHTML = "Its on us";
+                    document.getElementById("popup-description").innerHTML = "There was some error";
+
+                });
+            });
+        });
+        
+        };
+        
     }
 })
 
@@ -181,5 +255,20 @@ function fieldReset(event) {
     event.target.placeholder = "";
 }
 
+function postData(url = '', data = {}) {
+    return fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow',
+        referrer: 'no-referrer',
+        body: JSON.stringify(data), 
+    })
+    .then(response => response.json());
+};
 
 

@@ -221,7 +221,6 @@ document.getElementById("submit").addEventListener("click", e => {
 })
 
 function postData(url = '', data = {}) {
-    // Default options are marked with *
     return fetch(url, {
         method: 'POST',
         mode: 'cors',
