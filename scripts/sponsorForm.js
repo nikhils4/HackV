@@ -133,7 +133,7 @@ document.getElementById("submit").addEventListener("click", e => {
                 grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
                     console.log(token);
 
-                    postData('http://vithack.herokuapp.com/forms/sponsor', {
+                    postData('https://vithack.herokuapp.com/forms/sponsor', {
                         email: email.value,
                         code: code.value,
                         phoneNumber: phoneNo.value,
