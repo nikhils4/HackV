@@ -46,18 +46,6 @@ document.getElementById("submit").addEventListener("click", e => {
 
     let status = [];
 
-    // If required add this is future
-    // // Code validation
-    // if(code.selectedIndex == 0){
-    //     code.classList.add("red");
-    //     code.style.borderColor = "Red";
-    //     status.push("false")
-    // }
-    // else {
-    //     status.push("true")
-    //     // code validated
-    // }
-
     let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (reg.test(email.value.trim())) {
         status.push("true")
