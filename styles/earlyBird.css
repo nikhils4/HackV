@@ -1,0 +1,174 @@
+@font-face {
+    font-family: font-bold;
+    src: url(../asset/fonts/Campton/Campton-BoldDEMO.otf);
+}
+@font-face {
+    font-family: font-light;
+    src: url(../asset/fonts/Campton/Campton-LightDEMO.otf);
+}
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+*{
+    scroll-behavior: smooth;
+}
+body {
+    font-family : font-light
+}
+.font-bold {
+    font-family : font-bold
+}
+.content-font {
+    font-size : 22px;
+    font-weight : lighter;
+}
+.right-arrow {
+    transform: translateY(-10%);
+    width : 12px;
+    margin-left : 20px;
+    height : auto
+}
+.detail-btn {
+    font-size : 20px;
+    padding-top : 10px; 
+    color : rgb(0,134,244);
+    font-weight: bold
+}
+.gen-content{
+    font-size : 14px;
+    font-weight : bolder
+}
+.gen-heading {
+    font-size : 20px
+}
+.second-section {
+    padding : 10vh 10vw;
+}
+.other-section {
+    padding : 5vh 10vw;
+}
+.img-fix {
+    padding-right : 25px
+}
+
+/* Bootstrap override */
+.navbar-light .navbar-toggler{
+    border-color : transparent
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,134,244,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+
+/* For smaller screens */
+@media (max-width : 990px){
+    .cover-img {
+        text-align: center;
+    }
+    .help-us-img{
+        text-align: left;
+    }
+    .right-arrow-spl {
+        transform: translateY(-10%);
+        width : 12px;
+        margin-left : 5px;
+        height : auto
+    }
+    .cover-img-fix {
+        padding-top : 50px;
+    }
+    .first-section {
+        padding : 10vh 10vw
+    }
+    .sponsor-margin-fix{
+        margin-top : 20px
+    }
+    #fc_frame {
+        display : none
+    }
+}
+
+/* For bigger screens */
+@media (min-width : 991px){
+    .cover-img {
+        text-align: right
+    }
+    .help-us-img{
+        text-align: right
+    }
+    .right-arrow-spl {
+        transform: translateY(-10%);
+        width : 12px;
+        margin-left : 20px;
+        height : auto
+    }
+    .first-section {
+        padding : 18vh 10vw
+    }
+}
+
+
+/* Updated styling for form */
+
+.input-head {
+    color : black;
+    transform: translate(10px,55%); 
+    background-color : white; 
+    width : auto;
+    margin-top : 8px;
+    display: inline-flex;
+    padding-left : 5px; 
+    padding-right : 5px;
+    font-size : 18px
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active, select  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+input, select {
+    padding: 10px;
+    border-radius : 5px;
+    outline : none;
+    font-size : 16px;
+    border : 1px solid #0086f4;
+    box-sizing: border-box;
+    width : 100%;
+    height : 60px;
+    font-family: 'Work Sans', sans-serif;
+
+}
+
+select {
+    text-indent : 6px
+}
+
+textarea {
+    border-radius : 5px;
+    outline : none;
+    padding : 10px;
+    font-size : 16px;
+    border : 1px solid #0086f4;
+    width : 100%;
+    height : 200px;
+    resize: none;
+    font-family: 'Work Sans', sans-serif;
+
+}
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.red::-webkit-input-placeholder{
+    color : red;
+}
+
+#popup {
+    display: none
+}
+
+#gender-oth {
+    display: none
+}
