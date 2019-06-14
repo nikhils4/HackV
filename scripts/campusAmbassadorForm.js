@@ -40,7 +40,9 @@ document.getElementById("submit").addEventListener("click", e => {
     let quesThree = document.getElementById("quesThree");
     let quesFour = document.getElementById("quesFour");
     let codeOne = document.getElementById("codeOne");
-    let codeTwo = document.getElementById("codeTwo")
+    let codeTwo = document.getElementById("codeTwo");
+    let email = document.getElementById("emailAddress")
+
 
     let status = [];
 
@@ -55,6 +57,20 @@ document.getElementById("submit").addEventListener("click", e => {
     //     status.push("true")
     //     // code validated
     // }
+
+    let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (reg.test(email.value.trim())) {
+        status.push("true")
+        // email.style.borderColor = "Green";
+        // Email validated
+    }
+    else {
+        email.classList.add("red");
+        email.value = "";
+        email.style.borderColor = "Red";
+        email.placeholder = "Please enter valid email id"
+        status.push("false")
+    }
 
     // Code One
     if (codeOne.selectedIndex == 0) {
@@ -374,11 +390,12 @@ document.getElementById("submit").addEventListener("click", e => {
         grecaptcha.ready(function () {
             grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
 
-                postData('https://vithack.herokuapp.com/forms/campus_ambassador', {
+                postData('http://localhost:3000/forms/campus_ambassador', {
                     full_name: fullName.value,
                     dob: dob.value,
                     gender: genderValue,
                     portfolio_link: link.value,
+                    email : email.value,
                     social_portfolio_link: socialLink.value,
                     country: countryId.value,
                     state: stateId.value,
@@ -421,6 +438,7 @@ document.getElementById("submit").addEventListener("click", e => {
                                 // clearing input field
                                 fullName.value = ""
                                 dob.value = "";
+                                email.value = "";
                                 phoneOne.value = "";
                                 phoneTwo.value = "";
                                 link.value = "";
@@ -486,6 +504,7 @@ document.getElementById("submit").addEventListener("click", e => {
                             courseName.value = "";
                             branch.value = "";
                             addr.value = "";
+                            email.value;
                             gender.value = "Choose ...";
                             countryId.value = "Choose ...";
                             stateId.value = "Choose ...";
