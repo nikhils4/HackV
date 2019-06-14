@@ -378,7 +378,7 @@ document.getElementById("submit").addEventListener("click", e => {
         grecaptcha.ready(function () {
             grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
 
-                postData('http://localhost:3000/forms/campus_ambassador', {
+                postData('https://vithack.herokuapp.com/forms/campus_ambassador', {
                     full_name: fullName.value,
                     dob: dob.value,
                     gender: genderValue,
