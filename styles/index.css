@@ -107,6 +107,9 @@ body {
     .sponsor-margin-fix{
         margin-top : 40px
     }
+    .bird-fix {
+        transform: translateX(-25%)
+    }
 }
 
 #popup {
