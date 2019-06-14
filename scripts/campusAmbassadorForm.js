@@ -68,7 +68,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Year of study
-    if (yos.value.length != 4) {
+    if (yos.value.trim().length != 4) {
         yos.classList.add("red");
         yos.value = "";
         yos.style.borderColor = "Red";
@@ -81,7 +81,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Phone number validation (One)
-    if (phoneOne.value.length < 8 || phoneOne.value.length > 14) {
+    if (phoneOne.value.trim().length < 8 || phoneOne.value.trim().length > 14) {
         phoneOne.classList.add("red");
         phoneOne.value = "";
         phoneOne.style.borderColor = "Red";
@@ -284,7 +284,7 @@ document.getElementById("submit").addEventListener("click", e => {
     let re = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
 
     // link
-    if (re.test(link.value)) {
+    if (re.test(link.value.trim())) {
         status.push("true")
         // email.style.borderColor = "Green";
         // link validated
@@ -298,7 +298,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // link
-    if (re.test(cllgWeb.value)) {
+    if (re.test(cllgWeb.value.trim())) {
         status.push("true")
         // email.style.borderColor = "Green";
         // link validated
@@ -373,7 +373,6 @@ document.getElementById("submit").addEventListener("click", e => {
 
         grecaptcha.ready(function () {
             grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
-                console.log(token);
 
                 postData('https://vithack.herokuapp.com/forms/campus_ambassador', {
                     full_name: fullName.value,

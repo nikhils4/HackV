@@ -24,7 +24,7 @@ document.getElementById("submit").addEventListener("click", e => {
     let status = [];
     // Email validation
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(email.value)) {
+    if (re.test(email.value.trim())) {
         status.push("true")
         // email.style.borderColor = "Green";
         // Email validated
@@ -40,7 +40,7 @@ document.getElementById("submit").addEventListener("click", e => {
     let reg = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
 
     // link
-    if (reg.test(link.value)) {
+    if (reg.test(link.value.trim())) {
         status.push("true")
         // email.style.borderColor = "Green";
         // link validated
@@ -54,7 +54,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Company Website
-    if (reg.test(companyWeb.value)) {
+    if (reg.test(companyWeb.value.trim())) {
         status.push("true")
         // email.style.borderColor = "Green";
         // link validated
@@ -79,7 +79,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Phone number validation
-    if (phoneNo.value.length < 8 || phoneNo.value.length > 14 ) {
+    if (phoneNo.value.trim().length < 8 || phoneNo.value.trim().length > 14 ) {
         phoneNo.classList.add("red");
         phoneNo.value = "";
         phoneNo.style.borderColor = "Red";
@@ -155,7 +155,6 @@ document.getElementById("submit").addEventListener("click", e => {
 
         grecaptcha.ready(function () {
             grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
-                console.log(token);
                 postData('https://vithack.herokuapp.com/forms/collaborator', {
                     name : nameTwo.value,
                     email: email.value,
