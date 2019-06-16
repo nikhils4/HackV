@@ -72,7 +72,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Year of study
-    if (yos.value.trim().length != 4) {
+    if (yos.value.trim().length <= 0) {
         yos.classList.add("red");
         yos.value = "";
         yos.style.borderColor = "Red";
@@ -233,7 +233,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // One
-    if (quesOne.value.split(' ').length > 150) {
+    if (quesOne.value.split(' ').length < 150) {
         quesOne.classList.add("red");
         quesOne.value = "";
         quesOne.style.borderColor = "Red";
@@ -246,7 +246,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Two
-    if (quesTwo.value.split(' ').length > 150) {
+    if (quesTwo.value.split(' ').length < 150) {
         quesTwo.classList.add("red");
         quesTwo.value = "";
         quesTwo.style.borderColor = "Red";
@@ -259,7 +259,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Three
-    if (quesThree.value.split(' ').length > 150) {
+    if (quesThree.value.split(' ').length < 150) {
         quesThree.classList.add("red");
         quesThree.value = "";
         quesThree.style.borderColor = "Red";
@@ -272,7 +272,7 @@ document.getElementById("submit").addEventListener("click", e => {
     }
 
     // Four
-    if (quesFour.value.split(' ').length > 150) {
+    if (quesFour.value.split(' ').length < 150) {
         quesFour.classList.add("red");
         quesFour.value = "";
         quesFour.style.borderColor = "Red";
@@ -372,7 +372,6 @@ document.getElementById("submit").addEventListener("click", e => {
         return false
     } else {
 
-
         document.getElementById("btn-value").innerHTML = "Loading...."
 
         grecaptcha.ready(function () {
@@ -392,7 +391,7 @@ document.getElementById("submit").addEventListener("click", e => {
                     secondary_number: phoneTwo.value,
                     address: addr.value,
                     college_name: cllgName.value,
-                    year_of_study: yos.value,
+                    year_of_study: String(yos.value),
                     college_website: cllgWeb.value,
                     brand_of_specialization: branch.value,
                     course_name: courseName.value,
