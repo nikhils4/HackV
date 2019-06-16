@@ -210,6 +210,7 @@ document.getElementById("submit").addEventListener("click", e => {
                         document.getElementById("popup-img").src = "../asset/images/warning.gif";
                         document.getElementById("popup-head").innerHTML = "Its on us";
                         document.getElementById("popup-description").innerHTML = "There was some error";
+                        document.getElementById("btn-value").innerHTML = "Submit your response"
 
                     });
                 });
