@@ -228,9 +228,10 @@ function renderCollabData(data) {
     }
     let dataList = ["Name", "Designation", "Email", "Code", "Contact Number", "Company Name", "Company Sector", "Company Link", "Company Website"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table table-hover table-dark")
+    table.setAttribute("class", "table table-hover table-striped table-light")
     table.setAttribute("id", "collab-table")
     let thead = document.createElement("thead")
+    thead.setAttribute("class", "thead-dark")
     let tr = document.createElement("tr")
     for (let i = 0; i < dataList.length; i++) {
         let head = document.createTextNode(dataList[i])
@@ -263,9 +264,10 @@ function renderCAData(data) {
     }
     let dataList = ["Name", "DOB", "Gender", "Email", "Portfolio Link", "Social Link", "Country", "State", "City", "Code I", "Contact I", "Code II", "Contact II", "Address", "College Name", "YOS", "College website", "Field of study", "Degree", "Question One", "Question Two", "Question Three", "Question Four"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table table-hover table-dark")
+    table.setAttribute("class", "table table-hover table-striped table-light")
     table.setAttribute("id", "ca-table")
     let thead = document.createElement("thead")
+    thead.setAttribute("class", "thead-dark")
     let tr = document.createElement("tr")
     for (let i = 0; i < dataList.length; i++) {
         let head = document.createTextNode(dataList[i])
@@ -285,7 +287,7 @@ function renderCAData(data) {
                 for (let q = 0; q < 4; q++) {
                     let content = document.createTextNode(data[i][dataContent[j]][q]["answer"])
                     let td = document.createElement("td")
-                    td.setAttribute("style", "text-overflow : ellipsis; overflow: hidden; white-space: nowrap; max-width : 100px; cursor : pointer")
+                    td.setAttribute("style", "text-overflow : ellipsis; overflow: hidden; white-space: nowrap; max-width : 100px; cursor : pointer; color : blue; text-decoration : underline")
                     td.setAttribute("onClick", `showAnswer(event, ${q} )`)
                     td.appendChild(content)
                     tr.appendChild(td)
@@ -311,9 +313,10 @@ function renderEBData(data) {
     }
     let dataList = ["Full Name", "Gender", "Email Address", "Code", "Contact Number", "College Name", "Field of study", "Pursued Degree", "Country", "State", "City"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table table-hover table-dark")
+    table.setAttribute("class", "table table-hover table-striped table-light")
     table.setAttribute("id", "eb-table")
     let thead = document.createElement("thead")
+    thead.setAttribute("class", "thead-dark")
     let tr = document.createElement("tr")
     for (let i = 0; i < dataList.length; i++) {
         let head = document.createTextNode(dataList[i])
@@ -346,9 +349,10 @@ function renderSponsorsData(data) {
     }
     let dataList = ["Company name", "Company address", "Email", "Code", "Phone number", "Bracket", "Message"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table table-hover table-dark")
+    table.setAttribute("class", "table table-hover table-striped table-light")
     table.setAttribute("id", "sponsors-table")
     let thead = document.createElement("thead")
+    thead.setAttribute("class", "thead-dark")
     let tr = document.createElement("tr")
     for (let i = 0; i < dataList.length; i++) {
         let head = document.createTextNode(dataList[i])
@@ -367,7 +371,7 @@ function renderSponsorsData(data) {
             if (dataContent[j] == "message") {
                 let content = document.createTextNode(data[i]["message"])
                 let td = document.createElement("td")
-                td.setAttribute("style", "text-overflow : ellipsis; overflow: hidden; white-space: nowrap; max-width : 100px; cursor : pointer")
+                td.setAttribute("style", "text-overflow : ellipsis; overflow: hidden; white-space: nowrap; max-width : 100px; cursor : pointer; color : blue; text-decoration : underline")
                 td.setAttribute("onClick", "showMessage(event)")
                 td.appendChild(content)
                 tr.appendChild(td)
@@ -451,171 +455,97 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
 document.getElementById("sponsors-card").addEventListener("click", (e) => {
     document.getElementById("sponsors-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
-    let select = document.getElementById("sponsors-drop").value
-    let input = document.getElementById("sponsors-input").value
     let query = {}
+    document.getElementById("sponsors-drop").selectedIndex = 0;
+    document.getElementById("sponsors-input").value = ""
     document.getElementById("sponsors-load").style.visibility = "visible"
-    if (document.getElementById("sponsors-drop").selectedIndex == 0) {
-        query = JSON.stringify({})
-        let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderSponsorsData(data.data)
-                document.getElementById("sponsors-load").style.visibility = "hidden"
-                return true
-            })
-    } else {
-        query[select] = input;
-        query = JSON.stringify(query)
-        let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderSponsorsData(data.data)
-                document.getElementById("sponsors-load").style.visibility = "hidden"
-                return true
-            })
-    }
+    query = JSON.stringify({})
+    let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
+    fetch(url, {
+        headers: {
+            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+        }
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        renderSponsorsData(data.data)
+        document.getElementById("sponsors-load").style.visibility = "hidden"
+        return true
+    })
 })
 
 document.getElementById("CA-card").addEventListener("click", (e) => {
     document.getElementById("CA-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
-    let select = document.getElementById("ca-drop").value
-    let input = document.getElementById("ca-input").value
+    document.getElementById("ca-drop").selectedIndex = 0
+    document.getElementById("ca-input").value = ""
     let query = {}
     document.getElementById("ca-load").style.visibility = "visible"
-    if (document.getElementById("ca-drop").selectedIndex == 0) {
-        query = JSON.stringify({})
-        let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderCAData(data.data)
-                document.getElementById("ca-load").style.visibility = "hidden"
-                return true
-            })
-    } else {
-        query[select] = input;
-        query = JSON.stringify(query)
-        let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderCAData(data.data)
-                document.getElementById("ca-load").style.visibility = "hidden"
-                return true
-            })
-    }
+    query = JSON.stringify({})
+    let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
+    fetch(url, {
+        headers: {
+            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+        }
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        renderCAData(data.data)
+        document.getElementById("ca-load").style.visibility = "hidden"
+        return true
+    })
+   
 })
 
 document.getElementById("eb-card").addEventListener("click", (e) => {
     document.getElementById("eb-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
-    let select = document.getElementById("eb-drop").value
-    let input = document.getElementById("eb-input").value
+    document.getElementById("eb-drop").selectedIndex = 0;
+    document.getElementById("eb-input").value = ""
     let query = {}
     document.getElementById("eb-load").style.visibility = "visible"
-    if (document.getElementById("eb-drop").selectedIndex == 0) {
-        query = JSON.stringify({})
-        let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderEBData(data.data)
-                document.getElementById("eb-load").style.visibility = "hidden"
-                return true
-            })
-    } else {
-        query[select] = input;
-        query = JSON.stringify(query)
-        let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderEBData(data.data)
-                document.getElementById("eb-load").style.visibility = "hidden"
-                return true
-            })
-    }
+    query = JSON.stringify({})
+    let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
+    fetch(url, {
+        headers: {
+            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+        }
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        renderEBData(data.data)
+        document.getElementById("eb-load").style.visibility = "hidden"
+        return true
+    })
 })
 
 document.getElementById("collab-card").addEventListener("click", (e) => {
     document.getElementById("collab-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
-    let select = document.getElementById("collab-drop").value
-    let input = document.getElementById("collab-input").value
+    document.getElementById("collab-drop").selectedIndex = 0
+    document.getElementById("collab-input").value = ""
     let query = {}
     document.getElementById("collab-load").style.visibility = "visible"
-    if (document.getElementById("collab-drop").selectedIndex == 0) {
-        query = JSON.stringify({})
-        let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderCollabData(data.data)
-                document.getElementById("collab-load").style.visibility = "hidden"
-                return true
-            })
-    } else {
-        query[select] = input;
-        query = JSON.stringify(query)
-        let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
-        fetch(url, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
-            }
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                renderCollabData(data.data)
-                document.getElementById("collab-load").style.visibility = "hidden"
-                return true
-            })
-    }
+    query = JSON.stringify({})
+    let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
+    fetch(url, {
+        headers: {
+            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+        }
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        renderCollabData(data.data)
+        document.getElementById("collab-load").style.visibility = "hidden"
+        return true
+    })
+
 })
