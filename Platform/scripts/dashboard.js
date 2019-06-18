@@ -228,7 +228,7 @@ function renderCollabData(data) {
     }
     let dataList = ["Name", "Designation", "Email", "Code", "Contact Number", "Company Name", "Company Sector", "Company Link" , "Company Website" ]
     let table = document.createElement("table")
-    table.setAttribute("class", "table")
+    table.setAttribute("class", "table table-hover table-dark")
     table.setAttribute("id", "collab-table")
     let thead = document.createElement("thead")
     let tr = document.createElement("tr")
@@ -263,7 +263,7 @@ function renderCAData(data) {
     }
     let dataList = ["Name", "DOB", "Gender", "Email", "Portfolio Link", "Social Link", "Country", "State", "City", "Code I", "Contact I", "Code II", "Contact II", "Address", "College Name", "YOS", "College website", "Field of study", "Degree",  "Question One", "Question Two", "Question Three", "Question Four"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table")
+    table.setAttribute("class", "table table-hover table-dark")
     table.setAttribute("id", "ca-table")
     let thead = document.createElement("thead")
     let tr = document.createElement("tr")
@@ -311,7 +311,7 @@ function renderEBData(data) {
     }
     let dataList = ["Full Name", "Gender", "Email Address", "Code", "Contact Number", "College Name","Field of study", "Pursued Degree",  "Country", "State", "City"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table")
+    table.setAttribute("class", "table table-hover table-dark")
     table.setAttribute("id", "eb-table")
     let thead = document.createElement("thead")
     let tr = document.createElement("tr")
@@ -346,7 +346,7 @@ function renderSponsorsData(data) {
     }
     let dataList = ["Company name", "Company address", "Email", "Code", "Phone number", "Bracket", "Message"]
     let table = document.createElement("table")
-    table.setAttribute("class", "table")
+    table.setAttribute("class", "table table-hover table-dark")
     table.setAttribute("id", "sponsors-table")
     let thead = document.createElement("thead")
     let tr = document.createElement("tr")
@@ -414,4 +414,32 @@ function showMessage(e) {
 
 document.getElementById("delete").addEventListener("click", (e) => {
     document.getElementById("popup").style.display = "none"
+})
+
+document.getElementById("collab-card").addEventListener("click", (e) => {
+    document.getElementById("collab-top").style.display = "block"
+    document.getElementById("CA-top").style.display = "none"
+    document.getElementById("eb-top").style.display = "none"
+    document.getElementById("sponsors-top").style.display = "none"
+})
+
+document.getElementById("eb-card").addEventListener("click", (e) => {
+    document.getElementById("collab-top").style.display = "none"
+    document.getElementById("CA-top").style.display = "none"
+    document.getElementById("eb-top").style.display = "block"
+    document.getElementById("sponsors-top").style.display = "none"
+})
+
+document.getElementById("sponsors-card").addEventListener("click", (e) => {
+    document.getElementById("collab-top").style.display = "none"
+    document.getElementById("CA-top").style.display = "none"
+    document.getElementById("eb-top").style.display = "none"
+    document.getElementById("sponsors-top").style.display = "block"
+})
+
+document.getElementById("CA-card").addEventListener("click", (e) => {
+    document.getElementById("collab-top").style.display = "none"
+    document.getElementById("CA-top").style.display = "block"
+    document.getElementById("eb-top").style.display = "none"
+    document.getElementById("sponsors-top").style.display = "none"
 })
