@@ -1,9 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+
+body {
+    font-family: 'Work Sans', sans-serif;
+} 
+* {
+    scroll-behavior: smooth
+}
+
+#info {
+    margin-top : 150px;
+    font-size : 20px;
+    font-weight : bolder
+}
 .count-card {
+    padding: 12px;
     height : 200px;
     margin-top : 40px;
     border : 2px solid white;  
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius : 5px
+    border-radius : 7px
 }
 
 .count-card:hover {
@@ -48,8 +64,14 @@
     border-radius : 7px
 }
 
-#popup-content {
+#popup-question {
+    font-size : 20px;
+    padding : 15px
+}
 
+#popup-content {
+    font-size : 18px;
+    padding : 15px
 }
 
 #delete {
@@ -60,9 +82,64 @@
     font-weight : bolder
 }
 
-/* #eb-top,
+#eb-top,
+#sponsors-top,
+#collab-top,
+#CA-top {
+    text-align : center
+}
+
+select {
+    width : 350px;
+    height : 40px;
+    border-radius : 7px
+}
+
+input {
+    width : 350px;
+    height : 40px;
+    border-radius : 7px;
+    border : 2px solid gainsboro;
+    outline : none;
+    padding-left : 10px;
+    padding-right : 10px
+}
+button {
+    height : 40px
+}
+.download {
+    text-align : right; 
+    margin-top : 40px; 
+    margin-bottom : 40px
+}
+
+.details-head {
+    font-size : 30px;
+    font-weight : bolder;
+    margin-top : 60px;
+    margin-bottom : 40px
+}
+#ca-table-cover,
+#eb-table-cover,
+#sponsors-table-cover,
+#collab-table-cover {
+    overflow-x:scroll;
+    overflow-y:visible;
+}
+
+#ca-load,
+#eb-load,
+#sponsors-load,
+#collab-load {
+    font-size : 20px;
+    font-weight : bolder;
+    margin-top : 20px;
+    margin-bottom : 20px
+}
+#eb-top,
 #sponsors-top,
 #collab-top,
 #CA-top {
     display: none
-} */
+}
+

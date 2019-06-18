@@ -22,7 +22,7 @@
                 <div style="position: relative; padding-top : 10px">
                     <img id="delete" style="position: absolute; right : 0" src="https://img.icons8.com/metro/26/000000/delete-sign.png">
                 </div>
-                <p id="popup-question" style="padding-bottom : 10px; padding-top : 30px">
+                <p id="popup-question" style="padding-bottom : 10px; padding-top : 30px"></p>
                 <p id="popup-content" style="margin-top : 10px"></p>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
 
     <!-- Cards to display registration count -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="cards-top">
         <div class="row" style="padding-left : 100px; padding-right : 100px">
             <div class="col-12 col-lg-3" id="CA-card">
                 <div class="count-card">
@@ -71,6 +71,14 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="info">
+        <div class="row">
+            <div class="col-12" style="text-align : center">
+                Click on the cards to get more information
             </div>
         </div>
     </div>
@@ -127,13 +135,14 @@
                         <option value="code">Question Four</option>
                     </optgroup> -->
                 </select>
-
-                <input placeholder="Enter Value" id="ca-input">
-                <button id="ca-submit">Submit</button>
+                <br>
+                <input placeholder="Enter Value" id="ca-input" style="margin-bottom : 20px; margin-top : 20px">
+                <br>
+                <button class="btn btn-success" id="ca-submit">Submit</button>
             </div>
-            <div class="col-12">
-                <button id="ca-filter-dwnld">Download Filtered Data</button>
-                <a href="http://localhost:3000/dashboard/campus-ambassadors?skip=0&sort=-_id&query={}&_export=csv" download="name.csv"><button id="ca-all-dwnld">Download Complete Data</button></a>
+            <div class="col-12 download" style="text-align : center">
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="ca-filter-dwnld">Download Filtered Data</button>
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="ca-all-dwnld">Download Complete Data</button>
             </div>
             <div class="col-12">
                 <div id="ca-load">Loading...</div>
@@ -165,13 +174,14 @@
                         <option value="phoneNumber">Phone Number</option>
                     </optgroup>
                 </select>
-
-                <input placeholder="Enter Value" id="collab-input">
-                <button id="collab-submit">Submit</button>
+                <br>
+                <input placeholder="Enter Value" id="collab-input" style="margin-bottom : 20px; margin-top : 20px">
+                <br>
+                <button class="btn btn-success" id="collab-submit">Submit</button>
             </div>
-            <div class="col-12">
-                <button id="collab-filter-dwnld">Download Filtered Data</button>
-                <button id="collab-all-dwnld">Download Complete Data</button>
+            <div class="col-12 download" style="text-align : center">
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="collab-filter-dwnld">Download Filtered Data</button>
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="collab-all-dwnld">Download Complete Data</button>
             </div>
             <div class="col-12">
                 <div id="collab-load">Loading...</div>
@@ -199,13 +209,14 @@
                         <!-- <option value="message">Message</option> -->
                     </optgroup>
                 </select>
-
-                <input placeholder="Enter Value" id="sponsors-input">
-                <button id="sponsors-submit">Submit</button>
+                <br>
+                <input placeholder="Enter Value" id="sponsors-input" style="margin-bottom : 20px; margin-top : 20px">
+                <br>
+                <button class="btn btn-success" id="sponsors-submit">Submit</button>
             </div>
-            <div class="col-12">
-                <button id="sponsors-filter-dwnld">Download Filtered Data</button>
-                <button id="sponsors-all-dwnld">Download Complete Data</button>
+            <div class="col-12 download" style="text-align : center">
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="sponsors-filter-dwnld">Download Filtered Data</button>
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="sponsors-all-dwnld">Download Complete Data</button>
             </div>
             <div class="col-12">
                 <div id="sponsors-load">Loading...</div>
@@ -239,15 +250,16 @@
                         <option value="city">City</option>
                     </optgroup>
                 </select>
-
-                <input placeholder="Enter Value" id="eb-input">
-                <button id="eb-submit">Submit</button>
+                <br>
+                <input placeholder="Enter Value" id="eb-input" style="margin-bottom : 20px; margin-top : 20px">
+                <br>
+                <button  class="btn btn-success" id="eb-submit">Submit</button>
             </div>
-            <div class="col-12">
-                <button id="eb-filter-dwnld">Download Filtered Data</button>
-                <button id="eb-all-dwnld">Download Complete Data</button>
+            <div class="col-12 download" style="text-align : center">
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="eb-filter-dwnld">Download Filtered Data</button>
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px"  id="eb-all-dwnld">Download Complete Data</button>
             </div>
-            <div class="col-12">
+            <div class="col-12" >
                 <div id="eb-load">Loading...</div>
                 <div id="eb-table-cover"></div>
             </div>
