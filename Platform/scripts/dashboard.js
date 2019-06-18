@@ -72,7 +72,10 @@ document.getElementById("collab-submit").addEventListener("click", e => {
                 return true
             })
     } else {
-        query[select] = input;
+        query[select] = {
+            $regex : input,
+            $options : "i"
+        }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
         fetch(url, {
@@ -115,7 +118,10 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
                 return true
             })
     } else {
-        query[select] = input;
+        query[select] = {
+            $regex : input,
+            $options : "i"
+        }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
@@ -158,7 +164,10 @@ document.getElementById("ca-submit").addEventListener("click", e => {
                 return true
             })
     } else {
-        query[select] = input;
+        query[select] = {
+            $regex : input,
+            $options : "i"
+        }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
@@ -202,9 +211,12 @@ document.getElementById("eb-submit").addEventListener("click", e => {
                 return true
             })
     } else {
-        query[select] = input;
+        query[select] = {
+            $regex : input,
+            $options : "i"
+        }
         query = JSON.stringify(query)
-        let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
+        let url = `http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
                 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
