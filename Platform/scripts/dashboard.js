@@ -261,7 +261,7 @@ function renderCAData(data) {
     if (document.getElementById("ca-table-cover").contains(document.getElementById("ca-table"))){
         document.getElementById("ca-table").parentNode.removeChild(document.getElementById("ca-table"));
     }
-    let dataList = ["Name", "DOB", "Gender", "Email", "Portfolio Link", "Social Link", "Country", "State", "City", "Code I", "Contact I", "Code II", "Contact II", "Address", "College Name", "YOS", "College website", "Degree", "Field of study", "Question One", "Question Two", "Question Three", "Question Four"]
+    let dataList = ["Name", "DOB", "Gender", "Email", "Portfolio Link", "Social Link", "Country", "State", "City", "Code I", "Contact I", "Code II", "Contact II", "Address", "College Name", "YOS", "College website", "Field of study", "Degree",  "Question One", "Question Two", "Question Three", "Question Four"]
     let table = document.createElement("table")
     table.setAttribute("class", "table")
     table.setAttribute("id", "ca-table")
@@ -309,7 +309,7 @@ function renderEBData(data) {
     if (document.getElementById("eb-table-cover").contains(document.getElementById("eb-table"))){
         document.getElementById("eb-table").parentNode.removeChild(document.getElementById("eb-table"));
     }
-    let dataList = ["Full Name", "Gender", "Email Address", "Code", "Contact Number", "College Name", "Pursued Degree", "Field of study", "Country", "State", "City"]
+    let dataList = ["Full Name", "Gender", "Email Address", "Code", "Contact Number", "College Name","Field of study", "Pursued Degree",  "Country", "State", "City"]
     let table = document.createElement("table")
     table.setAttribute("class", "table")
     table.setAttribute("id", "eb-table")
