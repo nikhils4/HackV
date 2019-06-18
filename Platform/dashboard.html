@@ -1,0 +1,317 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+        defer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./styles/dashboard.css">
+    <title>VIT Hack | Platform</title>
+</head>
+
+<body>
+
+    <!-- Popup -->
+
+    <div class="container-fluid" >
+        <div class="row" style="position : relative">
+            <div class="col-10 col-lg-8" id="popup">
+                <div style="position: relative; padding-top : 10px">
+                    <img id="delete" style="position: absolute; right : 0" src="https://img.icons8.com/metro/26/000000/delete-sign.png">
+                </div>
+                <p id="popup-question" style="padding-bottom : 10px; padding-top : 30px">
+                <p id="popup-content" style="margin-top : 10px"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Cards to display registration count -->
+    <div class="container-fluid">
+        <div class="row" style="padding-left : 100px; padding-right : 100px">
+            <div class="col-12 col-lg-3">
+                <div class="count-card">
+                    <div class="count-head">
+                        Campus Ambassadors Registration Count
+                    </div>
+                    <div class="count-value">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="count-card">
+                    <div class="count-head">
+                        Collaborators Registration Count
+                    </div>
+                    <div class="count-value">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="count-card">
+                    <div class="count-head">
+                        Sponsors Registration Count
+                    </div>
+                    <div class="count-value">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="count-card">
+                    <div class="count-head">
+                        Early Bird Registration Count
+                    </div>
+                    <div class="count-value">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Section to display the table for the registration and filter -->
+
+    <div class="container-fluid">
+
+
+        <!-- For CA -->
+
+        <!-- Mention the questions for all the four questions -->
+        <div class="row">
+            <div class="col-12">
+                <div class="details-head">
+                    Campus Ambassadors
+                </div>
+            </div>
+            <div class="col-12">
+                <select id="ca-drop">
+                    <option value="all">All data</option>
+                    <optgroup label="Personal Details">
+                        <option value="full_name">Name</option>
+                        <option value="dob">Date of Birth</option> 
+                        <option value="gender">Gender</option>
+                        <option value="email">Email Address</option>
+                        <option value="portfolio_link">Portfolio Link</option>
+                        <option value="social_portfolio_link">Social Portfolio Link</option>
+                    </optgroup>
+                    <optgroup label="Address Details">
+                        <option value="country">Country</option>
+                        <option value="state">State</option>
+                        <option value="city">City</option>
+                    </optgroup>
+                    <optgroup label="Contact Details">
+                        <option value="code">Primary Code</option>
+                        <option value="number">Primary Number</option>
+                        <option value="secondary_code">Secondary Code</option>
+                        <option value="secondary_number">Secondary Number</option>
+                        <option value="address">Permanent Address</option>
+                    </optgroup>
+                    <optgroup label="Qualification Details">
+                        <option value="college_name">College Name</option>
+                        <option value="year_of_study">Year of Study</option>
+                        <option value="college_website">College Website</option>
+                        <option value="brand_of_specialization">Pursued Degree</option>
+                        <option value="course_name">Field of study</option>
+                    </optgroup>
+                    <!-- <optgroup label="Questions">
+                        <option value="name">Question One</option>
+                        <option value="designation">Question Two</option>
+                        <option value="email">Question Three</option>
+                        <option value="code">Question Four</option>
+                    </optgroup> -->
+                </select>
+
+                <input placeholder="Enter Value" id="ca-input">
+                <button id="ca-submit">Submit</button>
+            </div>
+            <div class="col-12">
+                <div id="ca-load">Loading...</div>
+                <div id="ca-table-cover"></div>
+            </div>
+            <div class="col-12">
+                <button id="ca-filter-dwnld">Download Filtered Data</button>
+                <button id="ca-all-dwnld">Download Complete Data</button>
+            </div>
+        </div>
+
+        <!-- For Collaborators -->
+        <div class="row">
+            <div class="col-12">
+                <div class="details-head">
+                    Collaborators
+                </div>
+            </div>
+            <div class="col-12">
+                <select id="collab-drop">
+                    <option value="all">All data</option>
+                    <optgroup label="Company Details">
+                        <option value="company_name">Name</option>
+                        <option value="company_sector">Sector</option>
+                        <option value="company_location">Link</option>
+                        <option value="company_website">Website</option>
+                    </optgroup>
+                    <optgroup label="Person Details">
+                        <option value="name">Name</option>
+                        <option value="designation">Designation</option>
+                        <option value="email">Email</option>
+                        <option value="code">Code</option>
+                        <option value="phoneNumber">Phone Number</option>
+                    </optgroup>
+                </select>
+
+                <input placeholder="Enter Value" id="collab-input">
+                <button id="collab-submit">Submit</button>
+            </div>
+            <div class="col-12">
+                <div id="collab-load">Loading...</div>
+                <div id="collab-table-cover"></div>
+            </div>
+            <div class="col-12">
+                <button id="collab-filter-dwnld">Download Filtered Data</button>
+                <button id="collab-all-dwnld">Download Complete Data</button>
+            </div>
+        </div>
+
+        <!-- For Sponsors -->
+        <div class="row">
+            <div class="col-12">
+                <div class="details-head">
+                    Sponsors
+                </div>
+            </div>
+            <div class="col-12">
+                <select id="sponsors-drop">
+                    <option value="all">All data</option>
+                    <optgroup label="Details">
+                        <option value="company_name">Company name</option>
+                        <option value="company_address">Company address</option>
+                        <option value="email">Email</option>
+                        <option value="code">Code</option>
+                        <option value="phoneNumber">Phone number</option>
+                        <option value="bracket">Bracket</option>
+                        <!-- <option value="message">Message</option> -->
+                    </optgroup>
+                </select>
+
+                <input placeholder="Enter Value" id="sponsors-input">
+                <button id="sponsors-submit">Submit</button>
+            </div>
+            <div class="col-12">
+                <div id="sponsors-load">Loading...</div>
+                <div id="sponsors-table-cover"></div>
+            </div>
+            <div class="col-12">
+                <button id="sponsors-filter-dwnld">Download Filtered Data</button>
+                <button id="sponsors-all-dwnld">Download Complete Data</button>
+            </div>
+        </div>
+
+        <!-- For Early Birds -->
+        <div class="row">
+            <div class="col-12">
+                <div class="details-head">
+                    Early Birds
+                </div>
+            </div>
+            <div class="col-12">
+                <select id="eb-drop">
+                    <option value="all">All data</option>
+                    <optgroup label="Personal Details">
+                        <option value="full_name">Full name</option>
+                        <option value="gender">Gender</option>
+                        <option value="email">Email address</option>
+                        <option value="code">Code</option>
+                        <option value="number">Contact number</option>
+                    </optgroup>
+                    <optgroup label="College Details">
+                        <option value="college_name">College name</option>
+                        <option value="brand_of_specialization">Pursued degree</option>
+                        <option value="course_name">Field of Study</option>
+                        <option value="country">Country</option>
+                        <option value="state">State</option>
+                        <option value="city">City</option>
+                    </optgroup>
+                </select>
+
+                <input placeholder="Enter Value" id="eb-input">
+                <button id="eb-submit">Submit</button>
+            </div>
+            <div class="col-12">
+                <div id="eb-load">Loading...</div>
+                <div id="eb-table-cover"></div>
+            </div>
+            <div class="col-12">
+                <button id="eb-filter-dwnld">Download Filtered Data</button>
+                <button id="eb-all-dwnld">Download Complete Data</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom script -->
+    <script src="./scripts/dashboard.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script>
+
+// document.getElementById("collab-drop").addEventListener
+
+// document.getElementById("collab-submit").addEventListener("click", e => {
+//     let select = document.getElementById("collab-drop").value
+//     let input = document.getElementById("collab-input").value
+//     let query = {}
+//     if (document.getElementById("collab-drop").selectedIndex == 0){
+//         $.ajax({
+//             url: `http://localhost:3000/dashboard/collaborators?skip=0&sort=-_id&query=${query}`,
+//             headers: { 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE' },
+//             success : (data) => {
+//                 renderTable(data)
+//                 return true
+//             },
+//             error : (err) => {
+//                 console.log(err)
+//                 return false
+//             }
+//         });
+//     } else {
+//         query[select] = input;
+//         query = JSON.stringify(query)
+//         $.ajax({
+//             url: `http://localhost:3000/dashboard/collaborators?skip=0&sort=-_id&query=${query}`,
+//             headers: { 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE' },
+//             success : (data) => {
+//                 renderTable(data)
+//                 return true
+//             },
+//             error : (err) => {
+//                 console.log(err)
+//                 return false
+//             }
+//         });
+//     }
+
+// })
+
+
+
+    </script>
+</body>
+
+</html>

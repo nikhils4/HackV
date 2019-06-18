@@ -1,0 +1,61 @@
+.count-card {
+    height : 200px;
+    margin-top : 40px;
+    border : 2px solid white;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius : 5px
+}
+
+.count-card:hover {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer
+}
+
+.count-head {
+    font-size: 25px;
+    text-align: center
+}
+
+.count-value {
+    font-size: 35px;
+    text-align : center
+}
+
+* {
+    scroll-behavior: smooth
+}
+
+#collab-input,
+#collab-load,
+#sponsors-load,
+#sponsors-input,
+#eb-load,
+#eb-input,
+#ca-load,
+#ca-input {
+    visibility: hidden
+}
+
+#popup {
+    position : fixed; 
+    background : white; 
+    z-index : 100;
+    left : 50%; 
+    top : 50%; 
+    display: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius : 7px
+}
+
+#popup-content {
+
+}
+
+#delete {
+    cursor : pointer
+}
+
+#popup-question {
+    font-weight : bolder
+}
