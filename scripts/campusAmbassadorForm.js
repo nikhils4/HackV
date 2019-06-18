@@ -43,7 +43,6 @@ document.getElementById("submit").addEventListener("click", e => {
     let codeTwo = document.getElementById("codeTwo");
     let email = document.getElementById("emailAddress")
 
-
     let status = [];
 
     let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -69,19 +68,6 @@ document.getElementById("submit").addEventListener("click", e => {
     else {
         status.push("true")
         // code validated
-    }
-
-    // Year of study
-    if (yos.value.trim().length <= 0) {
-        yos.classList.add("red");
-        yos.value = "";
-        yos.style.borderColor = "Red";
-        yos.placeholder = "Please enter valid year of study";
-        status.push("false")
-    }
-    else {
-        // phone number validated
-        status.push("true")
     }
 
     // Phone number validation (One)
@@ -229,6 +215,17 @@ document.getElementById("submit").addEventListener("click", e => {
         } else {
             genderValue = gender.value;
         }
+        status.push("true")
+    }
+
+    // Year of study
+    if (yos.selectedIndex == 0) {
+        yos.classList.add("red");
+        yos.style.borderColor = "Red";
+        status.push("false")
+    }
+    else {
+        // phone number validated
         status.push("true")
     }
 
