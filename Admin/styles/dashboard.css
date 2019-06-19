@@ -59,9 +59,11 @@ body {
     left : 50%; 
     top : 50%; 
     display: none;
+    max-height : 500px;
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius : 7px
+    border-radius : 7px;
+    overflow-y: scroll
 }
 
 #popup-question {
@@ -71,7 +73,8 @@ body {
 
 #popup-content {
     font-size : 18px;
-    padding : 15px
+    padding : 15px;
+    overflow-y:scroll
 }
 
 #delete {

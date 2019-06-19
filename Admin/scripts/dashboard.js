@@ -465,7 +465,6 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
 //on click of of data rendering 
 
 document.getElementById("sponsors-card").addEventListener("click", (e) => {
-    document.getElementById("sponsors-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
     let query = {}
     document.getElementById("sponsors-drop").selectedIndex = 0;
@@ -483,13 +482,13 @@ document.getElementById("sponsors-card").addEventListener("click", (e) => {
     })
     .then((data) => {
         renderSponsorsData(data.data)
+        document.getElementById("sponsors-top").scrollIntoView();
         document.getElementById("sponsors-load").style.visibility = "hidden"
         return true
     })
 })
 
 document.getElementById("CA-card").addEventListener("click", (e) => {
-    document.getElementById("CA-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
     document.getElementById("ca-drop").selectedIndex = 0
     document.getElementById("ca-input").value = ""
@@ -507,6 +506,7 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
     })
     .then((data) => {
         renderCAData(data.data)
+        document.getElementById("CA-top").scrollIntoView();
         document.getElementById("ca-load").style.visibility = "hidden"
         return true
     })
@@ -514,7 +514,6 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
 })
 
 document.getElementById("eb-card").addEventListener("click", (e) => {
-    document.getElementById("eb-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
     document.getElementById("eb-drop").selectedIndex = 0;
     document.getElementById("eb-input").value = ""
@@ -532,13 +531,13 @@ document.getElementById("eb-card").addEventListener("click", (e) => {
     })
     .then((data) => {
         renderEBData(data.data)
+        document.getElementById("eb-top").scrollIntoView();
         document.getElementById("eb-load").style.visibility = "hidden"
         return true
     })
 })
 
 document.getElementById("collab-card").addEventListener("click", (e) => {
-    document.getElementById("collab-top").scrollIntoView();
     document.getElementById("info").innerHTML = ""
     document.getElementById("collab-drop").selectedIndex = 0
     document.getElementById("collab-input").value = ""
@@ -556,6 +555,7 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
     })
     .then((data) => {
         renderCollabData(data.data)
+        document.getElementById("collab-top").scrollIntoView();
         document.getElementById("collab-load").style.visibility = "hidden"
         return true
     })
