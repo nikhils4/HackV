@@ -216,7 +216,7 @@ document.getElementById("eb-submit").addEventListener("click", e => {
             $options : "i"
         }
         query = JSON.stringify(query)
-        let url = `http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
+        let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
                 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
@@ -561,3 +561,54 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
     })
 
 })
+
+function updateFilterLinkSponsors(e) {
+    let select = document.getElementById("sponsors-drop").value
+    let input = document.getElementById("sponsors-input").value
+    let query = {}
+    query[select] = {
+        $regex : input,
+        $options : "i"
+    }
+    query = JSON.stringify(query)
+    document.getElementById("sponsors-filter-link").setAttribute("href", "http://localhost:3000/dashboard/sponsors?skip=0&sort=-_id&query= " + query + "&_export=csv")
+}
+
+function updateFilterLinkCA(e) {
+    let select = document.getElementById("ca-drop").value
+    let input = document.getElementById("ca-input").value
+    let query = {}
+    query[select] = {
+        $regex : input,
+        $options : "i"
+    }
+    query = JSON.stringify(query)
+    document.getElementById("ca-filter-link").setAttribute("href", "http://localhost:3000/dashboard/campus-ambassadors?skip=0&sort=-_id&query= " + query + "&_export=csv")
+}
+
+function updateFilterLinkEB(e) {
+    let select = document.getElementById("eb-drop").value
+    let input = document.getElementById("eb-input").value
+    let query = {}
+    query[select] = {
+        $regex : input,
+        $options : "i"
+    }
+    query = JSON.stringify(query)
+    document.getElementById("eb-filter-link").setAttribute("href", "http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query= " + query + "&_export=csv")
+}
+
+function updateFilterLinkCollab(e) {
+    let select = document.getElementById("collab-drop").value
+    let input = document.getElementById("collab-input").value
+    let query = {}
+    query[select] = {
+        $regex : input,
+        $options : "i"
+    }
+    query = JSON.stringify(query)
+    document.getElementById("collab-filter-link").setAttribute("href", "http://localhost:3000/dashboard/collaborators?skip=0&sort=-_id&query= " + query + "&_export=csv")
+}
+
+
+

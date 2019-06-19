@@ -1,0 +1,26 @@
+.login-card {
+    border : 2px solid black;
+    border-radius : 7px;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position : absolute;
+    top : 30%;
+    left : 50%;
+    transform : translate(-50%);
+    text-align: left;
+    padding : 20px
+}
+
+body {
+    position: relative;
+}
+
+input {
+    width : 100%;
+    border : 2px solid gainsboro;
+    border-radius : 5px;
+    height: 35px
+}
+
+.error {
+    visibility: hidden
+}
