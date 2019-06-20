@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
         defer>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./styles/dashboard.css">
     <title>VIT Hack | Platform</title>
 </head>
@@ -266,7 +266,7 @@
             </div>
             <div class="col-12 download" style="text-align : center">
                 <a href="" id="eb-filter-link"><button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px" id="eb-filter-dwnld">Download Filtered Data</button></a>
-                <a href="http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query={}&_export=csv"><button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px"  id="eb-all-dwnld">Download Complete Data</button></a>
+                <button class="btn btn-primary" style="min-width : 250px; margin-bottom: 20px"  id="eb-all-dwnld">Download Complete Data</button>
             </div>
             <div class="col-12" >
                 <div id="eb-load">Loading...</div>

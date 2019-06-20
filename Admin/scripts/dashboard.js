@@ -1,8 +1,7 @@
 
 // logout btn
 document.getElementById("logout").addEventListener("click", (e) => {
-    console.log("Hello")
-    document.cookie = "token=unauth"
+    sessionStorage.removeItem("token")
     document.location.href = "logout.html"
 })
 
@@ -67,7 +66,7 @@ document.getElementById("collab-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -91,7 +90,7 @@ document.getElementById("collab-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -120,7 +119,7 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -143,7 +142,7 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -172,7 +171,7 @@ document.getElementById("ca-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -195,7 +194,7 @@ document.getElementById("ca-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -225,7 +224,7 @@ document.getElementById("eb-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -248,7 +247,7 @@ document.getElementById("eb-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': Cookies.get("token")
+                'Authorization': sessionStorage.getItem("token")
             }
         })
             .then((response) => {
@@ -506,7 +505,7 @@ document.getElementById("sponsors-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': Cookies.get("token")
+            'Authorization': sessionStorage.getItem("token")
         }
     })
     .then((response) => {
@@ -533,7 +532,7 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': Cookies.get("token")
+            'Authorization': sessionStorage.getItem("token")
         }
     })
     .then((response) => {
@@ -561,7 +560,7 @@ document.getElementById("eb-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': Cookies.get("token")
+            'Authorization': sessionStorage.getItem("token")
         }
     })
     .then((response) => {
@@ -588,7 +587,7 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': Cookies.get("token")
+            'Authorization': sessionStorage.getItem("token")
         }
     })
     .then((response) => {
@@ -653,6 +652,41 @@ function updateFilterLinkCollab(e) {
     query = JSON.stringify(query)
     document.getElementById("collab-filter-link").setAttribute("href", "http://localhost:3000/dashboard/collaborators?skip=0&sort=-_id&query= " + query + "&_export=csv")
 }
+
+
+
+
+
+
+
+
+
+
+document.getElementById("eb-all-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    // document.getElementById("eb-load").style.visibility = "visible"
+    query = JSON.stringify({})
+    console.log("Download")
+    let url = "http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query={}&_export=csv"
+    fetch(url, {
+        headers: {
+            'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLXJveWFsLXNuZXdrZXMtOTBAdml0aGFjay5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NjEwMjQxODF9.ayBrr-mL4i8Ax5uHr8OJrjBpzxRhJhHJuwOd2DDMe68"
+        }
+    })
+    .then((response) => {
+        console.log(response)
+        return response.text()
+    })
+    .then((data) => {
+        window.location.href = "file.csv"
+        return true
+    })
+    .catch( err => {
+        console.log("This is the error ", err )
+        // window.location.href = "error.html"
+    })
+})
+
 
 
 

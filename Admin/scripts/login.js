@@ -15,7 +15,7 @@ document.getElementById("submit").addEventListener("click", (e) => {
         if (response.token == undefined) {
             document.getElementById("error").innerHTML = response.message
         } else {
-            document.cookie = `token=${response.token}`
+            sessionStorage.setItem("token", response.token)
             window.location.href = "dashboard.html"
         }
     })
