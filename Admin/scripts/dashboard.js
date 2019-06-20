@@ -78,13 +78,13 @@ document.getElementById("collab-submit").addEventListener("click", e => {
                 document.getElementById("collab-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     } else {
         query[select] = {
-            $regex : input,
-            $options : "i"
+            $regex: input,
+            $options: "i"
         }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
@@ -101,7 +101,7 @@ document.getElementById("collab-submit").addEventListener("click", e => {
                 document.getElementById("collab-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     }
@@ -130,13 +130,13 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
                 document.getElementById("sponsors-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     } else {
         query[select] = {
-            $regex : input,
-            $options : "i"
+            $regex: input,
+            $options: "i"
         }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
@@ -153,7 +153,7 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
                 document.getElementById("sponsors-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     }
@@ -182,13 +182,13 @@ document.getElementById("ca-submit").addEventListener("click", e => {
                 document.getElementById("ca-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     } else {
         query[select] = {
-            $regex : input,
-            $options : "i"
+            $regex: input,
+            $options: "i"
         }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
@@ -205,7 +205,7 @@ document.getElementById("ca-submit").addEventListener("click", e => {
                 document.getElementById("ca-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     }
@@ -235,13 +235,13 @@ document.getElementById("eb-submit").addEventListener("click", e => {
                 document.getElementById("eb-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     } else {
         query[select] = {
-            $regex : input,
-            $options : "i"
+            $regex: input,
+            $options: "i"
         }
         query = JSON.stringify(query)
         let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
@@ -258,7 +258,7 @@ document.getElementById("eb-submit").addEventListener("click", e => {
                 document.getElementById("eb-load").style.visibility = "hidden"
                 return true
             })
-            .catch( err => {
+            .catch(err => {
                 window.location.href = "error.html"
             })
     }
@@ -508,18 +508,18 @@ document.getElementById("sponsors-card").addEventListener("click", (e) => {
             'Authorization': sessionStorage.getItem("token")
         }
     })
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        renderSponsorsData(data.data)
-        document.getElementById("sponsors-top").scrollIntoView();
-        document.getElementById("sponsors-load").style.visibility = "hidden"
-        return true
-    })
-    .catch( err => {
-        window.location.href = "error.html"
-    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            renderSponsorsData(data.data)
+            document.getElementById("sponsors-top").scrollIntoView();
+            document.getElementById("sponsors-load").style.visibility = "hidden"
+            return true
+        })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 document.getElementById("CA-card").addEventListener("click", (e) => {
@@ -535,19 +535,19 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
             'Authorization': sessionStorage.getItem("token")
         }
     })
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        renderCAData(data.data)
-        document.getElementById("CA-top").scrollIntoView();
-        document.getElementById("ca-load").style.visibility = "hidden"
-        return true
-    })
-    .catch( err => {
-        window.location.href = "error.html"
-    })
-   
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            renderCAData(data.data)
+            document.getElementById("CA-top").scrollIntoView();
+            document.getElementById("ca-load").style.visibility = "hidden"
+            return true
+        })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
+
 })
 
 document.getElementById("eb-card").addEventListener("click", (e) => {
@@ -563,18 +563,18 @@ document.getElementById("eb-card").addEventListener("click", (e) => {
             'Authorization': sessionStorage.getItem("token")
         }
     })
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        renderEBData(data.data)
-        document.getElementById("eb-top").scrollIntoView();
-        document.getElementById("eb-load").style.visibility = "hidden"
-        return true
-    })
-    .catch( err => {
-        window.location.href = "error.html"
-    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            renderEBData(data.data)
+            document.getElementById("eb-top").scrollIntoView();
+            document.getElementById("eb-load").style.visibility = "hidden"
+            return true
+        })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 document.getElementById("collab-card").addEventListener("click", (e) => {
@@ -590,103 +590,246 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
             'Authorization': sessionStorage.getItem("token")
         }
     })
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        renderCollabData(data.data)
-        document.getElementById("collab-top").scrollIntoView();
-        document.getElementById("collab-load").style.visibility = "hidden"
-        return true
-    })
-    .catch( err => {
-        window.location.href = "error.html"
-    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            renderCollabData(data.data)
+            document.getElementById("collab-top").scrollIntoView();
+            document.getElementById("collab-load").style.visibility = "hidden"
+            return true
+        })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 
 })
 
-function updateFilterLinkSponsors(e) {
-    let select = document.getElementById("sponsors-drop").value
-    let input = document.getElementById("sponsors-input").value
-    let query = {}
-    query[select] = {
-        $regex : input,
-        $options : "i"
-    }
-    query = JSON.stringify(query)
-    document.getElementById("sponsors-filter-link").setAttribute("href", "http://localhost:3000/dashboard/sponsors?skip=0&sort=-_id&query= " + query + "&_export=csv")
-}
-
-function updateFilterLinkCA(e) {
-    let select = document.getElementById("ca-drop").value
-    let input = document.getElementById("ca-input").value
-    let query = {}
-    query[select] = {
-        $regex : input,
-        $options : "i"
-    }
-    query = JSON.stringify(query)
-    document.getElementById("ca-filter-link").setAttribute("href", "http://localhost:3000/dashboard/campus-ambassadors?skip=0&sort=-_id&query= " + query + "&_export=csv")
-}
-
-function updateFilterLinkEB(e) {
-    let select = document.getElementById("eb-drop").value
-    let input = document.getElementById("eb-input").value
-    let query = {}
-    query[select] = {
-        $regex : input,
-        $options : "i"
-    }
-    query = JSON.stringify(query)
-    document.getElementById("eb-filter-link").setAttribute("href", "http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query= " + query + "&_export=csv")
-}
-
-function updateFilterLinkCollab(e) {
-    let select = document.getElementById("collab-drop").value
-    let input = document.getElementById("collab-input").value
-    let query = {}
-    query[select] = {
-        $regex : input,
-        $options : "i"
-    }
-    query = JSON.stringify(query)
-    document.getElementById("collab-filter-link").setAttribute("href", "http://localhost:3000/dashboard/collaborators?skip=0&sort=-_id&query= " + query + "&_export=csv")
-}
-
-
-
-
-
-
-
-
-
+// Early bird file download
 
 document.getElementById("eb-all-dwnld").addEventListener("click", (e) => {
     let query = {}
     // document.getElementById("eb-load").style.visibility = "visible"
     query = JSON.stringify({})
-    console.log("Download")
-    let url = "http://localhost:3000/dashboard/earlybirds?skip=0&sort=-_id&query={}&_export=csv"
-    fetch(url, {
+    axios({
+        url: 'https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query={}&_export=csv',
+        method: 'GET',
+        responseType: 'blob',
         headers: {
-            'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLXJveWFsLXNuZXdrZXMtOTBAdml0aGFjay5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NjEwMjQxODF9.ayBrr-mL4i8Ax5uHr8OJrjBpzxRhJhHJuwOd2DDMe68"
+            Authorization: sessionStorage.getItem("token")
         }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
     })
-    .then((response) => {
-        console.log(response)
-        return response.text()
+    .catch(err => {
+        window.location.href = "error.html"
     })
-    .then((data) => {
-        window.location.href = "file.csv"
-        return true
+})
+
+
+document.getElementById("eb-filter-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    let select = document.getElementById("eb-drop").value
+    let input = document.getElementById("eb-input").value
+    query[select] = {
+        $regex: input,
+        $options: "i"
+    }
+    query = JSON.stringify(query)
+    console.log(query)
+    axios({
+        url: "https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=" + query + "&_export=csv",
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
     })
-    .catch( err => {
-        console.log("This is the error ", err )
-        // window.location.href = "error.html"
+    .catch(err => {
+        window.location.href = "error.html"
+    })
+})
+
+
+// Collab file download
+
+document.getElementById("collab-all-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    // document.getElementById("eb-load").style.visibility = "visible"
+    query = JSON.stringify({})
+    axios({
+        url: 'https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query={}&_export=csv',
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+    })
+    .catch(err => {
+        window.location.href = "error.html"
+    })
+})
+
+
+document.getElementById("collab-filter-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    let select = document.getElementById("collab-drop").value
+    let input = document.getElementById("collab-input").value
+    query[select] = {
+        $regex: input,
+        $options: "i"
+    }
+    query = JSON.stringify(query)
+    console.log(query)
+    axios({
+        url: "https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=" + query + "&_export=csv",
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+    })
+    .catch(err => {
+        window.location.href = "error.html"
+    })
+})
+
+// Sponsors
+
+document.getElementById("sponsors-all-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    query = JSON.stringify({})
+    axios({
+        url: 'https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query={}&_export=csv',
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+    })
+    .catch(err => {
+        window.location.href = "error.html"
+    })
+})
+
+
+document.getElementById("sponsors-filter-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    let select = document.getElementById("sponsors-drop").value
+    let input = document.getElementById("sponsors-input").value
+    query[select] = {
+        $regex: input,
+        $options: "i"
+    }
+    query = JSON.stringify(query)
+    console.log(query)
+    axios({
+        url: "https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=" + query + "&_export=csv",
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+    })
+    .catch(err => {
+        window.location.href = "error.html"
     })
 })
 
 
 
+// Campus ambassadors
 
+document.getElementById("ca-all-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    query = JSON.stringify({})
+    axios({
+        url: 'https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query={}&_export=csv',
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+    })
+    .catch(err => {
+        window.location.href = "error.html"
+    })
+})
+
+
+document.getElementById("ca-filter-dwnld").addEventListener("click", (e) => {
+    let query = {}
+    let select = document.getElementById("ca-drop").value
+    let input = document.getElementById("ca-input").value
+    query[select] = {
+        $regex: input,
+        $options: "i"
+    }
+    query = JSON.stringify(query)
+    console.log(query)
+    axios({
+        url: "https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=" + query + "&_export=csv",
+        method: 'GET',
+        responseType: 'blob',
+        headers: {
+            Authorization: sessionStorage.getItem("token")
+        }
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.csv'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+    })
+    .catch(err => {
+        window.location.href = "error.html"
+    })
+})
