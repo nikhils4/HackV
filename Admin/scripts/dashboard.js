@@ -1,4 +1,11 @@
 
+// logout btn
+document.getElementById("logout").addEventListener("click", (e) => {
+    console.log("Hello")
+    document.cookie = "token=unauth"
+    document.location.href = "logout.html"
+})
+
 // Fetch call for get the registration count for all registrations
 fetch('https://vithack.herokuapp.com/dashboard/count')
     .then((response) => {
@@ -60,16 +67,20 @@ document.getElementById("collab-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
+                console.log("Sahii aaya hain")
                 return response.json()
             })
             .then((data) => {
                 renderCollabData(data.data)
                 document.getElementById("collab-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     } else {
         query[select] = {
@@ -80,7 +91,7 @@ document.getElementById("collab-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -90,6 +101,9 @@ document.getElementById("collab-submit").addEventListener("click", e => {
                 renderCollabData(data.data)
                 document.getElementById("collab-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     }
 })
@@ -106,7 +120,7 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -116,6 +130,9 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
                 renderSponsorsData(data.data)
                 document.getElementById("sponsors-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     } else {
         query[select] = {
@@ -126,7 +143,7 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -136,6 +153,9 @@ document.getElementById("sponsors-submit").addEventListener("click", e => {
                 renderSponsorsData(data.data)
                 document.getElementById("sponsors-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     }
 })
@@ -152,7 +172,7 @@ document.getElementById("ca-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -162,6 +182,9 @@ document.getElementById("ca-submit").addEventListener("click", e => {
                 renderCAData(data.data)
                 document.getElementById("ca-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     } else {
         query[select] = {
@@ -172,7 +195,7 @@ document.getElementById("ca-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -182,6 +205,9 @@ document.getElementById("ca-submit").addEventListener("click", e => {
                 renderCAData(data.data)
                 document.getElementById("ca-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     }
 })
@@ -199,7 +225,7 @@ document.getElementById("eb-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -209,6 +235,9 @@ document.getElementById("eb-submit").addEventListener("click", e => {
                 renderEBData(data.data)
                 document.getElementById("eb-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     } else {
         query[select] = {
@@ -219,7 +248,7 @@ document.getElementById("eb-submit").addEventListener("click", e => {
         let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
         fetch(url, {
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+                'Authorization': Cookies.get("token")
             }
         })
             .then((response) => {
@@ -229,6 +258,9 @@ document.getElementById("eb-submit").addEventListener("click", e => {
                 renderEBData(data.data)
                 document.getElementById("eb-load").style.visibility = "hidden"
                 return true
+            })
+            .catch( err => {
+                window.location.href = "error.html"
             })
     }
 })
@@ -474,7 +506,7 @@ document.getElementById("sponsors-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/sponsors?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+            'Authorization': Cookies.get("token")
         }
     })
     .then((response) => {
@@ -485,6 +517,9 @@ document.getElementById("sponsors-card").addEventListener("click", (e) => {
         document.getElementById("sponsors-top").scrollIntoView();
         document.getElementById("sponsors-load").style.visibility = "hidden"
         return true
+    })
+    .catch( err => {
+        window.location.href = "error.html"
     })
 })
 
@@ -498,7 +533,7 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/campus-ambassadors?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+            'Authorization': Cookies.get("token")
         }
     })
     .then((response) => {
@@ -509,6 +544,9 @@ document.getElementById("CA-card").addEventListener("click", (e) => {
         document.getElementById("CA-top").scrollIntoView();
         document.getElementById("ca-load").style.visibility = "hidden"
         return true
+    })
+    .catch( err => {
+        window.location.href = "error.html"
     })
    
 })
@@ -523,7 +561,7 @@ document.getElementById("eb-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/earlybirds?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+            'Authorization': Cookies.get("token")
         }
     })
     .then((response) => {
@@ -534,6 +572,9 @@ document.getElementById("eb-card").addEventListener("click", (e) => {
         document.getElementById("eb-top").scrollIntoView();
         document.getElementById("eb-load").style.visibility = "hidden"
         return true
+    })
+    .catch( err => {
+        window.location.href = "error.html"
     })
 })
 
@@ -547,7 +588,7 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
     let url = `https://vithack.herokuapp.com/dashboard/collaborators?skip=0&sort=-_id&query=${query}`
     fetch(url, {
         headers: {
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZ2Fkc2hhcm1hMTAxNkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE1NTkzODg4MzZ9.00ck4yBnRtEPVIyA45T9QqJ_yra16VydbbVksdQ6WFE'
+            'Authorization': Cookies.get("token")
         }
     })
     .then((response) => {
@@ -558,6 +599,9 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
         document.getElementById("collab-top").scrollIntoView();
         document.getElementById("collab-load").style.visibility = "hidden"
         return true
+    })
+    .catch( err => {
+        window.location.href = "error.html"
     })
 
 })

@@ -1,20 +1,44 @@
 document.getElementById("submit").addEventListener("click", (e) => {
     let password = document.getElementById("password").value
-
+    let email = document.getElementById("username").value
     // success
-    window.location.href = "dashboard.html"
     // failure 
-    document.getElementById("error").style.visibility = "visible"
+    // document.getElementById("error").style.visibility = "visible"
     // fetch request to login
+    console.log({email, password})
+    postData('https://vithack.herokuapp.com/users/login', {
+        email,
+        password,
+        type : "admin"
+    })
+    .then((response) => {
+        if (response.token == undefined) {
+            document.getElementById("error").innerHTML = response.message
+        } else {
+            document.cookie = `token=${response.token}`
+            window.location.href = "dashboard.html"
+        }
+    })
+    .catch(err => {
+        document.getElementById("error").innerHTML = "There was some error authenticating you"
+    })
 
-    // fetch('https://vithack.herokuapp.com/dashboard/count')
-    // .then((response) => {
-    //     return response.json()
-    // })
-    // .then((data) => {
-        // document.getElementsByClassName('count-value')[0].innerHTML = data.campus_ambassadors;
-        // document.getElementsByClassName('count-value')[1].innerHTML = data.collaborators;
-        // document.getElementsByClassName('count-value')[2].innerHTML = data.sponsors;
-        // document.getElementsByClassName('count-value')[3].innerHTML = data.early_birds;
-    // })
 })
+
+
+
+function postData(url = '', data = {}) {
+    return fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow',
+        referrer: 'no-referrer',
+        body: JSON.stringify(data), 
+    })
+    .then(response => response.json());
+};
