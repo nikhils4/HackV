@@ -3,3 +3,4 @@ netlify.toml
 .DS_Store
 key.txt
 test.html
+node_modules/
