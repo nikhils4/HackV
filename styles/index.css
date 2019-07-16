@@ -126,3 +126,10 @@ body {
     margin-top : 50px;
     margin-bottom:50px
 }
+
+.icon-circle {
+    border-radius : 50%;
+    height : 40px;
+    width : 40px;
+    border : 2px solid black;
+}
