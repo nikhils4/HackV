@@ -18,6 +18,7 @@ body {
 .content-font {
     font-size : 22px;
     font-weight : lighter;
+    margin-bottom : 5px
 }
 .right-arrow {
     transform: translateY(-10%);
@@ -29,7 +30,7 @@ body {
     font-size : 20px;
     padding-top : 10px; 
     color : rgb(0,134,244);
-    font-weight: bold
+    font-weight: bold;
 }
 .gen-content{
     font-size : 17px
@@ -114,4 +115,14 @@ body {
 
 #popup {
     display: none
+}
+
+.theme-icon {
+    height : 30px;
+    margin-bottom : 20px
+}
+
+.theme-icon-cover {
+    margin-top : 50px;
+    margin-bottom:50px
 }

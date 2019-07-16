@@ -1,0 +1,521 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="This is the home page of VIT Hack 2019">
+	<meta name="keyword" content="Hack Hackathon VIT VITHack Hack2019">
+	<meta name="robots" content="index, follow">
+	<meta name="author" content="Nikhil, Samarth">
+	<link rel="shortcut icon" type="image/ico" href="asset/favicon.ico" />
+	<script src="https://kit.fontawesome.com/fb2bb660e4.js"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+	<title>VIT Hack | Home</title>
+	<link href="./styles/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Popup -->
+	<div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
+		<div class="row" style=" text-align: center">
+			<div class="col-10 col-lg-6"
+				style="background: white; border-radius : 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                                height : 400px; position : fixed; z-index: 200; left : 50%; top : 30%; transform: translate(-50%, -20%)">
+				<div class="row" style=" justify-content: flex-end ; padding-right : 10px; padding-top : 10px">
+					<button type="button" id="close-btn" class="close" aria-label="Close" style="outline: none">
+						<span aria-hidden="true" style="font-family: Georgia, 'Times New Roman', Times, serif">&times;</span>
+					</button>
+				</div>
+				<div class="row h-100 align-items-center">
+					<div class="col-8" style="height : 200px; position : absolute; left : 50%; transform: translateX(-50%)">
+						<img id="popup-img" src="./asset/images/successgif.gif" style="height : 100px">
+						<h3 id="popup-head">
+						</h3>
+						<h5 id="popup-description">
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Navigation Bar  -->
+	<nav data-aos="fade-down" class="navbar navbar-expand-lg navbar-light" style="background: transparent;">
+		<a class="navbar-brand" href="#" aria-label="This is the link to the home page">
+			<img src="./asset/images/logo.png" style="height : 60px; padding-left : 10vw" alt="logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item nav-item-padding" style="margin-left : 15px ; margin-right : 15px">
+					<a class="nav-link" style="color : black" id="blog" href="#">Blog</a>
+				</li>
+				<li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+					<a class="nav-link" style="color : black" href="#help-us-out">Help us out</a>
+				</li>
+				<li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+					<a class="nav-link" style="color : black" href="#tracks">Tracks</a>
+				</li>
+				<li class="nav-item" style="margin-left : 15px ; margin-right : 15px">
+					<a class="nav-link" style="color : black" href="#contact-us">Contact Us</a>
+				</li>
+				<li class="nav-item" style="margin-right : 120px; margin-left : 15px">
+					<a class="nav-link" style="color : black" href="#downloads">Downloads</a>
+				</li>
+		</div>
+	</nav>
+
+	<!-- First Section  -->
+	<div class="container-fluid">
+		<div class="row first-section">
+			<div data-aos="fade-right" class="col-12 col-lg-7">
+				<div>
+					<h2 class="font-bold">VIT HACK</h2>
+				</div>
+				<div style="padding-top : 10px">
+					<p class="content-font">
+						<span class="font-bold" style="color : green">36</span> hours, <span class="font-bold"
+							style="color : orange">1</span> Hack, <span class="font-bold" style="color : red">1</span> Networking
+						Session
+					</p>
+					<p class="content-font" style="padding-top : 2px">
+						<span class="font-bold" style="color : rgb(0,134,244)">21st and 22nd</span> September
+					</p>
+					<p class="content-font font-bold">
+						VIT Vellore, India
+					</p>
+				</div>
+				<div class="detail-btn">
+					<p class="font-light" style="margin-top : 10px; margin-bottom : 5px"><a href="#earlybird"
+							style="text-decoration : none">Registrations Open<img class="right-arrow"
+								src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+				</div>
+				<div>
+					<p><span style="font-family: Arial, Helvetica, sans-serif">*</span>Reimbursements will be provided</p>
+				</div>
+			</div>
+			<div data-aos="fade-left" class="col-12 col-lg-5 cover-img cover-img-fix">
+				<img class="img-responsive " src="./asset/images/Cover Page Image.png"
+					style="height : 250px; transform : translateY(-15%)" alt="cover page image">
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Theme -->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12" style="text-align : center">
+				Themes
+			</div>
+		</div>
+		<div class="row" style="text-align: center">
+			<div class="col-12 col-lg-1"></div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover">
+				<div>
+					<img src="./asset/theme/Agriculture logo.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Agriculture
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover">
+				<div>
+					<img src="./asset/theme/Health Care.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Health Care
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/Mobility.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Mobility
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/FinTech.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					FinTech
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/Education.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Education
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-1 d-none d-lg-block d-xl-block"></div>
+
+			<div class="col-6 col-lg-1 d-none d-lg-block d-xl-block"></div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover">
+				<div>
+					<img src="./asset/theme/Open Innovation.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Open Innovation
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/IoT.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					IoT
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/Telecom.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Telecom
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/Smart Energy.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Smart Energy
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-2 theme-icon-cover" >
+				<div>
+					<img src="./asset/theme/Smart Communication.svg" class="theme-icon">
+				</div>
+				<div class="theme-description">
+					Smart Communication
+				</div>
+			</div>
+
+			<div class="col-6 col-lg-1"></div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-12" style="text-align : center">
+				<button type="button" class="btn btn-primary" style="padding : 10px 15px 7px 15px;">View Details</button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Early bird Section (post addition) -->
+	<div class="container-fluid" id="earlybird">
+		<div class="row second-section" style="padding-bottom : 0">
+			<div class="col-12">
+				<div class="row">
+					<div data-aos="fade-right" class="col-12">
+						<p style="font-size : 30px; color :rgb(0,134,244)">Stay Informed</p>
+					</div>
+				</div>
+				<div class="row">
+					<div data-aos="fade-right" class="col-12 col-lg-9">
+						<p class="font-bold gen-heading">Early Birds</p>
+						<p class="gen-content">
+							Join the Early Bird Program for insights on VIT Hack with social media updates, newsletters and blogs as
+							well as a special trump card exclusively for our early birds!
+						</p>
+					</div>
+					<div data-aos="fade-left" class="col-12 col-lg-3 help-us-img ">
+						<img class="img-responsive bird-fix" alt="campus ambassador image" src="./asset/images/Early Bird Icon.svg"
+							style="height : 110px;">
+					</div>
+					<div data-aos="fade-right" class="col-12" style="margin-top : 45px">
+						<div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
+							<p class="font-light"><a href="https://www.vithack.com/earlybird" style="text-decoration : none">Early
+									Bird Registration <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Remove padding bottom and padding top from upper and below div after image addition and remove margin-top : 45px -->
+
+
+	<!-- Second Section -->
+	<div class="container-fluid">
+		<div class="row second-section" style="padding-top : 0">
+			<div class="col-12">
+				<div class="row">
+					<div data-aos="fade-right" class="col-12">
+						<p style="font-size : 30px; color :orange">Help us out</p>
+					</div>
+				</div>
+				<div class="row">
+					<div data-aos="fade-right" class="col-12 col-lg-9">
+						<p class="font-bold gen-heading">Campus Ambassadors</p>
+						<p class="gen-content">
+							There’s more to college than a degree and grades, be a part of something big.
+							VITHack isn’t just a college hackathon, it’s a phenomenon.
+							Help us get the word out to your college and become a trendsetter!
+						</p>
+					</div>
+					<div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+						<img class="img-responsive" alt="campus ambassador image" src="./asset/images/Campus Ambassador.png"
+							style="height : 180px;">
+					</div>
+					<div data-aos="fade-right" class="col-12">
+						<div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
+							<p class="font-light"><a href="https://www.vithack.com/campusambassador"
+									style="text-decoration : none">Learn
+									More <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div data-aos="fade-right" class="col-12 col-lg-9">
+						<p class="font-bold gen-heading">Case Partners</p>
+						<p class="gen-content">
+							The best ideas in the world have been fruits of long brainstorming
+							sessions where young and motivated minds have come together to solve problems,
+							one such place is VIT Hack. Be a case partner at VIT Hack, let
+							these brilliant minds find solutions to your company’s problems!
+						</p>
+					</div>
+					<div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+						<img class="img-responsive" alt="case partners image" src="./asset/images/Case Partners.png"
+							style="height : 180px;">
+					</div>
+					<div data-aos="fade-right" class="col-12">
+						<div class="detail-btn" style="margin-bottom : 50px; transform: translateY(-30%)">
+							<p class="font-light"><a href="https://www.vithack.com/casepartner" style="text-decoration : none">Become
+									a Case Partner <img class="right-arrow-spl" src="./asset/images/right-arrow.svg"></a></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div data-aos="fade-right" class="col-12 col-lg-9">
+						<p class="font-bold gen-heading">Sponsors</p>
+						<p class="gen-content">
+							VITHack is more than just another college hackathon,
+							it’s a confluence of intellect and entrepreneurship.
+							We dream a dream of fostering able entrepreneurs.
+							Lend us a helping hand to make this a reality.
+						</p>
+					</div>
+					<div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+						<img alt="sponsors image" class="img-responsive" src="./asset/images/Sponsors.png" style="height : 160px;">
+					</div>
+					<div data-aos="fade-right" class="col-12" style="transform: translateY(-30%)">
+						<div class="detail-btn">
+							<p class="font-light sponsor-margin-fix"><a href="https://www.vithack.com/sponsor"
+									style="text-decoration : none">Sponsor
+									Us <img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Third Section -->
+
+	<div class="container-fluid" id="tracks">
+		<div class="row other-section">
+			<div data-aos="fade-right" class="col-12">
+				<div class="row">
+					<div class="col-12">
+						<p style="color : green; font-size : 30px">
+							Tracks
+						</p>
+						<p class="gen-content">
+							Your favourite companies are counting on you to solve their problems!
+							Sponsor tracks coming up soon! Till then, help us out if you have a friend who knows a
+							friend,
+							who knows someone who can help us out.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Fourth Section 
+    <div class="container-fluid">
+        <div class="row other-section">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <p style="color : orange; font-size : 30px">
+                            Sponsors
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+	<!-- Fifth section -->
+	<div class="container-fluid" id="contact-us">
+		<div class="row other-section">
+			<div class="col-12">
+				<div class="row">
+					<div data-aos="fade-right" class="col-12">
+						<p style="color: red; font-size : 30px">
+							Contact Us
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="row">
+							<div data-aos="fade-right" class="col-12 col-lg-9">
+								<p class="font-bold gen-heading">Participants</p>
+								<p class="gen-content">
+									If you have any queries regarding VITHack, contact us through <a
+										href="mailto:participants@vithack.com">email</a>.
+									Feel free to reach out to us and we will get back to you as soon as possible.
+								</p>
+							</div>
+							<div data-aos="fade-left" class="col-12 col-lg-3 help-us-img img-fix">
+								<img alt="participants image" class="img-responsive" src="./asset/images/Participants.png"
+									style="height : 120px;">
+							</div>
+						</div>
+						<div class="row" style="margin-top : 20px">
+							<div data-aos="fade-right" class="col-12 col-lg-9">
+								<p class="font-bold gen-heading">Companies</p>
+								<p class="gen-content">
+									If you’re interested in collaborating with us and being a part of
+									one of the largest hackathons in India, contact us through <a
+										href="mailto:meherdeep.thakur@vithack.com">email</a>.
+									We’d love to have you on board and do something amazing together.
+								</p>
+							</div>
+							<div data-aos="fade-left" class="col-12 col-lg-3 help-us-img">
+								<img alt="companies image" class="img-responsive" src="./asset/images/Companies.png"
+									style="height : 120px;">
+							</div>
+						</div>
+						<div data-aos="fade-right" class="row" style="margin-top : 30px">
+							<div class="col-12">
+								<a href='https://www.facebook.com/vithack19/' style="text-decoration : none"><i
+										class="fab fa-facebook-square" style="font-size : 35px; margin-right : 10px; "></i></a>
+								<a href='https://www.instagram.com/vithack2019/' style="text-decoration : none"><i
+										class="fab fa-instagram" style="font-size : 35px; margin-right : 10px; margin-left : 10px;"></i></a>
+								<a href='https://www.linkedin.com/company/hackvit/' style="text-decoration : none"><i
+										class="fab fa-linkedin-in"
+										style="font-size : 35px; margin-right : 10px; margin-left : 10px;"></i></a>
+								<!-- <a href='https://twitter.com/dscvit' target="_blank" style="text-decoration : none"><i class="fab fa-twitter" style="font-size : 45px; margin-right : 10px; margin-left : 10px; color : black"></i></a>
+                                <a href='https://www.youtube.com/channel/UCvT-ZJF7fXHJi9kDeCPR-zg' target="_blank" style="text-decoration : none"><i class="fab fa-youtube" style="font-size : 45px; margin-right : 10px; margin-left : 10px; color : black"></i></a>
+                                <a href='https://medium.com/gdg-vit' target="_blank" style="text-decoration : none"><i class="fab fa-medium" style="font-size : 45px; margin-right : 10px; margin-left : 10px; color : black"></i></a>
+                                <a href='https://github.com/GDGVIT' target="_blank" style="text-decoration : none"><i class="fab fa-github" style="font-size : 45px; margin-right : 10px; margin-left : 10px; color : black"></i></a>
+                                <a href='https://www.behance.net/dsc-vit' target="_blank" style="text-decoration : none"><i class="fab fa-behance" style="font-size : 45px; margin-right : 10px; margin-left : 10px; color : black"></i></a>
+                          -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Last Section -->
+	<div class="container-fluid" id="downloads" style="height : 400px">
+		<div class="row other-section">
+			<div class="col-12">
+				<div class="row">
+					<div data-aos="fade-right" class="col-12">
+						<p style="font-size : 30px">
+							Downloads
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div data-aos="fade-right" class="col-12">
+						<div class="detail-btn">
+							<p class="font-light"><a href="./public/Collaborations Brochure.pdf" download="Brochure"
+									style="text-decoration : none">Brochure <img class="right-arrow" src="./asset/images/right-arrow.svg"
+										alt="right arrow"></a>
+							</p>
+						</div>
+					</div>
+					<div data-aos="fade-right" class="col-12">
+						<div class="detail-btn">
+							<p class="font-light"><a href="./public/FAQ's.pdf" download="FAQ's"
+									style="text-decoration : none">FAQ<span style="font-family: 'Times New Roman', Times, serif">'</span>s
+									<img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a>
+							</p>
+						</div>
+					</div>
+					<div data-aos="fade-right" class="col-12">
+						<div class="detail-btn">
+							<p class="font-light"><a href="./public/Privacy Policy.pdf" download="Privacy Policy"
+									style="text-decoration : none">Privacy Policy <img class="right-arrow"
+										src="./asset/images/right-arrow.svg" alt="right arrow"></a>
+							</p>
+						</div>
+					</div>
+					<div data-aos="fade-right" class="col-12">
+						<div class="detail-btn">
+							<p class="font-light"><a href="./public/Terms and Conditions.pdf" download="Terms and Conditions"
+									style="text-decoration : none">Terms and Conditions <img class="right-arrow"
+										src="./asset/images/right-arrow.svg" alt="right arrow"></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="./scripts/index.js"></script>
+	<script src="./scripts/tawk.js"></script>
+</body>
+
+</html>
