@@ -115,3 +115,29 @@ body {
 #popup {
     display : none
 }
+
+.company-logo {
+    height : 70px;
+    width : 70px;
+    border-radius : 50%;
+    border : 2px solid black;
+}
+
+.company-name {
+    font-size : 18px;
+    transform: translateY(25%)
+}
+
+.company-link {
+    font-size : 15px;
+    transform: translateY(25%)
+}
+
+@media (min-width : 990px) {
+    .company-name{
+        transform: translate(-10%, 25%)
+    }
+    .company-link{
+        transform: translate(-10%, 25%)
+    }
+}
