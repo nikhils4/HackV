@@ -16,7 +16,7 @@ body {
     font-family : font-bold
 }
 .content-font {
-    font-size : 22px;
+    font-size : 18px;
     font-weight : lighter;
     margin-bottom : 5px
 }
@@ -33,7 +33,7 @@ body {
     font-weight: bold;
 }
 .gen-content{
-    font-size : 17px
+    font-size : 18px
 }
 .gen-heading {
     font-size : 20px
@@ -132,4 +132,31 @@ body {
     height : 40px;
     width : 40px;
     border : 2px solid black;
+}
+
+.company-name {
+    font-size : 20px; 
+    line-height: 40px ; 
+    transform: translate(-2%, 5%)
+}
+
+.track-content {
+    padding: 10px 40px 15px 20px; 
+    text-align: justify;
+    font-size: 18px
+}
+
+.track-subheading {
+    font-size : 30px;
+    padding : 25px;
+    padding-left: 15px;
+}
+
+.details-heading {
+    font-size : 22px;
+    padding-bottom : 15px
+}
+
+.details-content {
+    font-size : 18px;
 }
