@@ -16,8 +16,9 @@ body {
     font-family : font-bold
 }
 .content-font {
-    font-size : 22px;
+    font-size : 18px;
     font-weight : lighter;
+    margin-bottom : 5px
 }
 .right-arrow {
     transform: translateY(-10%);
@@ -29,10 +30,10 @@ body {
     font-size : 20px;
     padding-top : 10px; 
     color : rgb(0,134,244);
-    font-weight: bold
+    font-weight: bold;
 }
 .gen-content{
-    font-size : 17px
+    font-size : 18px
 }
 .gen-heading {
     font-size : 20px
@@ -114,4 +115,58 @@ body {
 
 #popup {
     display: none
+}
+
+.theme-icon {
+    height : 30px;
+    margin-bottom : 20px
+}
+
+.theme-icon-cover {
+    margin-top : 50px;
+    margin-bottom:50px
+}
+
+.icon-circle {
+    border-radius : 50%;
+    height : 40px;
+    width : 40px;
+    border : 2px solid black;
+}
+
+.company-name {
+    font-size : 20px; 
+    line-height: 40px ; 
+    transform: translate(-2%, 5%)
+}
+
+.track-content {
+    padding: 10px 40px 15px 20px; 
+    text-align: justify;
+    font-size: 18px
+}
+
+.track-subheading {
+    font-size : 30px;
+    padding : 25px;
+    padding-left: 15px;
+}
+
+.details-heading {
+    font-size : 22px;
+    padding-bottom : 15px
+}
+
+.details-content {
+    font-size : 18px;
+}
+
+.cor-circle {
+    margin : auto;
+    height : 80px;
+    width : 80px;
+    border-radius : 50%;
+    margin-top : 15px;
+    margin-bottom : 15px;
+    background-color: rgb(244,244,244)
 }
