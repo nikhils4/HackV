@@ -10,13 +10,42 @@
 	<meta name="author" content="Nikhil, Samarth">
 	<link rel="shortcut icon" type="image/ico" href="asset/favicon.ico" />
 	<script src="https://kit.fontawesome.com/fb2bb660e4.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<title>VIT Hack | Home</title>
 	<link href="./styles/index.css" rel="stylesheet">
+	<style>
 
+
+		.wrapper {
+			width: 100%;
+			padding-top: 20px;
+			text-align: center;
+		}
+
+		h2 {
+			font-family: sans-serif;
+			color: #fff;
+		}
+
+		.carousel {
+			width: 90%;
+			margin: 0px auto;
+		}
+
+		.slick-slide {
+			margin: 10px;
+		}
+
+		.slick-slide img {
+			width: 100%;
+			border: 2px solid #fff;
+		}
+	</style>
 </head>
 
 <body>
@@ -223,7 +252,8 @@
 
 		<div class="row" style="margin-top : 40px">
 			<div class="col-12" style="text-align : center">
-				<a href="https://vithack.hackerearth.com/" target="_blank"><button type="button" class="btn btn-primary" style="padding : 10px 15px 7px 15px;">View Details</button></a>
+				<a href="https://vithack.hackerearth.com/" target="_blank"><button type="button" class="btn btn-primary"
+						style="padding : 10px 15px 7px 15px;">View Details</button></a>
 			</div>
 		</div>
 	</div>
@@ -307,6 +337,33 @@
 		</div>
 	</div>
 
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				Hello
+			</div>
+			<div class="col-12">
+				<div class="wrapper">
+					<h2>Slick Carousel Example<h2>
+							<div class="carousel">
+								<div><img style="border : 2px solid black; border-radius : 50%"
+										src="http://lorempixel.com/200/200/nature/"></div>
+								<div><img style="border : 2px solid black; border-radius : 50%"
+										src="http://lorempixel.com/200/200/fashion/"></div>
+								<div><img style="border : 2px solid black; border-radius : 50%"
+										src="http://lorempixel.com/200/200/sports/"></div>
+								<div><img style="border : 2px solid black; border-radius : 50%"
+										src="http://lorempixel.com/200/200/animal/"></div>
+								<div><img style="border : 2px solid black; border-radius : 50%"
+										src="http://lorempixel.com/200/200/abstract/"></div>
+								<div><img style="border : 2px solid black; border-radius : 50%"
+										src="http://lorempixel.com/200/200/people/"></div>
+							</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Details -->
 
 	<div class="container-fluid" style="padding-left : 10vw; padding-right : 10vw; margin-top : 80px">
@@ -349,7 +406,8 @@
 
 		<div class="row" style="margin-top : 40px">
 			<div class="col-12" style="text-align : center">
-				<a href="details.html"><button type="button" class="btn btn-primary" style="padding : 10px 15px 7px 15px;">View Details</button></a>
+				<a href="details.html"><button type="button" class="btn btn-primary" style="padding : 10px 15px 7px 15px;">View
+						Details</button></a>
 			</div>
 		</div>
 	</div>
@@ -477,8 +535,8 @@
 					</div> -->
 					<div data-aos="fade-right" class="col-12">
 						<div class="detail-btn">
-							<p class="font-light"><a href="faq.html" 
-									style="text-decoration : none">FAQ<span style="font-family: 'Times New Roman', Times, serif">'</span>s
+							<p class="font-light"><a href="faq.html" style="text-decoration : none">FAQ<span
+										style="font-family: 'Times New Roman', Times, serif">'</span>s
 									<img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a>
 							</p>
 						</div>
@@ -515,10 +573,49 @@
 		crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
 	<script src="./scripts/index.js"></script>
 	<script src="./scripts/tawk.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script>
+	<script>
 
+		$(document).ready(function () {
+			$('.carousel').slick({
+				dots: true,
+				infinite: false,
+				speed: 300,
+				slidesToShow: 4,
+				slidesToScroll: 4,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 3,
+							infinite: true,
+							dots: true
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+					}
+					// You can unslick at a given breakpoint now by adding:
+					// settings: "unslick"
+					// instead of a settings object
+				]
+			});
+		});</script>
 </body>
 
 </html>
