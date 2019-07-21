@@ -21,7 +21,7 @@ document.getElementById("submit").addEventListener("click", e => {
     let phoneNo = document.getElementById("phoneNo");
     let des = document.getElementById("des");
 
-    let status = [];
+    let status = []; 
     // Email validation
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(email.value.trim())) {
