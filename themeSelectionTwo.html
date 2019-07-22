@@ -351,12 +351,38 @@
 
 						// if custom attr false/true chk for single click on every element
 						if (document.getElementById(e).getAttribute('data-click') == "false") {
-							document.getElementById(e).setAttribute('data-click', 'true')
-							document.getElementById(e + "-fade").style.opacity = "0.2";
-							document.getElementById(e).style.border = "2px solid #007bff";
-							document.getElementById(e).style.borderRadius = "5px";
-							sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
-							document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
+
+							// open innovation conditions
+							if (Number(sessionStorage.getItem("click")) == 1 && e != "innovation" && sessionStorage.getItem("0") != "innovation") {
+								document.getElementById("popup").style.display = "block";
+								document.getElementById("popup-description").innerHTML = "Among three choices it's mandatory to have open innovation, if you will select this track then the third choice will automatically be selected as Open Innovation.";
+
+								// for general priority stuff
+								document.getElementById(e).setAttribute('data-click', 'true')
+								document.getElementById(e + "-fade").style.opacity = "0.2";
+								document.getElementById(e).style.border = "2px solid #007bff";
+								document.getElementById(e).style.borderRadius = "5px";
+								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
+								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
+								document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
+
+								// for open innovation auto selection
+								document.getElementById("innovation").setAttribute('data-click', 'true')
+								document.getElementById("innovation" + "-fade").style.opacity = "0.2";
+								document.getElementById("innovation").style.border = "2px solid #007bff";
+								document.getElementById("innovation").style.borderRadius = "5px";
+								sessionStorage.setItem(Number(sessionStorage.getItem("click")), "innovation");
+								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
+								document.getElementById("innovation" + "-priority").innerHTML = sessionStorage.getItem("click");
+							} else {
+								document.getElementById(e).setAttribute('data-click', 'true')
+								document.getElementById(e + "-fade").style.opacity = "0.2";
+								document.getElementById(e).style.border = "2px solid #007bff";
+								document.getElementById(e).style.borderRadius = "5px";
+								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
+								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
+								document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
+							}
 						}
 
 					}
@@ -379,6 +405,14 @@
 					document.getElementById(e + "-priority").innerHTML = "";
 					document.getElementById(e).setAttribute('data-click', 'false')
 				})
+			})
+
+			// put fetch call here =
+			document.getElementById("submit").addEventListener("click", (e) => {
+				let data = {
+					priority : [ sessionStorage.getItem("0"), sessionStorage.getItem("1"), sessionStorage.getItem("2")]
+				}
+				console.log(data)
 			})
 
 		}
