@@ -164,9 +164,29 @@ body {
 .cor-circle {
     margin : auto;
     height : 80px;
-    width : 80px;
-    border-radius : 50%;
     margin-top : 15px;
-    margin-bottom : 15px;
-    background-color: rgb(244,244,244)
+    width : 100%;
+    text-align: center;
+}
+
+.cor-name {
+    text-align : center;
+    width : 100%;
+}
+
+.circle {
+    margin : auto;
+    height : 80px;
+    width : 80px;
+    border-radius: 50%;
+    background-color: ghostwhite;
+    margin-top : 15px;
+}
+
+@media (max-width : 700px) {
+    .cor-name {
+        text-align : center;
+        width : 100%;
+        margin-bottom : 60px
+    }
 }
