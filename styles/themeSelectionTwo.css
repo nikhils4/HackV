@@ -313,11 +313,20 @@ textarea::-webkit-scrollbar {
 	background-color: rgb(244,244,244)
 }
 
-.select-cover {
+@media (min-width : 601px) {
+	.select-cover {
+		padding : 40px;
+		cursor : pointer;
+		height : 170px;
+	}
+}
 
-	padding : 40px;
-	cursor : pointer;
-	height : 170px;
+@media (max-width : 600px) {
+	.select-cover {
+		padding-top : 40px;
+		cursor : pointer;
+		height : 170px;
+	}
 }
 
 .fade {
