@@ -18,100 +18,79 @@ document.getElementById("submit").addEventListener("click", e => {
 
 	let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if (reg.test(email.value.trim())) {
-			status.push("true")
-			// email.style.borderColor = "Green";
-			// Email validated
+		status.push("true")
+		// email.style.borderColor = "Green";
+		// Email validated
 	}
 	else {
-			email.classList.add("red");
-			email.value = "";
-			email.style.borderColor = "Red";
-			email.placeholder = "Please enter valid email id"
-			status.push("false")
+		email.classList.add("red");
+		email.value = "";
+		email.style.borderColor = "Red";
+		email.placeholder = "Please enter valid email id"
+		status.push("false")
 	}
 
 	// Password
 	if (password.value.trim().length == 0) {
-			password.classList.add("red");
-			password.value = "";
-			password.style.borderColor = "Red";
-			password.placeholder = "This field is required";
-			status.push("false")
+		password.classList.add("red");
+		password.value = "";
+		password.style.borderColor = "Red";
+		password.placeholder = "This field is required";
+		status.push("false")
 	}
 	else {
-			// password validated
-			status.push("true")
+		// password validated
+		status.push("true")
 	}
 
 	// Main eval
 	if (status.includes("false")) {
-			return false
+		return false
 	} else {
 
-			document.getElementById("btn-value").innerHTML = "Loading...."
+		document.getElementById("btn-value").innerHTML = "Loading...."
 
-			grecaptcha.ready(function () {
-					grecaptcha.execute('6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_', { action: 'homepage' }).then(function (token) {
 
-							postData('https://vithack.herokuapp.com/', {
-									email : email.value,
-									password : password.value,
-									token: token
-							})
-									.then(result => {
-											if (result.captcha) {
-													if (result.mail) {
-															// if success
-															document.getElementById("popup").style.display = "block";
-															document.getElementById("popup-img").src = "../asset/images/successgif.gif";
-															document.getElementById("popup-head").innerHTML = "Success";
-															document.getElementById("popup-description").innerHTML = "Your details were saved successfully";
-															document.getElementById("btn-value").innerHTML = "Submit your response"
+				postData('https://vithack.herokuapp.com/teams/login', {
+					email: email.value,
+     password: password.value
+    				})
+					.then(result => {
+							if (result.token) {
+        // if success
+        sessionStorage.setItem("token", result.token);
+        window.location.href = "themeSelectionTwo.html"
+								// clearing input field
+								email.value = ""
+								password.value = "";
+								return true
+							}
+							else {
+         document.getElementById("msg").innerHTML = "Error! Try again";
+         document.getElementById("msg").style.background = "red";
+         document.getElementById("msg").classList.add("animated", "fadeInDown");
+         document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
+         console.log("Issue")
+         setTimeout(() => {
+           document.getElementById("msg").classList.add("animated", "fadeOutUp");
+         }, 5000)
+         setTimeout(() => {
+           document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+           document.getElementById("msg").innerHTML = "";
+           document.getElementById("msg").style.background = "transparent";
+         }, 6000)
 
-															// clearing input field
-															email.value = ""
-															password.value = "";
-															return true
-													}
-													else {
-															document.getElementById("popup").style.display = "block";
-															document.getElementById("popup-img").src = "../asset/images/warning.gif";
-															document.getElementById("popup-head").innerHTML = "Validation Error";
-															document.getElementById("popup-description").innerHTML = "Please refill the marked fields and submit again.";
-
-															if (result.mail == false) {
-																	email.classList.add("red");
-																	email.value = "";
-																	email.style.borderColor = "Red";
-																	email.placeholder = "Please enter valid email id"
-																	document.getElementById("btn-value").innerHTML = "Submit your response"
-
-															}
-													}
-											} else {
-													document.getElementById("popup").style.display = "block";
-													document.getElementById("popup-img").src = "../asset/images/warning.gif";
-													document.getElementById("popup-head").innerHTML = "Captcha Error";
-													document.getElementById("popup-description").innerHTML = "Try refreshing the page and again submit the form";
-													document.getElementById("btn-value").innerHTML = "Submit your response"
-
-													// clearing input field
-													email.value = ""
-													password.value = "";
-													return true
-											}
-									})
-									.catch(error => {
-											document.getElementById("popup").style.display = "block";
-											document.getElementById("popup-img").src = "../asset/images/warning.gif";
-											document.getElementById("popup-head").innerHTML = "Its on us";
-											document.getElementById("popup-description").innerHTML = "There was some error";
-											document.getElementById("btn-value").innerHTML = "Submit your response"
-
-									});
+						} 
+					})
+      .catch(error => {
+        document.getElementById("msg").innerHTML = "There was some error, it is on us!";
+        document.getElementById("msg").style.background = "red";
+        document.getElementById("msg").classList.add("animated", "fadeInDown");
+        document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
+        setTimeout(() => {
+          document.getElementById("msg").classList.add("fadeOutUp");
+        }, 5000)
 					});
-			});
-
 	}
 })
 
@@ -122,17 +101,17 @@ function fieldReset(event) {
 
 function postData(url = '', data = {}) {
 	return fetch(url, {
-			method: 'POST',
-			mode: 'cors',
-			cache: 'no-cache',
-			credentials: 'same-origin',
-			headers: {
-					'Content-Type': 'application/json',
-			},
-			redirect: 'follow',
-			referrer: 'no-referrer',
-			body: JSON.stringify(data),
+		method: 'POST',
+		mode: 'cors',
+		cache: 'no-cache',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		redirect: 'follow',
+		referrer: 'no-referrer',
+		body: JSON.stringify(data),
 	})
-			.then(response => response.json());
+		.then(response => response.json());
 };
 

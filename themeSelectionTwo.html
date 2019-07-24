@@ -24,20 +24,17 @@
 		gtag('js', new Date());
 
 		gtag('config', 'UA-127563973-3');</script>
+
+		<style>
+			
+			
+
+		</style>
 </head>
 
 <body>
 
 
-	<!-- Error slider -->
-
-	<div class="container-fluid">
-		<div class="row" style="position : absolute">
-			<div class="col-12" style="text-align : center">
-					Error! Try again
-			</div>
-		</div>
-	</div>
 
 	<!-- Popup -->
 	<div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
@@ -125,7 +122,7 @@
 			<div class="col-12 col-lg-1"></div>
 
 			<div class="col-6 col-lg-2 theme-icon-cover " style="text-align : center">
-				<div class="select-cover" id="agriculture" data-click="false"  >
+				<div class="select-cover" id="agriculture" >
 
 					<div id="agriculture-fade">
 						<div>
@@ -221,19 +218,19 @@
 			<div class="col-6 col-lg-1 d-none d-lg-block d-xl-block"></div>
 
 			<div class="col-6 col-lg-2 theme-icon-cover">
-				<div class="select-cover" id="innovation" data-click="false">
+				<div class="select-cover" style="border : 2px solid #007bff; border-radius : 5px" id="innovation" data-click="false">
 
-					<div id="innovation-fade">
+					<div id="innovation-fade" class="fade-oi">
 						<div>
-							<img src="./asset/theme/Open Innovation.svg" class="theme-icon">
+							<img src="./asset/theme/Open Innovation.svg" class="theme-icon-oi">
 						</div>
-						<div class="theme-description">
+						<div class="theme-description-oi">
 							Open Innovation
 						</div>
 					</div>
 
-					<div class="priority" id="innovation-priority">
-
+					<div class="priority-oi" id="innovation-priority">
+						1
 					</div>
 				</div>
 			</div>
@@ -315,7 +312,7 @@
 		</div>
 
 
-		<div class="row first-section">
+		<div class="row first-section" style="padding-top : 0">
 			<div class="col-12 col-lg-6">
 				<!-- Submit -->
 				<div class="detail-btn" style="padding-left : 12px; margin-top : 60px">
@@ -327,9 +324,9 @@
 			<div class="col-12 col-lg-6">
 
 				<!-- Reset -->
-				<div class="detail-btn" style="padding-left : 12px; margin-top : 60px">
+				<div class="detail-btn" style="padding-left : 12px;" id="reset-btn">
 					<p id="reset" class="font-light"><a href="#help-us-out" style="text-decoration : none; color : red"><span
-								id="btn-value">Reset selection</span><img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+								id="btn-value">Reset selection</span><img class="right-arrow" src="./asset/images/right-arrow-red.svg" alt="right arrow"></a></p>
 				</div>
 			</div>
 		</div>
@@ -345,9 +342,10 @@
 
 			// After this add error slider at top
 
-			tracks = ["agriculture", "health", "mobility", "fintech", "education", "innovation", "iot", "telecom", "energy", "comms"]
+			tracks = ["agriculture", "health", "mobility", "fintech", "education", "iot", "telecom", "energy", "comms"]
 			let priority = {};
-			sessionStorage.setItem("click", 0);
+			sessionStorage.setItem("click", 1);
+			sessionStorage.setItem("0", "open-innovation");
 			tracks.forEach(e => {
 				document.getElementById(e).addEventListener("click", (event) => {
 
@@ -360,12 +358,8 @@
 						// if custom attr false/true chk for single click on every element
 						if (document.getElementById(e).getAttribute('data-click') == "false") {
 
-							// open innovation conditions
-							if (Number(sessionStorage.getItem("click")) == 1 && e != "innovation" && sessionStorage.getItem("0") != "innovation") {
-								document.getElementById("popup").style.display = "block";
-								document.getElementById("popup-description").innerHTML = "Among three choices it's mandatory to have open innovation, if you will select this track then the third choice will automatically be selected as Open Innovation.";
-
-								// for general priority stuff
+			
+				
 								document.getElementById(e).setAttribute('data-click', 'true')
 								document.getElementById(e + "-fade").style.opacity = "0.2";
 								document.getElementById(e).style.border = "2px solid #007bff";
@@ -373,30 +367,10 @@
 								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
 								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
 								document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
-
-								// for open innovation auto selection
-								document.getElementById("innovation").setAttribute('data-click', 'true')
-								document.getElementById("innovation" + "-fade").style.opacity = "0.2";
-								document.getElementById("innovation").style.border = "2px solid #007bff";
-								document.getElementById("innovation").style.borderRadius = "5px";
-								sessionStorage.setItem(Number(sessionStorage.getItem("click")), "innovation");
-								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
-								document.getElementById("innovation" + "-priority").innerHTML = sessionStorage.getItem("click");
-							} else {
-								document.getElementById(e).setAttribute('data-click', 'true')
-								document.getElementById(e + "-fade").style.opacity = "0.2";
-								document.getElementById(e).style.border = "2px solid #007bff";
-								document.getElementById(e).style.borderRadius = "5px";
-								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
-								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
-								document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
-							}
+							
 						}
 
 					}
-
-					// Show popup with some content to be done with open innovation wala stuff
-					// document.getElementById("popup").style.display = "block"
 				})
 			});
 
@@ -409,7 +383,7 @@
 				tracks.forEach(e => {
 					document.getElementById(e + "-fade").style.opacity = "1";
 					document.getElementById(e).style.border = "2px solid white";
-					sessionStorage.setItem("click", 0);
+					sessionStorage.setItem("click", 1);
 					document.getElementById(e + "-priority").innerHTML = "";
 					document.getElementById(e).setAttribute('data-click', 'false')
 				})
@@ -425,7 +399,7 @@
 
 		}
 
-	</script>
+</script>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

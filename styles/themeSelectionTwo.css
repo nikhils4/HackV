@@ -319,6 +319,9 @@ textarea::-webkit-scrollbar {
 		cursor : pointer;
 		height : 170px;
 	}
+	#reset-btn {
+		margin-top : 60px
+	}
 }
 
 @media (max-width : 600px) {
@@ -326,6 +329,9 @@ textarea::-webkit-scrollbar {
 		padding-top : 40px;
 		cursor : pointer;
 		height : 170px;
+	}
+	#reset-btn {
+		margin-bottom : 40px
 	}
 }
 
@@ -344,6 +350,30 @@ textarea::-webkit-scrollbar {
 }
 
 .priority {
+	top : 50%; 
+	left : 50%; 
+	position : absolute; 
+	transform: translate(-50%, -50%); 
+	font-size : 50px; 
+	font-weight : bolder; 
+	color: #007bff
+}
+
+.fade-oi {
+	opacity : 0.5
+}
+
+.theme-icon-oi {
+	height : 30px;
+	margin-bottom : 20px
+}
+
+.theme-icon-cover-oi {
+	margin-top : 50px;
+	padding : 30px 40px;
+}
+
+.priority-oi {
 	top : 50%; 
 	left : 50%; 
 	position : absolute; 

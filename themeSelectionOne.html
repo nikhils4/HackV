@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="This is the Case Partner form page of VIT Hack 2019">
 	<meta name="keyword" content="Hack Hackathon VIT VITHack Hack2019">
 	<meta name="robots" content="index, follow">
 	<meta name="author" content="Nikhil">
@@ -13,7 +12,6 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-	<script src="https://www.google.com/recaptcha/api.js?render=6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_"></script>
 	<title>VIT Hack | Theme Selection</title>
 	<link href="./styles/themeSelectionOne.css" rel="stylesheet">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -27,6 +25,16 @@
 </head>
 
 <body>
+
+	<!-- Message slider -->
+
+	<div class="container-fluid">
+			<div class="row">
+				<div class="col-12" id="msg" style="text-align : center;color: white; height : 30px; position: absolute; z-index : 100; line-height : 30px">
+				</div>
+			</div>
+		</div>
+	
 
 	<!-- Popup -->
 	<div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
@@ -120,13 +128,15 @@
 					<div class="w-100"></div>
 					<div class="detail-btn" style="padding-left : 12px; margin-top : 60px">
 						<p class="font-light" id="submit"><a href="#help-us-out" style="text-decoration : none"><span
-									id="btn-value">Proceed to theme selection</span><img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a>
+									id="btn-value" style="font-size : 18px">Proceed to theme selection</span><img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
