@@ -25,16 +25,26 @@
 
 		gtag('config', 'UA-127563973-3');</script>
 
-		<style>
-			
-			
+	<style>
 
-		</style>
+
+
+	</style>
 </head>
 
 <body>
 
 
+
+	<!-- Message slider -->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12" id="msg"
+				style="text-align : center;color: white; height : 30px; position: absolute; z-index : 100; line-height : 30px">
+			</div>
+		</div>
+	</div>
 
 	<!-- Popup -->
 	<div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
@@ -122,7 +132,7 @@
 			<div class="col-12 col-lg-1"></div>
 
 			<div class="col-6 col-lg-2 theme-icon-cover " style="text-align : center">
-				<div class="select-cover" id="agriculture" >
+				<div class="select-cover" id="agriculture">
 
 					<div id="agriculture-fade">
 						<div>
@@ -218,7 +228,8 @@
 			<div class="col-6 col-lg-1 d-none d-lg-block d-xl-block"></div>
 
 			<div class="col-6 col-lg-2 theme-icon-cover">
-				<div class="select-cover" style="border : 2px solid #007bff; border-radius : 5px" id="innovation" data-click="false">
+				<div class="select-cover" style="border : 2px solid #007bff; border-radius : 5px" id="innovation"
+					data-click="false">
 
 					<div id="innovation-fade" class="fade-oi">
 						<div>
@@ -326,7 +337,8 @@
 				<!-- Reset -->
 				<div class="detail-btn" style="padding-left : 12px;" id="reset-btn">
 					<p id="reset" class="font-light"><a href="#help-us-out" style="text-decoration : none; color : red"><span
-								id="btn-value">Reset selection</span><img class="right-arrow" src="./asset/images/right-arrow-red.svg" alt="right arrow"></a></p>
+								id="btn-value">Reset selection</span><img class="right-arrow" src="./asset/images/right-arrow-red.svg"
+								alt="right arrow"></a></p>
 				</div>
 			</div>
 		</div>
@@ -339,9 +351,15 @@
 		window.onload = () => {
 
 
-
 			document.getElementById("popup").style.display = "block";
 			document.getElementById("popup-description").innerHTML = "As mentioned in the e-mail Open Innovation was already selected for you";
+
+
+
+			document.getElementById("close-btn").addEventListener("click", (e) => {
+				document.getElementById("popup").style.display = "none";
+			})
+
 
 
 			// Do btn disable at last 
@@ -351,7 +369,7 @@
 			tracks = ["agriculture", "health", "mobility", "fintech", "education", "iot", "telecom", "energy", "comms"]
 			let priority = {};
 			sessionStorage.setItem("click", 1);
-			sessionStorage.setItem("0", "open-innovation");
+			sessionStorage.setItem("0", "open innovation");
 			tracks.forEach(e => {
 				document.getElementById(e).addEventListener("click", (event) => {
 
@@ -367,16 +385,31 @@
 						// if custom attr false/true chk for single click on every element
 						if (document.getElementById(e).getAttribute('data-click') == "false") {
 
-			
-				
-								document.getElementById(e).setAttribute('data-click', 'true')
-								document.getElementById(e + "-fade").style.opacity = "0.2";
-								document.getElementById(e).style.border = "2px solid #007bff";
-								document.getElementById(e).style.borderRadius = "5px";
+
+
+							document.getElementById(e).setAttribute('data-click', 'true')
+							document.getElementById(e + "-fade").style.opacity = "0.2";
+							document.getElementById(e).style.border = "2px solid #007bff";
+							document.getElementById(e).style.borderRadius = "5px";
+							document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
+
+							if (e == "comms"){
+								e = "smart communication"
 								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
 								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
-								document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
-							
+
+							} else if ( e = "iot") {
+								e = "IoT"
+								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
+								sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
+
+							}
+							else {
+								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
+							sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
+
+							}
+					
 						}
 
 					}
@@ -400,15 +433,85 @@
 
 			// put fetch call here =
 			document.getElementById("submit").addEventListener("click", (e) => {
-				let data = {
-					priority : [ sessionStorage.getItem("0"), sessionStorage.getItem("1"), sessionStorage.getItem("2")]
-				}
-				console.log(data)
+
+
+				document.getElementById("btn-value").innerHTML = "Loading...."
+
+				// let arr = [sessionStorage.getItem("0"), sessionStorage.getItem("1"), sessionStorage.getItem("2")];
+
+				// arr.forEach(ele => {
+				// 	if (ele == "comms")
+				// })
+
+				postData('https://vithack.herokuapp.com/teams/themes', {
+					themes: [sessionStorage.getItem("0").charAt(0).toUpperCase() + sessionStorage.getItem("0").slice(1), sessionStorage.getItem("1").charAt(0).toUpperCase() + sessionStorage.getItem("1").slice(1), sessionStorage.getItem("2").charAt(0).toUpperCase() + sessionStorage.getItem("2").slice(1)]
+				})
+					.then(result => {
+						if (result.themes) {
+							// if success
+							sessionStorage.removeItem("token")
+							window.location.href = "themeSelectionOne.html"
+							return true
+						}
+						else {
+							document.getElementById("msg").innerHTML = "Error! Try again";
+							document.getElementById("msg").style.background = "red";
+							document.getElementById("msg").classList.add("animated", "fadeInDown");
+							document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
+							setTimeout(() => {
+								document.getElementById("msg").classList.add("animated", "fadeOutUp");
+							}, 5000)
+							setTimeout(() => {
+								document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+								document.getElementById("msg").innerHTML = "";
+								document.getElementById("msg").style.background = "transparent";
+							}, 6000)
+
+						}
+					})
+					.catch(error => {
+						document.getElementById("msg").innerHTML = "There was some error, it is on us!";
+						document.getElementById("msg").style.background = "red";
+						document.getElementById("msg").classList.add("animated", "fadeInDown");
+						document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
+						setTimeout(() => {
+							document.getElementById("msg").classList.add("animated", "fadeOutUp");
+						}, 5000)
+						setTimeout(() => {
+							document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+							document.getElementById("msg").innerHTML = "";
+							document.getElementById("msg").style.background = "transparent";
+						}, 6000)
+
+					});
 			})
+
+
+
+			function postData(url = '', data = {}) {
+				return fetch(url, {
+					method: 'POST',
+					mode: 'cors',
+					cache: 'no-cache',
+					credentials: 'same-origin',
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': sessionStorage.getItem("token")
+					},
+					redirect: 'follow',
+					referrer: 'no-referrer',
+					body: JSON.stringify(data),
+				})
+					.then(response => response.json());
+			};
+
 
 		}
 
-</script>
+
+
+
+	</script>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

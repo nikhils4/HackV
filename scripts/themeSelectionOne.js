@@ -70,7 +70,6 @@ document.getElementById("submit").addEventListener("click", e => {
          document.getElementById("msg").style.background = "red";
          document.getElementById("msg").classList.add("animated", "fadeInDown");
          document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
-         console.log("Issue")
          setTimeout(() => {
            document.getElementById("msg").classList.add("animated", "fadeOutUp");
          }, 5000)
