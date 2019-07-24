@@ -338,6 +338,12 @@
 
 		window.onload = () => {
 
+
+
+			document.getElementById("popup").style.display = "block";
+			document.getElementById("popup-description").innerHTML = "As mentioned in the e-mail Open Innovation was already selected for you";
+
+
 			// Do btn disable at last 
 
 			// After this add error slider at top
@@ -348,6 +354,9 @@
 			sessionStorage.setItem("0", "open-innovation");
 			tracks.forEach(e => {
 				document.getElementById(e).addEventListener("click", (event) => {
+
+
+
 
 					// No more than three clicks
 					if (Number(sessionStorage.getItem("click")) == 3) {
