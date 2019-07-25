@@ -62,13 +62,13 @@
 				<div class="row h-100 align-items-center">
 					<div class="col-8" style="height : auto; position : absolute; left : 50%; transform: translateX(-50%)">
 						<!-- For image of open innovation wala stuff  -->
-						<h3 id="popup-head">
+						<h3 id="popup-head" style="transform: translateY(-150%)">
 							Information
 						</h3>
-						<h5 id="popup-description-one">
-							As mentioned in the email <b>Open Innovation</b> is pre-selected
+						<h5 id="popup-description">
+							As mentioned in the email <b>Open Innovation</b> is pre-selected for you.
 						</h5>
-						<img id="popup-img" src="./asset/images/successgif.gif" style="height : 100px">
+						<img id="popup-img" src="./asset/theme/Open Innovation.svg" style="height : 70px">
 
 					</div>
 				</div>
@@ -340,7 +340,7 @@
 				<!-- Reset -->
 				<div class="detail-btn" style="padding-left : 12px;" id="reset-btn">
 					<p id="reset" class="font-light"><a href="#help-us-out" style="text-decoration : none; color : red"><span
-								id="btn-value">Reset selection</span><img class="right-arrow" src="./asset/images/right-arrow-red.svg"
+								id="btn-value-reset">Reset selection</span><img class="right-arrow" src="./asset/images/right-arrow-red.svg"
 								alt="right arrow"></a></p>
 				</div>
 			</div>
@@ -353,17 +353,15 @@
 
 		window.onload = () => {
 
+			document.getElementById("btn-value").setAttribute("style", "text-decoration : none; color : gray");
+			document.getElementsByClassName("right-arrow")[0].style.visibility = "hidden";
 
 			document.getElementById("popup").style.display = "block";
-			document.getElementById("popup-description").innerHTML = "As mentioned in the e-mail Open Innovation is already selected for you";
-
-
+			document.getElementById("popup-description").innerHTML = "As mentioned in the email <b>Open Innovation</b> is pre-selected for you.";
 
 			document.getElementById("close-btn").addEventListener("click", (e) => {
 				document.getElementById("popup").style.display = "none";
 			})
-
-
 
 			// Do btn disable at last 
 
@@ -376,13 +374,19 @@
 			tracks.forEach(e => {
 				document.getElementById(e).addEventListener("click", (event) => {
 
-
+					if (Number(sessionStorage.getItem("click")) < 2) {
+						document.getElementById("btn-value").setAttribute("style", "text-decoration : none; color : gray");
+			document.getElementsByClassName("right-arrow")[0].style.visibility = "hidden";
+					} else {
+						document.getElementById("btn-value").setAttribute("style", "text-decoration : none; color : #007bff");
+			document.getElementsByClassName("right-arrow")[0].style.visibility = "visible";
+					}
 
 
 					// No more than three clicks
 					if (Number(sessionStorage.getItem("click")) == 3) {
 						document.getElementById("popup").style.display = "block";
-						document.getElementById("popup-description").innerHTML = "You can't select more than three tracks. Try submitting the selected tracks";
+						document.getElementById("popup-description").innerHTML = "You cannot select more than three themes.<br> Try submitting the selected tracks";
 					} else {
 
 						// if custom attr false/true chk for single click on every element
@@ -436,27 +440,8 @@
 			// put fetch call here =
 			document.getElementById("submit").addEventListener("click", (e) => {
 
-
-				document.getElementById("btn-value").innerHTML = "Loading...."
-
-				// let arr = [sessionStorage.getItem("0"), sessionStorage.getItem("1"), sessionStorage.getItem("2")];
-
-				// arr.forEach(ele => {
-				// 	if (ele == "comms")
-				// })
-
-				postData('https://vithack.herokuapp.com/teams/themes', {
-					themes: [sessionStorage.getItem("0").charAt(0).toUpperCase() + sessionStorage.getItem("0").slice(1), sessionStorage.getItem("1").charAt(0).toUpperCase() + sessionStorage.getItem("1").slice(1), sessionStorage.getItem("2").charAt(0).toUpperCase() + sessionStorage.getItem("2").slice(1)]
-				})
-					.then(result => {
-						if (result.themes) {
-							// if success
-							console.log("alright")
-							sessionStorage.removeItem("token")
-							window.location.href = "themeSelectionOne.html"
-							return true
-						} else if (result.message) {
-							document.getElementById("msg").innerHTML = "You have already seleted theme";
+				if (Number(sessionStorage.getItem("click")) < 3) {
+					document.getElementById("msg").innerHTML = "Select three themes before submitting";
 							document.getElementById("msg").style.background = "red";
 							document.getElementById("msg").classList.add("animated", "fadeInDown");
 							document.getElementById("btn-value").innerHTML = "Submit your response";
@@ -469,38 +454,64 @@
 								document.getElementById("msg").style.background = "transparent";
 							}, 6000)
 
-						}
-						else {
-							document.getElementById("msg").innerHTML = "Error! Try again";
-							document.getElementById("msg").style.background = "red";
-							document.getElementById("msg").classList.add("animated", "fadeInDown");
-							document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
-							setTimeout(() => {
-								document.getElementById("msg").classList.add("animated", "fadeOutUp");
-							}, 5000)
-							setTimeout(() => {
-								document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
-								document.getElementById("msg").innerHTML = "";
-								document.getElementById("msg").style.background = "transparent";
-							}, 6000)
+				} else {
+					document.getElementById("btn-value").innerHTML = "Loading....";
 
-						}
-					})
-					.catch(error => {
-						document.getElementById("msg").innerHTML = "There was some error, it is on us!";
-						document.getElementById("msg").style.background = "red";
-						document.getElementById("msg").classList.add("animated", "fadeInDown");
-						document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
-						setTimeout(() => {
-							document.getElementById("msg").classList.add("animated", "fadeOutUp");
-						}, 5000)
-						setTimeout(() => {
-							document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
-							document.getElementById("msg").innerHTML = "";
-							document.getElementById("msg").style.background = "transparent";
-						}, 6000)
+postData('https://vithack.herokuapp.com/teams/themes', {
+	themes: [sessionStorage.getItem("0").charAt(0).toUpperCase() + sessionStorage.getItem("0").slice(1), sessionStorage.getItem("1").charAt(0).toUpperCase() + sessionStorage.getItem("1").slice(1), sessionStorage.getItem("2").charAt(0).toUpperCase() + sessionStorage.getItem("2").slice(1)]
+})
+	.then(result => {
+		if (result.themes) {
+			sessionStorage.removeItem("token")
+			window.location.href = "themeSelectionOne.html"
+			return true
+		} else if (result.message == "Already selected themes") {
+			document.getElementById("msg").innerHTML = "You have already seleted theme";
+			document.getElementById("msg").style.background = "red";
+			document.getElementById("msg").classList.add("animated", "fadeInDown");
+			document.getElementById("btn-value").innerHTML = "Submit your response";
+			setTimeout(() => {
+				document.getElementById("msg").classList.add("animated", "fadeOutUp");
+			}, 5000)
+			setTimeout(() => {
+				document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+				document.getElementById("msg").innerHTML = "";
+				document.getElementById("msg").style.background = "transparent";
+			}, 6000)
 
-					});
+		}
+		else {
+			document.getElementById("msg").innerHTML = "Unauthorised! Please login first before selecting themes";
+			document.getElementById("msg").style.background = "red";
+			document.getElementById("msg").classList.add("animated", "fadeInDown");
+			document.getElementById("btn-value").innerHTML = "Submit your response";
+			setTimeout(() => {
+				document.getElementById("msg").classList.add("animated", "fadeOutUp");
+			}, 5000)
+			setTimeout(() => {
+				document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+				document.getElementById("msg").innerHTML = "";
+				document.getElementById("msg").style.background = "transparent";
+			}, 6000)
+
+		}
+	})
+	.catch(error => {
+		document.getElementById("msg").innerHTML = "There was some error, it is on us!";
+		document.getElementById("msg").style.background = "red";
+		document.getElementById("msg").classList.add("animated", "fadeInDown");
+		document.getElementById("btn-value").innerHTML = "Submit your response";
+		setTimeout(() => {
+			document.getElementById("msg").classList.add("animated", "fadeOutUp");
+		}, 5000)
+		setTimeout(() => {
+			document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+			document.getElementById("msg").innerHTML = "";
+			document.getElementById("msg").style.background = "transparent";
+		}, 6000)
+
+	});
+				}
 			})
 
 
