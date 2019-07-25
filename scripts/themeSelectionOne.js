@@ -49,7 +49,7 @@ document.getElementById("submit").addEventListener("click", e => {
 	} else {
 
 		document.getElementById("btn-value").innerHTML = "Loading...."
-
+		console.log(email, password)
 
 				postData('https://vithack.herokuapp.com/teams/login', {
 					email: email.value,

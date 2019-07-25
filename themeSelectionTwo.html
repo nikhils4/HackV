@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" defer>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 	<script src="https://www.google.com/recaptcha/api.js?render=6LdwaqgUAAAAAHq8aXnOCQBhTaMh9vFsDlZ_ikZ_"></script>
 	<title>VIT Hack | Theme Selection</title>
@@ -41,7 +42,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12" id="msg"
-				style="text-align : center;color: white; height : 30px; position: absolute; z-index : 100; line-height : 30px">
+				style="text-align : center;color: white; height : 30px; position: fixed; z-index : 100; line-height : 30px;">
+				
 			</div>
 		</div>
 	</div>
@@ -60,13 +62,14 @@
 				<div class="row h-100 align-items-center">
 					<div class="col-8" style="height : auto; position : absolute; left : 50%; transform: translateX(-50%)">
 						<!-- For image of open innovation wala stuff  -->
-						<!-- <img id="popup-img" src="./asset/images/successgif.gif" style="height : 100px"> -->
 						<h3 id="popup-head">
-
+							Information
 						</h3>
-						<h5 id="popup-description">
-
+						<h5 id="popup-description-one">
+							As mentioned in the email <b>Open Innovation</b> is pre-selected
 						</h5>
+						<img id="popup-img" src="./asset/images/successgif.gif" style="height : 100px">
+
 					</div>
 				</div>
 			</div>
@@ -395,16 +398,17 @@
 							if (e == "comms"){
 								e = "smart communication"
 								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
+								e = "comms"
 
 							} else if ( e == "iot") {
 								e = "IoT"
 								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
-
+								e = "iot"
 							}
 							else {
 								sessionStorage.setItem(Number(sessionStorage.getItem("click")), e);
-
 							}
+
 							sessionStorage.setItem("click", Number(sessionStorage.getItem("click")) + 1);
 							document.getElementById(e + "-priority").innerHTML = sessionStorage.getItem("click");
 
@@ -451,6 +455,20 @@
 							sessionStorage.removeItem("token")
 							window.location.href = "themeSelectionOne.html"
 							return true
+						} else if (result.message) {
+							document.getElementById("msg").innerHTML = "You have already seleted theme";
+							document.getElementById("msg").style.background = "red";
+							document.getElementById("msg").classList.add("animated", "fadeInDown");
+							document.getElementById("btn-value").innerHTML = "Submit your response";
+							setTimeout(() => {
+								document.getElementById("msg").classList.add("animated", "fadeOutUp");
+							}, 5000)
+							setTimeout(() => {
+								document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+								document.getElementById("msg").innerHTML = "";
+								document.getElementById("msg").style.background = "transparent";
+							}, 6000)
+
 						}
 						else {
 							document.getElementById("msg").innerHTML = "Error! Try again";
