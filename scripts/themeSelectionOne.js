@@ -59,7 +59,7 @@ document.getElementById("submit").addEventListener("click", e => {
 							if (result.token) {
         // if success
         sessionStorage.setItem("token", result.token);
-        window.location.href = "themeSelectionTwo.html"
+        window.location.href = "themeSelect.html"
 								// clearing input field
 								email.value = ""
 								password.value = "";

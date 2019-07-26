@@ -322,6 +322,13 @@ textarea::-webkit-scrollbar {
 	#reset-btn {
 		margin-top : 60px
 	}
+	#msg {
+		text-align : center;
+		color: white; 
+		height : 30px; 
+		position: fixed; 
+		z-index : 100;
+	}
 }
 
 @media (max-width : 600px) {
@@ -332,6 +339,13 @@ textarea::-webkit-scrollbar {
 	}
 	#reset-btn {
 		margin-bottom : 40px
+	}
+	#msg {
+		text-align : center;
+		color: white; 
+		height : 50px; 
+		position: fixed; 
+		z-index : 100;
 	}
 }
 
