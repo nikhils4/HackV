@@ -52,7 +52,7 @@ document.getElementById("submit").addEventListener("click", e => {
 
 				postData('https://vithack.herokuapp.com/teams/login', {
 					email: email.value.trim(),
-     password: password.value
+     password: password.value.trim()
     				})
 					.then(result => {
 							if (result.token) {
