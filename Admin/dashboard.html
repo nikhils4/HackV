@@ -10,10 +10,22 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./styles/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <title>VIT Hack | Platform</title>
+
+    <script>
+        
+        function hideGraph() {
+            if (window.outerWidth < 900){
+                document.getElementById('myChart').style.display = "none"
+            } else {
+                document.getElementById('myChart').style.display = "block"
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body onresize="hideGraph()">
 
     <div class="container-fluid">
         <div class="row">
@@ -90,6 +102,9 @@
 
                     </div>
                 </div>
+            </div>
+            <div class="col-12 col-lg-9" style=" padding : 50px">
+                <canvas id="myChart" style="width : 400px"></canvas>
             </div>
         </div>
     </div>

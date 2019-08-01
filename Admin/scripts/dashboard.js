@@ -16,6 +16,23 @@ fetch('https://vithack.herokuapp.com/dashboard/count')
         document.getElementsByClassName('count-value')[2].innerHTML = data.sponsors;
         document.getElementsByClassName('count-value')[3].innerHTML = data.early_birds;
         document.getElementsByClassName('count-value')[4].innerHTML = data.themeCount;
+
+
+        if (screen.width > 900){
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Campus Ambassador", "Collaborators", "Sponsors", "Early Birds", "Theme Selection"],
+                    datasets: [{
+                        label: 'Count',
+                        backgroundColor: 'rgb(0,134,244)',
+                        borderColor: 'rgb(0,134,244)',
+                        data: [data.campus_ambassadors, data.collaborators, data.sponsors, data.early_birds, data.themeCount]
+                    }]
+                }
+            });
+        }
     })
 
 // Making input box visible on applying filter
@@ -712,9 +729,9 @@ document.getElementById("eb-all-dwnld").addEventListener("click", (e) => {
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 
@@ -743,9 +760,9 @@ document.getElementById("eb-filter-dwnld").addEventListener("click", (e) => {
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 
@@ -770,9 +787,9 @@ document.getElementById("collab-all-dwnld").addEventListener("click", (e) => {
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 
@@ -801,9 +818,9 @@ document.getElementById("collab-filter-dwnld").addEventListener("click", (e) => 
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 // Sponsors
@@ -826,9 +843,9 @@ document.getElementById("sponsors-all-dwnld").addEventListener("click", (e) => {
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 
@@ -857,9 +874,9 @@ document.getElementById("sponsors-filter-dwnld").addEventListener("click", (e) =
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 
@@ -884,9 +901,9 @@ document.getElementById("ca-all-dwnld").addEventListener("click", (e) => {
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
 
 
@@ -915,7 +932,7 @@ document.getElementById("ca-filter-dwnld").addEventListener("click", (e) => {
         document.body.appendChild(link);
         link.click();
     })
-    .catch(err => {
-        window.location.href = "error.html"
-    })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
 })
