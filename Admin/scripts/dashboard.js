@@ -15,6 +15,7 @@ fetch('https://vithack.herokuapp.com/dashboard/count')
         document.getElementsByClassName('count-value')[1].innerHTML = data.collaborators;
         document.getElementsByClassName('count-value')[2].innerHTML = data.sponsors;
         document.getElementsByClassName('count-value')[3].innerHTML = data.early_birds;
+        document.getElementsByClassName('count-value')[4].innerHTML = data.themeCount;
     })
 
 // Making input box visible on applying filter
@@ -106,6 +107,9 @@ document.getElementById("collab-submit").addEventListener("click", e => {
             })
     }
 })
+
+
+
 
 
 // call to get all of data using fetch
@@ -434,6 +438,75 @@ function renderSponsorsData(data) {
 
 
 
+// call to get the data for theme details 
+
+document.getElementById("theme-card").addEventListener("click", (e) => {
+    document.getElementById("info").innerHTML = ""
+    document.getElementById("theme-load").style.visibility = "visible"
+    let url = `https://vithack.herokuapp.com/dashboard/teams`
+    fetch(url, {
+        headers: {
+            'Authorization': sessionStorage.getItem("token")
+        }
+    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            renderThemeData(data.teams)
+            console.log(data.teams)
+            document.getElementById("theme-top").scrollIntoView();
+            document.getElementById("theme-load").style.visibility = "hidden"
+            return true
+        })
+        .catch(err => {
+            window.location.href = "error.html"
+        })
+})
+
+
+
+
+function renderThemeData(data) {
+    if (document.getElementById("theme-table-cover").contains(document.getElementById("theme-table"))) {
+        document.getElementById("theme-table").parentNode.removeChild(document.getElementById("theme-table"));
+    }
+    let dataList = ["Email", "Themes"]
+    let table = document.createElement("table")
+    table.setAttribute("class", "table table-hover table-striped table-light")
+    table.setAttribute("id", "theme-table")
+    let thead = document.createElement("thead")
+    thead.setAttribute("class", "thead-dark")
+    let tr = document.createElement("tr")
+    for (let i = 0; i < dataList.length; i++) {
+        let head = document.createTextNode(dataList[i])
+        let th = document.createElement("th")
+        th.setAttribute("scope", "col");
+        th.appendChild(head)
+        tr.appendChild(th)
+    }
+    thead.appendChild(tr)
+    table.appendChild(thead)
+    let dataContent = ["email", "themes"]
+    let tbody = document.createElement("tbody")
+    for (let i = 0; i < data.length; i++) {
+        let tr = document.createElement("tr")
+        for (let j = 0; j < dataContent.length; j++) {
+            console.log(data[i][dataContent[j]])
+            let content = document.createTextNode(data[i][dataContent[j]])
+            let td = document.createElement("td")
+            td.appendChild(content)
+            tr.appendChild(td)
+        }
+        tbody.appendChild(tr)
+    }
+    table.appendChild(tbody)
+    document.getElementById("theme-table-cover").appendChild(table)
+}
+
+
+
+
 
 function showAnswer(e, q) {
     let questions = [
@@ -463,7 +536,17 @@ document.getElementById("delete").addEventListener("click", (e) => {
     document.getElementById("popup").style.display = "none"
 })
 
+document.getElementById("theme-card").addEventListener("click", (e) => {
+    document.getElementById("theme-top").style.display = "block"
+    document.getElementById("collab-top").style.display = "none"
+    document.getElementById("CA-top").style.display = "none"
+    document.getElementById("eb-top").style.display = "none"
+    document.getElementById("sponsors-top").style.display = "none"
+})
+
+
 document.getElementById("collab-card").addEventListener("click", (e) => {
+    document.getElementById("theme-top").style.display = "none"
     document.getElementById("collab-top").style.display = "block"
     document.getElementById("CA-top").style.display = "none"
     document.getElementById("eb-top").style.display = "none"
@@ -471,6 +554,7 @@ document.getElementById("collab-card").addEventListener("click", (e) => {
 })
 
 document.getElementById("eb-card").addEventListener("click", (e) => {
+    document.getElementById("theme-top").style.display = "none"
     document.getElementById("collab-top").style.display = "none"
     document.getElementById("CA-top").style.display = "none"
     document.getElementById("eb-top").style.display = "block"
@@ -478,6 +562,7 @@ document.getElementById("eb-card").addEventListener("click", (e) => {
 })
 
 document.getElementById("sponsors-card").addEventListener("click", (e) => {
+    document.getElementById("theme-top").style.display = "none"
     document.getElementById("collab-top").style.display = "none"
     document.getElementById("CA-top").style.display = "none"
     document.getElementById("eb-top").style.display = "none"
@@ -485,6 +570,7 @@ document.getElementById("sponsors-card").addEventListener("click", (e) => {
 })
 
 document.getElementById("CA-card").addEventListener("click", (e) => {
+    document.getElementById("theme-top").style.display = "none"
     document.getElementById("collab-top").style.display = "none"
     document.getElementById("CA-top").style.display = "block"
     document.getElementById("eb-top").style.display = "none"

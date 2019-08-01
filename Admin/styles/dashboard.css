@@ -48,7 +48,9 @@ body {
 #eb-load,
 #eb-input,
 #ca-load,
-#ca-input {
+#ca-input,
+#theme-input,
+#theme-load {
     visibility: hidden
 }
 
@@ -88,7 +90,8 @@ body {
 #eb-top,
 #sponsors-top,
 #collab-top,
-#CA-top {
+#CA-top,
+#theme-top {
     text-align : center
 }
 
@@ -125,7 +128,8 @@ button {
 #ca-table-cover,
 #eb-table-cover,
 #sponsors-table-cover,
-#collab-table-cover {
+#collab-table-cover,
+#theme-table-cover {
     overflow-x:scroll;
     overflow-y:visible;
 }
@@ -133,7 +137,8 @@ button {
 #ca-load,
 #eb-load,
 #sponsors-load,
-#collab-load {
+#collab-load,
+#theme-load {
     font-size : 20px;
     font-weight : bolder;
     margin-top : 20px;
@@ -142,7 +147,8 @@ button {
 #eb-top,
 #sponsors-top,
 #collab-top,
-#CA-top {
+#CA-top,
+#theme-top {
     display: none
 }
 
