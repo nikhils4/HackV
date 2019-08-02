@@ -196,6 +196,5 @@ body {
 	position: fixed;
     height : 100vh;
     z-index : 100;
-    background-repeat: no-repeat;
-	background: white url('../asset/bg.svg') center center;
+	background: white url('../asset/bg.svg') center center no-repeat;
 }

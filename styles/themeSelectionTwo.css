@@ -23,8 +23,7 @@ body {
 	position: fixed;
 	height : 100vh;
 	z-index : 100;
-	background: white url('../asset/bg.svg') center center;
-	background-repeat: no-repeat;
+	background: white url('../asset/bg.svg') center center no-repeat;
 }
 
 .font-bold {
