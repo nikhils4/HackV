@@ -219,7 +219,7 @@ window.onload = () => {
 			})
 				.then(response => response.json());
 		};
-	}, 2000)
+	}, 1000)
 
 
 }

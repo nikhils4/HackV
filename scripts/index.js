@@ -17,7 +17,7 @@ window.onload = () => {
         document.getElementById("close-btn").addEventListener("click", (e) => {
             document.getElementById("popup").style.display = "none";
         })
-    }, 2000)
+    }, 1000)
 
 
 
