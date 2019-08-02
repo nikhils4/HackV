@@ -471,8 +471,6 @@ document.getElementById("theme-card").addEventListener("click", (e) => {
         })
         .then((data) => {
             renderThemeData(data.teams)
-            console.log(data.teams)
-            document.getElementById("theme-top").scrollIntoView();
             document.getElementById("theme-load").style.visibility = "hidden"
             return true
         })
