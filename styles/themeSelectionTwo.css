@@ -14,6 +14,17 @@ body {
 	font-family : font-light
 }
 
+#reset-button {
+	display: none;
+	margin-top : 30px
+}
+
+#preloader {
+	position: fixed;
+	height : 100vh;
+	background: white url('../asset/bg.svg') center center;
+}
+
 .font-bold {
 	font-family : font-bold
 }
