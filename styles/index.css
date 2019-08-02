@@ -190,3 +190,11 @@ body {
         margin-bottom : 60px
     }
 }
+
+
+#preloader {
+	position: fixed;
+    height : 100vh;
+    z-index : 100;
+	background: white url('../asset/bg.svg') center center;
+}
