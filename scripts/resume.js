@@ -11,7 +11,6 @@ document.getElementById("close-btn").addEventListener("click", (e) => {
 })
 
 document.getElementById("submit").addEventListener("click", e => {
-	let password = document.getElementById("password");
 	let email = document.getElementById("email")
 	let link = document.getElementById("link")
 
@@ -31,20 +30,7 @@ document.getElementById("submit").addEventListener("click", e => {
 		status.push("false")
 	}
 
-	// Password
-	if (password.value.trim().length == 0) {
-		password.classList.add("red");
-		password.value = "";
-		password.style.borderColor = "Red";
-		password.placeholder = "This field is required";
-		status.push("false")
-	}
-	else {
-		// password validated
-		status.push("true")
-	}
 
-	// Password
 	if (link.value.trim().length == 0) {
 		link.classList.add("red");
 		link.value = "";
@@ -53,9 +39,9 @@ document.getElementById("submit").addEventListener("click", e => {
 		status.push("false")
 	}
 	else {
-		// password validated
 		status.push("true")
 	}
+
 
 	// Main eval
 	if (status.includes("false")) {
@@ -64,25 +50,36 @@ document.getElementById("submit").addEventListener("click", e => {
 
 		document.getElementById("btn-value").innerHTML = "Loading...."
 
-		postData('https://vithack.herokuapp.com/', {
+		postData('https://vithack.herokuapp.com/details/add', {
 			email: email.value.trim(),
-			password: password.value.trim()
+			url: link.value.trim()
 		})
 			.then(result => {
-				if (result.token) {
+				if (result.email) {
 					// if success
-					sessionStorage.setItem("token", result.token);
-					window.location.href = "themeSelect.html"
+					document.getElementById("msg").innerHTML = "Success! Details saved.";
+					document.getElementById("msg").style.background = "#007bff";
+					document.getElementById("msg").classList.add("animated", "fadeInDown");
+					document.getElementById("btn-value").innerHTML = "Submit";
+					setTimeout(() => {
+						document.getElementById("msg").classList.add("animated", "fadeOutUp");
+					}, 5000)
+					setTimeout(() => {
+						document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
+						document.getElementById("msg").innerHTML = "";
+						document.getElementById("msg").style.background = "transparent";
+					}, 6000)
+
 					// clearing input field
 					email.value = ""
-					password.value = "";
+					link.value = ""
 					return true
 				}
 				else {
 					document.getElementById("msg").innerHTML = "Error! Try again";
 					document.getElementById("msg").style.background = "red";
 					document.getElementById("msg").classList.add("animated", "fadeInDown");
-					document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
+					document.getElementById("btn-value").innerHTML = "Submit";
 					setTimeout(() => {
 						document.getElementById("msg").classList.add("animated", "fadeOutUp");
 					}, 5000)
@@ -98,7 +95,7 @@ document.getElementById("submit").addEventListener("click", e => {
 				document.getElementById("msg").innerHTML = "There was some error, it is on us!";
 				document.getElementById("msg").style.background = "red";
 				document.getElementById("msg").classList.add("animated", "fadeInDown");
-				document.getElementById("btn-value").innerHTML = "Proceed to theme selection";
+				document.getElementById("btn-value").innerHTML = "Submit";
 				setTimeout(() => {
 					document.getElementById("msg").classList.add("fadeOutUp");
 				}, 5000)
