@@ -64,7 +64,7 @@ document.getElementById("submit").addEventListener("click", e => {
 
 		document.getElementById("btn-value").innerHTML = "Loading...."
 
-		postData('https://vithack.herokuapp.com/teams/login', {
+		postData('https://vithack.herokuapp.com/', {
 			email: email.value.trim(),
 			password: password.value.trim()
 		})
