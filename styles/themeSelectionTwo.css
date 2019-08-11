@@ -19,6 +19,10 @@ body {
 	margin-top : 30px
 }
 
+#theme-success {
+	display: none
+}
+
 #preloader {
 	position: fixed;
 	height : 100vh;

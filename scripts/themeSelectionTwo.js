@@ -138,19 +138,11 @@ window.onload = () => {
 	.then(result => {
 	if (result.themes ) {
 		sessionStorage.removeItem("token")
-		document.getElementById("msg").innerHTML = "Thank you! Your selected themes were successfully saved.";
-		document.getElementById("msg").style.background = "#007bff";
-		document.getElementById("msg").classList.add("animated", "fadeInDown");
-		document.getElementById("btn-value").innerHTML = "Submit your response";
-		setTimeout(() => {
-			document.getElementById("msg").classList.add("animated", "fadeOutUp");
-		}, 4000)
-		setTimeout(() => {
-			document.getElementById("msg").classList.remove("animated", "fadeInDown", "fadeOutUp");
-			document.getElementById("msg").innerHTML = "";
-			document.getElementById("msg").style.background = "transparent";
-			window.location.href = "theme.html"
-		}, 5000)
+		document.getElementById("popup").style.display = "block";
+		document.getElementById("popup-description").innerHTML = "<b>Thank you!</b><br> Your selected theme was successfully saved.";
+		document.getElementById("popup-img").style.display = "none";
+		document.getElementById("theme-success").style.display = "block";
+
 		return true
 	} else if ( result.message == "Already selected themes") {
 		document.getElementById("msg").innerHTML = "You have already seleted theme";
