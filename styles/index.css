@@ -86,6 +86,7 @@ body {
     #fc_frame {
         display : none
     }
+
 }
 
 /* For bigger screens */
@@ -110,6 +111,19 @@ body {
     }
     .bird-fix {
         transform: translateX(-25%)
+    }
+    
+}
+
+@media (max-width : 600px){
+    #reg-img-popup {
+        width : 100%
+    }
+}
+
+@media (min-width : 601px){
+    #reg-img-popup {
+        width : 60%
     }
 }
 

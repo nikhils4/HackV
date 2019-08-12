@@ -23,36 +23,45 @@
 <body>
 
 
-		<!-- Preloader -->
+	<!-- Preloader -->
 
-		<div class="container-fluid">
-				<div class="row">
-					<div class="col-12" id="preloader">
-						
-					</div>
-				</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12" id="preloader">
+
 			</div>
+		</div>
+	</div>
 
 	<!-- Popup -->
 	<div class="container-fluid" style="position: absolute; z-index : 100" id="popup">
 		<div class="row" style=" text-align: center">
 			<div class="col-10 col-lg-6"
 				style="background: white; border-radius : 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                                height : 400px; position : fixed; z-index: 200; left : 50%; top : 30%; transform: translate(-50%, -20%)">
+                                height : auto; position : fixed; z-index: 200; left : 50%; top : 30%; transform: translate(-50%, -20%)">
 				<div class="row" style=" justify-content: flex-end ; padding-right : 10px; padding-top : 10px">
 					<button type="button" id="close-btn" class="close" aria-label="Close" style="outline: none">
 						<span aria-hidden="true" style="font-family: Georgia, 'Times New Roman', Times, serif">&times;</span>
 					</button>
 				</div>
-				<div class="row h-100 align-items-center">
-					<div class="col-8" style="height : 200px; position : absolute; left : 50%; transform: translateX(-50%)">
-						<img id="popup-img" src="./asset/images/successgif.gif" style="height : 100px">
-						<h3 id="popup-head">
-						</h3>
-						<h5 id="popup-description">
-						</h5>
+
+				<div class="row">
+					<div class="col-12" style="text-align: center">
+
+						<div>
+								<img id="reg-img-popup" src="./asset/images/Portal Popup.svg">
+
+						</div>
+
+						<div>
+								<a href="https://vithack.hackerearth.com"><button class="btn btn-primary" style="margin-top : 30px; margin-bottom : 30px">Proceed to Registration</button></a>
+
+						</div>
+
+
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -97,7 +106,7 @@
 				</div>
 				<div style="padding-top : 10px">
 					<p class="content-font">
-						<span class="font-bold" style="color : green">36</span> hours, <span class="font-bold"
+						<span class="font-bold" style="color : green">36</span> hours,<span class="font-bold"
 							style="color : orange">1</span> Hack, <span class="font-bold" style="color : red">1</span> Networking
 						Session
 					</p>
@@ -109,9 +118,8 @@
 					</p>
 				</div>
 				<div class="detail-btn">
-					<p class="font-light" style="margin-top : 10px; margin-bottom : 5px"><a target="_blank"
-							href="https://vithack.hackerearth.com/" style="text-decoration : none">Registrations Open<img
-								class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></a></p>
+					<p id="reg-popup" class="font-light" style="margin-top : 10px; margin-bottom : 5px; cursor: pointer; ">
+						Registrations Open<img class="right-arrow" src="./asset/images/right-arrow.svg" alt="right arrow"></p>
 				</div>
 				<!-- <div>
 					<p><span style="font-family: Arial, Helvetica, sans-serif">*</span>Reimbursements will be provided</p>
