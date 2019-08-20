@@ -52,7 +52,8 @@ document.getElementById("submit").addEventListener("click", e => {
 
 		postData('https://vithack.herokuapp.com/details/add', {
 			email: email.value.trim(),
-			url: link.value.trim()
+			url: link.value.trim(),
+			external : document.getElementById("external").checked
 		})
 			.then(result => {
 				if (result.email) {
