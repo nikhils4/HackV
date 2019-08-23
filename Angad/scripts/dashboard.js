@@ -16,6 +16,9 @@ fetch('https://vithack.herokuapp.com/dashboard/count')
         document.getElementsByClassName('count-value')[2].innerHTML = data.sponsors;
         document.getElementsByClassName('count-value')[3].innerHTML = data.early_birds;
         document.getElementsByClassName('count-value')[4].innerHTML = data.themeCount;
+        document.getElementsByClassName('count-value')[5].innerHTML = data.resumeCount.internals;
+        document.getElementsByClassName('count-value')[6].innerHTML = data.resumeCount.externals;
+
 
 
         if (screen.width > 900){
@@ -23,12 +26,13 @@ fetch('https://vithack.herokuapp.com/dashboard/count')
             var chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Campus Ambassador", "Collaborators", "Sponsors", "Early Birds", "Theme Selection"],
+                    labels: ["Campus Ambassador", "Collaborators", "Sponsors", "Early Birds", "Theme Selection", 
+                "Resume - In", "Resume - Ext"],
                     datasets: [{
                         label: 'Count',
                         backgroundColor: 'rgb(0,134,244)',
                         borderColor: 'rgb(0,134,244)',
-                        data: [data.campus_ambassadors, data.collaborators, data.sponsors, data.early_birds, data.themeCount]
+                        data: [data.campus_ambassadors, data.collaborators, data.sponsors, data.early_birds, data.themeCount, data.resumeCount.internals, data.resumeCount.externals]
                     }]
                 }
             });
